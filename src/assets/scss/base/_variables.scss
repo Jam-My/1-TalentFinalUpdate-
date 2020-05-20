@@ -1,11 +1,12 @@
 // Font-family
-$font-family-base: "Montserrat", sans-serif;
+$font-family-base: "Montserrat",
+sans-serif;
 
 // Sidebar width
 $sidebar-width: 250px;
 
 //Transition
-$transition-base:   all .5s ease-in-out;
+$transition-base: all .5s ease-in-out;
 
 // Header height
 $header-height: 100px;
@@ -18,21 +19,21 @@ $user-profile-height: 50px;
 $logo-height: 30px;
 
 // Font-size
-$font-size-base:   1rem;
-$font-size-lg:     $font-size-base * 2.65;
-$font-size-sm:     $font-size-base * .775;
+$font-size-base: 1rem;
+$font-size-lg: $font-size-base * 2.65;
+$font-size-sm: $font-size-base * .775;
 
 // Font-weight
-$font-weight-light:           400;
-$font-weight-normal:          500;
-$font-weight-bold:            600;
+$font-weight-light: 400;
+$font-weight-normal: 500;
+$font-weight-bold: 600;
 
 // Badges
-$badge-font-size:   94%;
+$badge-font-size: 94%;
 
 // Border
 $border-radius: 5px;
-$border-color:  $gray-100;
+$border-color: $gray-100;
 
 // For browser support
 $enable-flex: true;
@@ -50,10 +51,10 @@ $filter-form-height: 400px;
 //Pagination
 $page-link-width: 35px;
 $page-link-height: 35px;
-$pagination-disabled-bg:  transparent;
+$pagination-disabled-bg: transparent;
 
 // Modal
-$modal-md:  450px;
+$modal-md: 450px;
 $model-status:600px;
 
 //Checkbox
@@ -63,3 +64,17 @@ $custom-control-indicator-checked-bg: $secondary;
 
 // project form
 $project-form-width:350px;
+
+// media query breakpoints
+$max-width-375: 375px;
+$max-width-425: 425px;
+// grid breakpoints map
+$grid-breakpoints: (
+ xxs: 0,
+ xsm: $max-width-375,
+ xmd:$max-width-425,
+ sm: 576px,
+ md: 768px,
+ lg: 992px,
+ xl: 1200px
+);

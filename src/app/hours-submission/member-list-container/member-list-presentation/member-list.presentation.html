@@ -31,7 +31,7 @@
                 </form>
                 <!--button to download pdf-->
                 <div class="col-12 col-lg-3">
-                    <button type="button" class="btn btn-primary w-100 save-hovre"
+                    <button type="button" class="btn btn-primary w-100 btn-not-allowed"
                         *ngIf="!filteredList || filteredList.length == 0; else pdf" disabled>Download PDF</button>
                     <ng-template #pdf>
                         <button type="button" class="btn btn-primary w-100" (click)="downloadPDF()">Download
