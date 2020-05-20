@@ -1,0 +1,35 @@
+.content-value {
+    color: lighten($primary, 20%);
+    font-weight: $font-weight-bold;
+}
+
+// project-list Staffing header
+.staff-list-head {
+    .filter-icon {
+        display: none;
+    }
+    .search-btn {
+        font-size: 30px;
+    }
+    @media only screen and (max-width: 768px) {
+        .list-head {
+            font-size: 22px;
+        }
+        .filter-input {
+            width: 95px;
+        }
+        .search-btn {
+            font-size: 25px;
+        }
+    }
+    @media only screen and (max-width: 425px) {
+        .filter-icon {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .filter-name {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.pagination {
+  padding: 5px;
+  .page-link {
+    width: $page-link-width;
+    height: $page-link-height;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    background-color: $primary;
+    color: $pagination-color;
+    &:hover,
+    &:focus {
+      color: $pagination-hover-color;
+      background-color: $pagination-hover-bg;
+    }
+  }
+}

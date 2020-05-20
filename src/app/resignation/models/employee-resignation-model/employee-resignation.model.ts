@@ -1,0 +1,33 @@
+export class EmployeeResignation {
+    constructor(
+        public employeeName?:string,
+        public firstName?: string,
+        public lastName?: string,
+        public approvedNoticePeriod?: number,
+        public approvedRelievingDate?: Date,
+        public concernEmployees?: string[],
+        public designation?: string,
+        public domain?: string,
+        public employeeCode?: number,
+        public employeeId?: number,
+        public employeeReason?: string,
+        public exitInterviewDate?: Date,
+        public hrRemark?: string,
+        public isRehiredByHR?: boolean,
+        public isRehiredByRM?: boolean,
+        public managerName?: string,
+        public onBoardingNoticePeriod?: number,
+        public proposedNoticePeriod?: number,
+        public technology?: string,
+        public statusName?: string,
+        public proposedRelievingDate?: Date,
+        public raisedOnDate?: Date,
+        public reportingPersonRemark?: string,
+        public reportingManagerId?: number,
+        public resignationId?: number,
+        public statusId?: number,
+        public resignationApprovedDate?: Date,
+        public resignationProposedDate?: Date,
+        public checklistStatusId?:number
+    ) { }
+}

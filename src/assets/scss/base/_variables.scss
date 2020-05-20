@@ -1,0 +1,65 @@
+// Font-family
+$font-family-base: "Montserrat", sans-serif;
+
+// Sidebar width
+$sidebar-width: 250px;
+
+//Transition
+$transition-base:   all .5s ease-in-out;
+
+// Header height
+$header-height: 100px;
+
+//User Profile
+$user-profile-width: 50px;
+$user-profile-height: 50px;
+
+//Logo height
+$logo-height: 30px;
+
+// Font-size
+$font-size-base:   1rem;
+$font-size-lg:     $font-size-base * 2.65;
+$font-size-sm:     $font-size-base * .775;
+
+// Font-weight
+$font-weight-light:           400;
+$font-weight-normal:          500;
+$font-weight-bold:            600;
+
+// Badges
+$badge-font-size:   94%;
+
+// Border
+$border-radius: 5px;
+$border-color:  $gray-100;
+
+// For browser support
+$enable-flex: true;
+
+// Resignation form width
+$resignation-form-width: 350px;
+
+// Form-group
+$form-group-margin-bottom: 0.3rem;
+$input-focus-box-shadow: none;
+$filter-form-width: 450px;
+$filter-form-width-sm: 250px;
+$filter-form-height: 400px;
+
+//Pagination
+$page-link-width: 35px;
+$page-link-height: 35px;
+$pagination-disabled-bg:  transparent;
+
+// Modal
+$modal-md:  450px;
+$model-status:600px;
+
+//Checkbox
+$custom-control-indicator-checked-color: $white;
+$custom-control-indicator-border-color: $secondary;
+$custom-control-indicator-checked-bg: $secondary;
+
+// project form
+$project-form-width:350px;

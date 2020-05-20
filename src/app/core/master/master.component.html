@@ -1,0 +1,171 @@
+<!-- Main-wrapper -->
+<div class="main-wrapper d-flex overflow-hidden position-relative  h-100 w-100">
+    <!-- Sidebar toggle  -->
+    <input type="checkbox" name="sidebar-toggle" id="sidebar-toggle" class="d-none">
+    <!-- Side-nav -->
+    <aside class="side-nav d-flex bg-primary flex-column flex-shrink-0  h-100">
+        <!-- sidenav-header -->
+        <div class="nav-header w-100 d-flex flex-shrink-0 align-items-center justify-content-center position-relative">
+            <a href="#" class="d-flex align-items-center justify-content-center h-100 w-100">
+                <img src="../assets/images/icons/white-logo.png" alt="1rivet-logo" class="logo-image cursor-pointer">
+            </a>
+            <label for="sidebar-toggle" class="close-icon position-absolute d-xl-none m-0">
+                <span class="fa fa-times text-white"></span></label>
+        </div>
+        <nav class="nav flex-nowrap flex-column overflow-auto">
+            <a class="nav-link d-flex pl-5 py-3" routerLink='/dashboard' routerLinkActive="active"
+                (click)="changeTitle('Dashboard')">
+                <div class="nav-link-title ">Dashboard</div>
+            </a>
+            <a class="nav-link d-flex pl-5  py-3" routerLink='/resignation' routerLinkActive="active"
+                (click)="changeTitle('Resignation')">
+                <div class="nav-link-title ">Resignation</div>
+            </a>
+            <a class="nav-link d-flex pl-5  py-3" routerLink='/exit-checklist' routerLinkActive="active"
+                (click)="changeTitle('Exit Checklist')">
+                <div class="nav-link-title ">Exit Checklist</div>
+            </a>
+            <ng-container *ngIf="!linkFlag">
+                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                    routerLink='/project-staffing' routerLinkActive="active" (click)="changeTitle('Project Staffing')">
+                    <div class="nav-link-title ">Project Staffing</div>
+                </a>
+            </ng-container>
+            <ng-container *ngIf="linkFlag">
+                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                    routerLink='/project-staffing' (click)="changeTitle('Project Staffing')">
+                    <div class="nav-link-title ">Project Staffing</div>
+                </a>
+            </ng-container>
+            <!-- <a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing' routerLinkActive="active"
+                (click)="changeTitle('Project Staffing')">
+                <div class="nav-link-title ">Project Staffing</div>
+            </a>
+            <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
+                (click)="changeTitle('Project Staffing')" (click)="changeProjectLink()">
+                <div class="nav-link-title ">Project Staffing</div>
+            </a> -->
+            <!-- <ng-container *ngIf="rmId == '4'; else timecard">
+                <a class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
+                    routerLinkActive="active" (click)="changeTitle('Time Card')">
+                    <div class="nav-link-title d-flex position-relative ">
+                        Time Card
+                    </div>
+                </a>
+            </ng-container> -->
+            <ng-container *ngIf="rmId != '1' && rmId != '2'; else timecard">
+                <a *showForRoles="[ROLES.EMPAD];current:roles$ | async"
+                    class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
+                    routerLinkActive="active" (click)="changeTitle('Time Card')">
+                    <div class="nav-link-title d-flex position-relative ">
+                        Time Card
+                    </div>
+                </a>
+            </ng-container>
+            <ng-template #timecard>
+                <a *showForRoles="[ROLES.EMPAD];current:roles$ | async" (click)="timecardDropdown()"
+                    class="nav-link d-flex pl-5 py-3 d-flex flex-column">
+                    <div class="nav-link-title d-flex position-relative ">
+                        <span>Time Card</span>
+                        <span *ngIf="!dropdownFlag"
+                            class="fa fa-angle-down angle-icon angle-down position-absolute"></span>
+                        <span *ngIf="dropdownFlag" for="submenu"
+                            class="fa fa-angle-up angle-icon angle-up position-absolute"></span>
+                    </div>
+                </a>
+                <div class="side-dropdown px-4 pb-4 pt-2 " *ngIf="dropdownFlag">
+                    <a routerLink='/hours-submission/approval' routerLinkActive="active" class="nav-link"
+                        (click)="changeTitle('Approval')">
+                        <div class="nav-link-title">Approve</div>
+                    </a>
+                    <a routerLink='/hours-submission/member-list' routerLinkActive="active" class="nav-link"
+                        (click)="changeTitle('Company Report')">
+                        <div class="nav-link-title">Company Report</div>
+                    </a>
+                </div>
+            </ng-template>
+
+
+            <!-- <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet" routerLinkActive="active" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
+                <div class="nav-link-title">Report</div>
+            </a>
+            <a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
+                <div class="nav-link-title">Report</div>
+            </a> -->
+            <ng-container *ngIf="linkFlag">
+                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                    routerLink="/project-staffing/staffing-sheet" routerLinkActive="active"
+                    (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
+                    <div class="nav-link-title">Report</div>
+                </a>
+            </ng-container>
+            <ng-container *ngIf="!linkFlag">
+                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                    routerLink="/project-staffing/staffing-sheet" (click)="changeTitle('Staffing Sheet')"
+                    (click)="changeReportLink()">
+                    <div class="nav-link-title">Report</div>
+                </a>
+            </ng-container>
+        </nav>
+    </aside>
+    <!-- Ends: Side-nav -->
+
+    <!-- Content-wrapper -->
+    <div class="content-wrapper overflow-hidden d-flex flex-column w-100 h-100">
+        <!-- Header -->
+        <header class="header d-flex align-items-center flex-shrink-0 px-3 w-100 ">
+            <label for="sidebar-toggle" class="m-0 mr-2 cursor-pointer"><span
+                    class="fa fa-bars fa-lg text-white d-xl-none "></span></label>
+            <h4 class="header-title text-white text-nowrap position-relative mb-0 w-50" [attr.data-attribute]="title">
+                {{title}}</h4>
+            <div class="user-info align-items-center ml-auto d-none d-md-flex">
+                <div *showForRoles="[ROLES.EMPAD];current:roles$ | async" class="position-relative mx-4">
+                    <select class="form-control text-capitalize rounded ml-2 approval-custom-box" [(ngModel)]="rmId"
+                        (change)="changeRM()">
+                        <option value="1">[RM1] Parth</option>
+                        <option value="2">[RM2] Foram</option>
+                        <option value="3">[Emp] Vivek</option>
+                        <option value="4">[Emp] Dhruvit</option>
+                        <option value="5">[Emp] Mustakim</option>
+                        <option value="6">[Emp] Hardik</option>
+                    </select>
+                </div>
+                <div class="position-relative mx-4">
+                    <span class="fa fa-envelope-o fa-2x text-secondary"></span>
+                    <span class="mail-notification badge badge-secondary rounded-circle position-absolute">6</span>
+                </div>
+                <div class="position-relative d-flex align-items-center">
+                    <img src="../assets/images/profile-img.jpg" class="user-profile rounded-circle ml-3"
+                        alt="User Profile">
+                    <!-- Dropdown -->
+                    <div class="dropdown" (mouseover)="openLogoutDropdown()" (mouseleave)="closeLogoutDropdown()">
+                        <button class="btn d-flex">
+                            <div class="user-name mx-2 text-white">Hello, Johnathan</div>
+                            <span class="fa fa-angle-down text-white"></span>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <!-- open dropdown-menu onclick of dropdown button   -->
+                        <div #dropdownmenu
+                            class="dropdown-menu ml-auto cursor-pointer d-none flex-column bg-white text-primary py-2 position-absolute">
+                            <button class="dropdown-item fa fa-cog font-weight-normal py-2"><span
+                                    class="ml-2">Settings</span></button>
+                            <button class="dropdown-item fa fa-power-off font-weight-normal py-2"
+                                (click)="logout()"><span class="ml-2"> Logout</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Ends: Header -->
+
+        <!-- Content-body -->
+        <main class="content-body d-flex overflow-auto h-100 w-100 ">
+            <div class="container-fluid p-0 content-bg w-100 h-100">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+        <!-- Ends: Content-body -->
+    </div>
+    <!-- Ends: Content-wrapper -->
+</div>
+<!-- Ends: Main-wrapper -->

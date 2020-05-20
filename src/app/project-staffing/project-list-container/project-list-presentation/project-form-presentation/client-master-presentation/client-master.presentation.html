@@ -1,0 +1,39 @@
+<!-- Main-wrapper -->
+<div class="bg-white  d-block border-radius ml-2">
+    <!-- Form -->
+    <form [formGroup]="clientMasterForm" (ngSubmit)="onSubmit()" class="add-box add-client-box bg-white rounded p-4 ">
+        <div class="ml-auto add-with ">
+            <!-- Filter-by status -->
+            <div class="form-group">
+                <label for="clientFormControl">{{actionLable}} Client</label>
+                <div class="input-group mb-3">
+                    <input type="hidden" formControlName="clientId">
+                    <input type="text" formControlName="clientName" class="form-control" placeholder="Client Name"
+                        aria-label="Username" aria-describedby="basic-addon1" id="clientNameFormControl" autocomplete="off">
+                </div>
+                <div *ngIf="(submitted || clientMasterFormControls.clientName.touched) && clientMasterFormControls.clientName.errors">
+                    <div *ngIf="clientMasterFormControls.clientName.errors.required"
+                        class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Client name is required</b>
+                    </div>
+                </div>
+            </div>
+            <!-- Search & reset button -->
+            <div class="row mt-3 mb-2">
+                <div
+                    class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 pr-md-1 pb-2 pb-md-0">
+                    <button type="submit" class="btn btn-primary w-75 save-hovre" [disabled]="!clientMasterForm.valid">{{buttonLable}}
+                    </button>
+                </div>
+                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 pl-md-1">
+                    <button type="button" (click)="closeOverlay()"
+                        class="btn btn-outline-light w-75 text-primary">Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Ends: Form -->
+</div>
+<!--End: Main-wrapper -->

@@ -1,0 +1,121 @@
+<!-- Created by: Monica Mehta  -->
+
+<!-- HR/DO Portal (filter-dropdown)  -->
+<div class="bg-white position-relative d-block border-radius ml-2">
+    <!-- Form -->
+    <form class="filter-box p-2 p-sm-4" [formGroup]="filterForm">
+        <div class="filter-form">
+            <!-- From-To date filter -->
+            <label class="form-control-label text-primary position-relative">Approved Relieving Date</label>
+            <div class="form-row mb-2">
+                <div class="form-group col-12 col-md-6">
+                    <div class="border border-light d-flex align-items-center text-primary rounded w-100">
+                        <input formControlName="approvedRelievingFromDate" type="text"
+                            class="form-control border-0 w-100" id="inputDateFrom" placeholder="From" bsDatepicker
+                            [bsConfig]='datePickerConfig' disableKeyPress>
+                        <label for="inputDateFrom" class="fa fa-calendar fa-lg cursor-pointer mr-2 mb-0"></label>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <div class="border border-light text-primary d-flex align-items-center  rounded w-100">
+                        <input formControlName="approvedRelievingToDate" type="text"
+                            class="form-control  border-0 w-100" id="inputDateTo" placeholder="To" bsDatepicker
+                            [bsConfig]='datePickerConfig' disableKeyPress>
+                        <label for="inputDateTo" class="fa fa-calendar cursor-pointer fa-lg mr-2 mb-0"></label>
+                    </div>
+                </div>
+                <div class="invalid-feedback d-block ml-1"
+                    *ngIf="(filterForm?.get('approvedRelievingFromDate').touched && filterForm?.get('approvedRelievingToDate').touched ) && filterForm?.hasError('toIsGreater')">
+                    <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                    <span> From Date should not be Greater than To Date.</span>
+                </div>
+            </div>
+
+            <label class="form-control-label text-primary position-relative">Initiated On</label>
+            <div class="form-row mb-2">
+                <div class="form-group col-12 col-md-6">
+                    <div class="border border-light d-flex align-items-center text-primary rounded w-100">
+                        <input formControlName="initiatedOnFromDate" type="text" class="form-control border-0 w-100"
+                            id="inputDateFrom" placeholder="From" bsDatepicker [bsConfig]='datePickerConfig'
+                            disableKeyPress>
+                        <label for="inputDateFrom" class="fa fa-calendar fa-lg cursor-pointer mr-2 mb-0"></label>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <div class="border border-light text-primary d-flex align-items-center  rounded w-100">
+                        <input formControlName="initiatedOnToDate" type="text" class="form-control  border-0 w-100"
+                            id="inputDateTo" placeholder="To" bsDatepicker [bsConfig]='datePickerConfig'
+                            disableKeyPress>
+                        <label for="inputDateTo" class="fa fa-calendar cursor-pointer fa-lg mr-2 mb-0"></label>
+                    </div>
+                </div>
+                <div class="invalid-feedback d-block ml-1"
+                    *ngIf="(filterForm?.get('initiatedOnFromDate').touched && filterForm?.get('initiatedOnToDate').touched) && filterForm?.hasError('toIsGreater')">
+                    <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                    <span> From Date should not be Greater than To Date.</span>
+                </div>
+            </div>
+
+            <!-- Search block-->
+            <label class="form-control-label text-primary">Search by</label>
+            <div class="form-row mb-2">
+                <div class="form-group col-12 col-md-6 mb-1 mb-mt-0">
+                    <input formControlName="employeeName" type="text"
+                        class="form-control text-primary border border-light w-100" placeholder="Employee name here"
+                        id="inputDate1">
+                    <div class="invalid-feedback d-block mt-2"
+                        *ngIf="(filterForm?.get('employeeName').hasError('pattern') && filterForm?.get('employeeName').touched )">
+                        <span class="fa fa-exclamation-circle mx-1"></span>
+                        <span>Please enter alphabets.</span>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <input formControlName="employeeCode" type="text"
+                        class="form-control text-primary border border-light w-100" placeholder="Employee code here"
+                        id="inputDate2">
+                    <div class="invalid-feedback d-block mt-2"
+                        *ngIf="(filterForm?.get('employeeCode').hasError('pattern') && filterForm?.get('employeeCode').touched )">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <span>Please enter digits.</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback d-block mt-2 px-1"
+                    *ngIf="filterForm?.get('employeeName').touched && (filterForm?.get('employeeName').hasError('minlength') || filterForm?.get('employeeName').hasError('maxlength'))">
+                    <span class="fa fa-exclamation-circle mx-1"></span>
+                    <span>Employee name must be between 3 to 15 characters.</span>
+                </div>
+                <div class="invalid-feedback d-block mt-2 px-1"
+                    *ngIf="filterForm?.get('employeeCode').touched && (filterForm?.get('employeeCode').hasError('minlength') || filterForm?.get('employeeCode').hasError('maxlength'))">
+                    <span class="fa fa-exclamation-circle mx-1"></span>
+                    <span>Length of Employee code must be 5 digit.</span>
+                </div>
+            </div>
+
+            <!-- Filter-by status -->
+            <div class="form-control-label text-primary mb-2">Filter by</div>
+            <select formControlName="status" id="inputTechnology"
+                class="filter-dropdown cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                <option class="text-primary" value=null selected disabled hidden>Select status</option>
+                <!-- TODO: UNCOMMENT WHEN STATUS API IS AVAILABLE -->
+                <!-- <option *ngFor="let item of statuses" [value]="item.status">{{status[item.status]}}</option> -->
+                <option [value]=7>Closed</option>
+                <option [value]=8>Not Started </option>
+                <option [value]=9>In Progress </option>
+                <option [value]=10>Completed</option>
+            </select>
+            <!-- Search & reset button -->
+            <div class="row mt-3 mb-2">
+                <div
+                    class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 pr-md-1 pb-2 pb-md-0">
+                    <button class="btn btn-primary w-50" (click)="applyFilterOptions()">Search
+                    </button>
+                </div>
+                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 pl-md-1">
+                    <button class="btn btn-outline-light w-50 text-primary" value="reset" (click)="resetForm()">Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Ends: Form -->
+</div>

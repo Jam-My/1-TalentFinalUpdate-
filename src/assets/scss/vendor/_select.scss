@@ -1,0 +1,38 @@
+.ng-select.cc-person {
+  &::ng-deep.ng-dropdown-panel {
+    padding: 10px 5px;
+    top: 40px;
+    left: 0;
+    background-color: $white;
+    color: $primary;
+    z-index: 10;
+  }
+}
+.ng-dropdown-panel {
+  padding: 10px 5px;
+  top: 43px;
+  left: 0;
+  background-color: #fff;
+  color: #000;
+  z-index: 500;
+  border: 1px solid $light;
+  margin-top: 5px;
+  border-radius: $border-radius;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  background-color: lighten($primary, 15%);
+  color: $white;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 0 2px;
+  font-size: 14px;
+}
+
+.approval-custom-box{
+  cursor: pointer;
+  text-align-last: center;
+  &:focus{
+    box-shadow: none;
+    outline: none;
+  } 
+}

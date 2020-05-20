@@ -1,0 +1,40 @@
+<div class="modal d-block show fade position-static" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <div class="d-flex flex-column">
+          <h5 class="modal-title ">Revoke Request</h5>
+          <h5 class="w-50 mt-1 mb-0 bg-white border border-primary"></h5>
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)=cancel()>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-primary font-size-sm">Enter Reason to Revoke the resignation request made on
+          <span class="raised-date">{{date | date:"dd/MM/yyyy"}}</span>
+        </div>
+        <form [formGroup]="revokeForm">
+          <textarea name="revoke-reason" id="revoke-reason" cols="20" rows="3"
+            class="border border-light rounded w-100 mt-2" formControlName="revokeReason"></textarea>
+          <div
+            *ngIf="(revokeForm.get('revokeReason').hasError('minlength')|| revokeForm.get('revokeReason').hasError('maxlength')) &&  revokeForm.get('revokeReason').touched"
+            class="invalid-feedback d-block">
+            <span>Reason must be of minimum 25 and maximum of 250 characters.</span>
+          </div>
+
+          <div *ngIf="revokeForm.get('revokeReason').hasError('required')  &&  revokeForm.get('revokeReason').touched"
+            class="invalid-feedback d-block">
+            <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+            <span>Reason is required.</span>
+          </div>
+          <div class="row mt-2">
+            <button class="btn btn-primary px-4 ml-auto" (click)=submit()>Save</button>
+            <button class="btn btn-outline-light text-primary px-4 mx-3" (click)=cancel()>Cancel</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

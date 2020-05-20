@@ -1,0 +1,22 @@
+
+// Bootstrap functions
+@import "~bootstrap/scss/functions";
+
+// Bootstrap variables
+@import "~bootstrap/scss/variables";
+
+// Bootstrap mixins
+@import "~bootstrap/scss/mixins";
+
+//Browser IE Support
+@if $enable-flex {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        @include media-breakpoint-up($breakpoint) {
+            @for $size from 1 through $grid-columns {
+                .col-#{$breakpoint}-#{$size} {
+                    max-width: percentage($size / $grid-columns);
+                }
+            }
+        }
+    }
+}

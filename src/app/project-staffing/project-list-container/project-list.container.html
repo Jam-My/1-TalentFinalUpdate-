@@ -1,0 +1,15 @@
+<project-list-presentation-ui 
+    [projectList]='projectList$  | async' 
+    [employee]='employee$ | async'
+    [getProject]="getProject$ | async" 
+    [projectName]="projectName$ | async"
+    [clientName]="clientName$ | async" 
+    (addProject)="addProject($event)" 
+    (updateProject)="updateProject($event)"
+    (sendId)="getSingleProject($event)"
+    (addProjectNameEvent)="addProjectName($event)"
+    (updateProjectNameEvent)="updateProjectName($event)"
+    (addClientNameEvent)="addClientName($event)"
+    (updateClientNameEvent)="updateClientName($event)"
+    >
+</project-list-presentation-ui>

@@ -1,0 +1,158 @@
+<!-- add role-->
+<div class="add-role-form h-100 position-fixed bg-white overflow-hidden">
+    <!-- add role form -->
+    <form class="overflow-hidden h-100 d-flex flex-column my-3" [formGroup]="roleForm" (ngSubmit)="submitRole()">
+        <!-- form header -->
+        <header class="form-header d-flex align-items-start justify-content-between px-3 flex-shrink-0">
+            <div class="form-title">
+                <h4 class="text-primary">Add Roles</h4>
+                <h2 class="border-primary border w-50"></h2>
+            </div>
+            <!-- <button class="p-0 m-0 bg-transparent border-0"> -->
+            <label class="fa fa-times cursor-pointer" for="closeAddProject" (click)="close()"></label>
+            <!-- </button> -->
+        </header>
+        <!-- form feilds wrapper -->
+        <div class="px-4 py-2 overflow-auto flex-grow-1">
+            <!-- role -->
+            <div class="form-group mb-3">
+                <label for="role">Role</label>
+                <ng-select class="form-control cursor-pointer" formControlName="roleId" id="role" [items]="totalRole" bindLabel="role" bindValue="roleId">
+                </ng-select>
+                <div *ngIf="(submitted || roleFormControls.roleId.touched) && roleFormControls.roleId.errors">
+                    <div *ngIf="roleFormControls.roleId.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Role is required</b>
+                    </div>
+                </div>
+            </div>
+            <!-- technology -->
+            <div class="form-group mb-3">
+                <label for="technology">Technology</label>
+                <ng-select class="form-control cursor-pointer" formControlName="technologyId" id="technology" [items]="technology" bindLabel="technology" bindValue="technologyId" (change)="getEmployee()">
+                </ng-select>
+                <div *ngIf="(submitted || roleFormControls.technologyId.touched) && roleFormControls.technologyId.errors">
+                    <div *ngIf="roleFormControls.technologyId.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Technology is required</b>
+                    </div>
+                </div>
+            </div>
+            <!-- location -->
+            <div class="form-group mb-3">
+                <label for="location">Location</label>
+                <ng-select class="form-control cursor-pointer" formControlName="locationId" id="location" [items]="location" bindLabel="location" bindValue="locationId">
+                </ng-select>
+                <div *ngIf="(submitted || roleFormControls.locationId.touched) && roleFormControls.locationId.errors">
+                    <div *ngIf="roleFormControls.locationId.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Location is required</b>
+                    </div>
+                </div>
+            </div>
+            <!-- Employees Required -->
+            <div class="form-group mb-3">
+                <label for="empRequired">Employees Required</label>
+                <!-- <input type="text" class="form-control" formControlName="employeeId" id="empRequired"> -->
+                <!-- <ng-select class="form-control cursor-pointer" multiple="true" formControlName="employeeId" id="empRequired" [items]="newEmployee" bindLabel="employeeName" bindValue="employeeId">
+                </ng-select> -->
+                <ng-select class="form-control cursor-pointer" id="empRequired" [multiple]='true' formControlName="employeeId" [items]="newEmployee" bindLabel="employeeName" bindValue="employeeId">
+                </ng-select>
+                <div *ngIf="(submitted || roleFormControls.employeeId.touched) && roleFormControls.employeeId.errors">
+                    <div *ngIf="roleFormControls.employeeId.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Employee is required</b>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Bilable Hours -->
+            <div class="form-group mb-3">
+                <label for="weeklyBillableHours">Weekly Bilable Hours</label>
+                <input type="number" class="form-control" formControlName="weeklyBillableHours" id="weeklyBillableHours">
+                <div *ngIf="(submitted || roleFormControls.weeklyBillableHours.touched) && roleFormControls.weeklyBillableHours.errors">
+                    <div *ngIf="roleFormControls.weeklyBillableHours.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Weekly Billable Hours is required</b>
+                    </div>
+                    <div *ngIf="roleFormControls.weeklyBillableHours.errors.pattern" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Invalid Weekly Billable Hours</b>
+                    </div>
+                </div>
+            </div>
+            <!-- Bill Rate -->
+
+            <div class="form-group mb-3 position-relative">
+                <label for="billRate">Bill Rate</label>
+                <div class="input-group">
+                    <input type="number" class="form-control pl-4" formControlName="billRate" id="billRate" name="billrate">
+                    <span class="fa fa fa-usd dollar-icon"></span>
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-light">Per hour </span>
+                    </div>
+                </div>
+                <div *ngIf="(submitted || roleFormControls.billRate.touched) && roleFormControls.billRate.errors">
+                    <div *ngIf="roleFormControls.billRate.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Bill Rate is required</b>
+                    </div>
+                    <div *ngIf="roleFormControls.billRate.errors.pattern" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Invalid Bill Rate</b>
+                    </div>
+                </div>
+            </div>
+            <!-- Pay Rate -->
+            <div class="form-group mb-3">
+                <label for="payRate">Pay Rate</label>
+                <div class="input-group">
+                    <input type="number" class="form-control pl-4" formControlName="payRate" id="payRate" name="payrate">
+                    <span class="fa fa-usd dollar-icon"></span>
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-light">Per hour</span>
+                    </div>
+                </div>
+                <div *ngIf="(submitted || roleFormControls.payRate.touched) && roleFormControls.payRate.errors">
+                    <div *ngIf="roleFormControls.payRate.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Pay Rate is required</b>
+                    </div>
+                    <div *ngIf="roleFormControls.payRate.errors.pattern" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Invalid Pay Rate</b>
+                    </div>
+                    <div *ngIf="roleFormControls.payRate.errors.pattern" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Invalid Pay Rate</b>
+                    </div>
+                    <div *ngIf="roleFormControls.payRate.errors.checkRate" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>PayRate should be less then BillRate</b>
+                    </div>
+                </div>
+            </div>
+            <!-- Pay Cycle -->
+            <div class="form-group mb-3">
+                <label for="payCycle">Pay Cycle</label>
+                <ng-select class="form-control cursor-pointer" formControlName="payCycleId" id="payCycle" [items]="payCycle" bindLabel="payCycle" bindValue="payCycleId">
+                </ng-select>
+                <div *ngIf="(submitted || roleFormControls.payCycleId.touched) && roleFormControls.payCycleId.errors">
+                    <div *ngIf="roleFormControls.payCycleId.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                        <b>Pay Cycle is required</b>
+                    </div>
+                </div>
+                <input type="hidden" formControlName="subProjectId" />
+            </div>
+        </div>
+
+        <!-- form footer -->
+        <footer class="flex-shrink-0 px-4 py-3">
+            <div class="form-footer d-flex border-top py-4">
+                <button type="button" class="btn btn-primary w-50 mr-2" (click)="close()">Cancel</button>
+                <button type="submit" class="btn btn-outline-light text-primary w-50 save-hovre" [disabled]="!roleForm.valid">Save</button>
+            </div>
+        </footer>
+    </form>
+</div>

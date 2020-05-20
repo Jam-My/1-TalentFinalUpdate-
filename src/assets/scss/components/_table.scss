@@ -1,0 +1,445 @@
+//Table styles
+.data-table {
+    font-size: 14px;
+    @media only screen and (max-width: 1024px) {
+        font-size: 12px;
+    }
+    thead {
+        tr {
+            th {
+                position: relative;
+                vertical-align: middle;
+                padding: 0.75rem;
+                &:nth-child(1) {
+                    div {
+                        margin-left: 70px;
+                    }
+                }
+                &:nth-child(2) {
+                    div {
+                        margin-left: 100px;
+                    }
+                }
+                &:nth-child(3) {
+                    div {
+                        margin-left: 105px;
+                    }
+                }
+                &:nth-child(7) {
+                    div {
+                        margin-left: 135px;
+                    }
+                }
+                .sort-asc {
+                    position: absolute;
+                    bottom: 10px;
+                    padding: 0;
+                    margin: 0;
+                }
+                .sort-desc {
+                    position: absolute;
+                    top: 12px;
+                    padding: 0;
+                    margin: 0;
+                }
+                &:first-child {
+                    border-top-left-radius: $border-radius;
+                }
+                &:last-child {
+                    border-top-right-radius: $border-radius;
+                }
+            }
+            .table-row-heading {
+                vertical-align: top;
+                white-space: nowrap;
+            }
+        }
+        tbody {
+            tr {
+                &:last-child {
+                    td {
+                        vertical-align: middle;
+                        &:first-child {
+                            border-bottom-left-radius: $border-radius;
+                        }
+                        &:last-child {
+                            border-bottom-right-radius: $border-radius;
+                        }
+                    }
+                }
+                .data-table-item {
+                    color: lighten($primary, 20%);
+                    vertical-align: middle;
+                    border: 0;
+                }
+            }
+        }
+    }
+    .activity-list-table {
+        td,
+        th {
+            &:nth-child(1) {
+                width: 80px;
+                min-width: 80px;
+            }
+            &:nth-child(2) {
+                width: 58px;
+                min-width: 58px;
+            }
+            &:nth-child(3) {
+                width: 480px;
+                min-width: 480px;
+            }
+            &:nth-child(4) {
+                width: 230px;
+                min-width: 230px;
+            }
+            &:nth-child(5) {
+                width: 160px;
+                min-width: 160px;
+            }
+            &:nth-child(6) {
+                width: 270px;
+                min-width: 270px;
+            }
+            &:nth-child(7) {
+                width: 340px;
+                min-width: 340px;
+            }
+        }
+    }
+    .myactivity-list-table {
+        td,
+        th {
+            &:nth-child(1) {
+                width: 80px;
+                min-width: 80px;
+            }
+            &:nth-child(2) {
+                width: 260px;
+                min-width: 260px;
+            }
+            &:nth-child(3) {
+                width: 180px;
+                min-width: 180px;
+            }
+            &:nth-child(4) {
+                width: 180px;
+                min-width: 180px;
+            }
+            &:nth-child(5) {
+                width: 180px;
+                min-width: 180px;
+            }
+            &:nth-child(6) {
+                width: 180px;
+                min-width: 180px;
+            }
+        }
+    }
+    .feedback-list-table {
+        td,
+        th {
+            &:nth-child(1) {
+                width: 80px;
+                min-width: 80px;
+            }
+            &:nth-child(2) {
+                width: 180px;
+                min-width: 180px;
+            }
+            &:nth-child(3) {
+                width: 180px;
+                min-width: 180px;
+            }
+            &:nth-child(4) {
+                width: 180px;
+                min-width: 180px;
+            }
+            &:nth-child(5) {
+                width: 180px;
+                min-width: 180px;
+            }
+            &:nth-child(6) {
+                width: 260px;
+                min-width: 260px;
+            }
+        }
+    }
+}
+
+// accordion css for project-list screen
+// Role Table
+.role-header {
+    justify-content: space-between;
+    @media (max-width: 768px) {
+        justify-content: space-evenly;
+    }
+    @media (max-width: 576px) {
+        width: 100%;
+    }
+}
+
+.role-data-table {
+    font-size: 14px;
+    @media (min-width: 1024px) {
+        font-size: 12px;
+    }
+    thead {
+        tr {
+            th {
+                vertical-align: middle;
+                padding: 0.75rem;
+                div {
+                    position: relative;
+                }
+                .sort-asc {
+                    position: absolute;
+                    bottom: 10px;
+                    padding: 0;
+                    margin: 0;
+                }
+                .sort-desc {
+                    position: absolute;
+                    top: -10px;
+                    padding: 0;
+                    margin: 0;
+                }
+                &:first-child {
+                    border-top-left-radius: $border-radius;
+                }
+                &:last-child {
+                    border-top-right-radius: $border-radius;
+                }
+                &:nth-child(1) {
+                    div {
+                        margin-left: 70px;
+                    }
+                }
+                &:nth-child(2) {
+                    div {
+                        margin-left: 100px;
+                    }
+                }
+                &:nth-child(3) {
+                    div {
+                        margin-left: 100px;
+                    }
+                }
+                &:nth-child(4) {
+                    div {
+                        margin-left: 100px;
+                    }
+                }
+            }
+            .table-row-heading {
+                vertical-align: middle;
+                // white-space: nowrap;
+            }
+        }
+    }
+    tbody {
+        tr {
+            &:last-child {
+                td {
+                    vertical-align: middle;
+                    &:first-child {
+                        border-bottom-left-radius: $border-radius;
+                    }
+                    &:last-child {
+                        border-bottom-right-radius: $border-radius;
+                    }
+                }
+            }
+            .data-table-item {
+                color: lighten($primary, 20%);
+                vertical-align: middle;
+                border: 0;
+            }
+        }
+    }
+}
+
+// hours approval
+.weekly-hours-submission {
+    .form-control {
+        &:focus {
+            border-color: $gray-400;
+        }
+    }
+    .table {
+        table-layout: fixed;
+    }
+    .table-wrapper {
+        td,
+        th {
+            width: 8%;
+        }
+        th,
+        td {
+            &:first-child {
+                width: 25%;
+            }
+            &:nth-child(9) {
+                width: 5%;
+            }
+            &:last-child {
+                width: 14%;
+            }
+        }
+    }
+    .total-align {
+        padding-top: 30px;
+    }
+    .status-align {
+        padding-top: 25px;
+    }
+    .calendar {
+        .fa-caret-left {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .fa-caret-right {
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+        }
+        &.form-group {
+            max-width: 400px;
+            width: 100%;
+        }
+    }
+    .table-footer {
+        background-color: lighten($primary, 70%);
+        .padding-left {
+            padding-left: 0.75rem;
+        }
+    }
+    // accordion styles 
+    .days-of-week {
+        .form-group {
+            @include media-breakpoint-down(xs) {
+                width: 144px;
+            }
+            @media (max-width: 430px) {
+                width: 100%;
+            }
+        }
+    }
+    .accordion-view-table {
+        tbody {
+            td {
+                border-top: 1px solid $gray-400;
+            }
+        }
+    }
+}
+
+// approval-data
+.approval-data {
+    thead {
+        tr {
+            vertical-align: middle;
+            th {
+                border-bottom: none;
+                &:nth-child(1) {
+                    width: 43px;
+                    min-width: 43px;
+                }
+                &:nth-child(2) {
+                    max-width: 200px;
+                    min-width: 200px;
+                }
+                &:nth-child(4) {
+                    text-align: right;
+                }
+                &:nth-child(5) {
+                    text-align: right;
+                }
+                &:nth-child(6) {
+                    text-align: right;
+                }
+                &:nth-child(7) {
+                    text-align: right;
+                }
+                &:nth-child(8) {
+                    text-align: right;
+                }
+                &:nth-child(9) {
+                    text-align: right;
+                }
+                &:nth-child(10) {
+                    text-align: right;
+                }
+            }
+        }
+    }
+    tbody {
+        tr {
+            vertical-align: middle;
+            td {
+                &:nth-child(4) {
+                    text-align: right;
+                }
+                &:nth-child(5) {
+                    text-align: right;
+                }
+                &:nth-child(6) {
+                    text-align: right;
+                    color: $blue;
+                }
+                &:nth-child(7) {
+                    text-align: right;
+                }
+                &:nth-child(8) {
+                    text-align: right;
+                    color: $blue;
+                }
+                &:nth-child(9) {
+                    text-align: right;
+                }
+                &:nth-child(10) {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+//Staffing Sheet
+.small-text {
+    font-size: 14px;
+}
+
+.staff-table {
+    font-size: 14px;
+    border-radius: 2px;
+    @media (min-width: 1024px) {
+        font-size: 12px;
+    }
+    thead {
+        tr {
+            &:nth-child(1) {
+                th {
+                    vertical-align: middle;
+                    padding: 0.75rem;
+                    &:first-child {
+                        border-top-left-radius: $border-radius;
+                    }
+                    &:last-child {
+                        border-top-right-radius: $border-radius;
+                    }
+                }
+            }
+            &:nth-child(2) {
+                th {
+                    vertical-align: middle;
+                    padding: 0.75rem;
+                }
+            }
+            .table-row-heading {
+                vertical-align: middle;
+            }
+        }
+    }
+}

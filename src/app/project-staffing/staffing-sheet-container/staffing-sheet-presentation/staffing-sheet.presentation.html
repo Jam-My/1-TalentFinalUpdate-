@@ -1,0 +1,205 @@
+<!--main wrapper -->
+<div class="container-fluid">
+    <!-- content header  -->
+    <div class="role-list-head staff-width d-sm-flex justify-content-between align-items-center border-bottom my-2">
+        <h2 class="text-capitalize role-manage cursor-pointer">Staffing Sheet</h2>
+        <div class=" d-flex align-items-center">
+
+            <form class=" d-flex align-items-center ">
+
+                <div class="form-group mx-2 w-100">
+                    <select class="form-control text-capitalize" [(ngModel)]="newSubProjectId"
+                        [ngModelOptions]="{standalone: true}" id="exampleFormControlSelect1" title="Select category"
+                        (change)="changeStaffSheet($event)">
+                        <option value="null">--select project--</option>
+                        <option *ngFor="let subProject of subProjectDetail" value="{{subProject.subProjectId}}">
+                            {{subProject.subProjectName}}</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- end content header  -->
+    <!-- button to add -->
+    <!-- content header responsive -->
+    <div *ngIf="project" class="row role-header my-md-2 mx-md-3 my-0 mx-0">
+        <div class="col-md-4 col-6 col-lg-1">
+            <div class="text-center">
+                <small class="text-nowrap">Project Name</small>
+                <p>{{project.projectName}}</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-6 col-lg-2">
+            <div class="text-center pl-4">
+                <small>Sub-Project Name</small>
+                <p>{{project.subProjectName}}</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 col-lg-2">
+            <div class="text-center text-nowrap">
+                <small>Project Time-line</small>
+                <p class="small-text">{{project.projectStartDate | date:'dd/MM/yyyy'}} -
+                    {{project.projectEndDate | date:'dd/MM/yyyy'}}</p>
+            </div>
+        </div>
+        <div class="col-md-12 col-12 px-md-4 px-sm-4 px-4 mb-md-2 m-0 col-lg-2">
+            <div class="text-center">
+                <small>Project Proccess (Hours)</small>
+                <div class="progress my-2 my-md-0" title="{{totalSubmittedHours}}/{{totalHours}}">
+                    <div class="progress-bar" role="progressbar" [ngStyle]="{width: progress }" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">{{progress}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-6 col-lg-1">
+            <div class="text-center">
+                <small>Total Resource</small>
+                <p>{{totalResources}}</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-6 col-lg-2">
+            <div class="text-center">
+                <small>Approver</small>
+                <ng-container *ngFor="let employee of approverList">
+                    <ng-container *ngFor="let approver of project.hoursApproverId; let i=index">
+                        <p *ngIf="employee.employeeId == approver">{{ employee.employeeName }} [RM{{i+1}}]</p>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 col-lg-2">
+            <div class="text-center">
+                <button class="btn btn-primary btn-sm my-2" (click)="downloadPDF()">Download PDF</button>
+            </div>
+        </div>
+    </div>
+    <!-- end content header responsive -->
+    <!-- end -->
+    <!-- content body -->
+    <div class="row w-100 m-0 my-sm-3">
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table staff-table table-hover table-striped border-0" id="my-table">
+                <!-- thead -->
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th colspan="6" class="table-row-heading border-0 cursor-pointer ">
+                            <span></span>
+                        </th>
+                        <ng-container *ngFor="let month of weekCountOfMonths; let i=index">
+                            <th [attr.colspan]="colArray[i]"
+                                class="table-row-heading border-0 cursor-pointer text-center ">
+                                <span>M{{i+1}}</span>
+                            </th>
+                        </ng-container>
+                    </tr>
+                    <tr class="rounded-0">
+                        <th class="table-row-heading border-0 cursor-pointer ">
+                            <span>Employees</span>
+                        </th>
+                        <th class="table-row-heading border-0 cursor-pointer ">
+                            <span>Location</span>
+                        </th>
+                        <th class="table-row-heading border-0 cursor-pointer ">
+                            <span>Bill Rate</span>
+                        </th>
+                        <th class="table-row-heading border-0 cursor-pointer ">
+                            <span>Pay Rate</span>
+                        </th>
+                        <th class="table-row-heading border-0 cursor-pointer ">
+                            <span>Total Hours</span>
+                        </th>
+                        <th class="table-row-heading border-0 cursor-pointer ">
+                            <span>Toatal Amount</span>
+                        </th>
+                        <ng-container *ngFor="let month of weekCountOfMonths; let i=index">
+                            <ng-container *ngFor="let week of weekCountOfMonths[i]; let j=index">
+                                <th *ngIf="week <= currentDate" class="table-row-heading border-0 cursor-pointer ">
+                                    <span>W{{j+1}}</span>
+                                </th>
+                            </ng-container>
+                        </ng-container>
+                    </tr>
+                </thead>
+                <!-- Ends: thead -->
+                <!-- tbody -->
+                <tbody>
+                    <!-- Remove "d-none" from No Record Msg when you want to show this msg -->
+                    <!-- No records msg -->
+                    <tr class="bg-transparent border-0" rowspan="2"
+                        *ngIf="!staffingSheetListDetail || staffingSheetListDetail.length == 0">
+                        <td colspan="100" class="p-0 w-100 text-center">
+                            <div class="alert alert-primary text-center p-3 my-3" role="alert">
+                                No records found.
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Ends: No records msg -->
+                    <!-- Actual table row -->
+                    <tr *ngFor="let staffSheetList of staffingSheetListDetail">
+                        <td class="data-table-item border-0">
+                            <span>
+                                {{staffSheetList.employeeName}}
+                            </span>
+                            <span>
+                                {{staffSheetList.role}}
+                            </span>
+                            <span>
+                                {{staffSheetList.technology}}
+                            </span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span>{{staffSheetList.location}}</span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span>{{staffSheetList.billRate | currency : "USD"}}</span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span>{{staffSheetList.payRate | currency : "USD"}}</span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span>{{getTotalBillableHours(staffSheetList.weeklyBillableHours)}}</span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span>$
+                                {{getTotalBillableAmount(staffSheetList.billRate,staffSheetList.weeklyBillableHours)}}</span>
+                        </td>
+                        <ng-container *ngFor="let month of [].constructor(weekCount);let i=index">
+                            <td class="data-table-item border-0">
+                                <span>{{staffSheetList.hours[i]}}/{{staffSheetList.weeklyBillableHours}}</span>
+                            </td>
+                        </ng-container>
+                    </tr>
+                    <tr *ngIf="staffingSheetListDetail">
+                        <td class="data-table-item border-0">
+                            <span><b>Total</b></span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span></span>
+                        </td>
+                        <td colspan="1" class="data-table-item border-0 text-center">
+                            <span><b>{{grandTotalBillRate | currency:"USD"}}</b></span>
+                        </td>
+                        <td colspan="2" class="data-table-item border-0">
+                            <span><b>{{grandTotalPayRate | currency:"USD"}}</b></span>
+                        </td>
+                        <td colspan="1" class="data-table-item border-0">
+                            <span><b>{{grandTotalAmount | currency:"USD"}}</b></span>
+                        </td>
+                        <ng-container *ngFor="let month of weekCountOfMonths; let i=index">
+                            <ng-container *ngFor="let week of weekCountOfMonths[i]; let j=index">
+                                <td *ngIf="week <= currentDate" class="data-table-item border-0 text-center">
+                                    <span></span>
+                                </td>
+                            </ng-container>
+                        </ng-container>
+                    </tr>
+                </tbody>
+                <!-- Ends: tbody -->
+            </table>
+        </div>
+        <!-- Ends: Table -->
+    </div>
+    <!--End: content body -->
+</div>
+<!--End: main wrapper -->
