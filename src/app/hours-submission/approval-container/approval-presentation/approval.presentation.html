@@ -90,7 +90,7 @@
                             <tr
                                 *ngFor="let timeCard of filteredList | slice: (currentPage * pageSize) - pageSize :currentPage * pageSize">
                                 <th>
-                                    <div class="visibility-hidden"></div>
+                                    <div class="invisible"></div>
                                     <div class="px-1 text-center bg-white rounded">
                                         <input type="checkbox"
                                             *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)"
