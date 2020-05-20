@@ -39,18 +39,18 @@
             </ng-container>
             <!-- <a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing' routerLinkActive="active"
                 (click)="changeTitle('Project Staffing')">
-                <div class="nav-link-title ">Project Staffing</div>
+                <span class="nav-link-title ">Project Staffing</span>
             </a>
             <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
                 (click)="changeTitle('Project Staffing')" (click)="changeProjectLink()">
-                <div class="nav-link-title ">Project Staffing</div>
+                <span class="nav-link-title ">Project Staffing</span>
             </a> -->
             <!-- <ng-container *ngIf="rmId == '4'; else timecard">
                 <a class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
                     routerLinkActive="active" (click)="changeTitle('Time Card')">
-                    <div class="nav-link-title d-flex position-relative ">
+                    <span class="nav-link-title d-flex position-relative ">
                         Time Card
-                    </div>
+                    </span>
                 </a>
             </ng-container> -->
             <ng-container *ngIf="rmId != '1' && rmId != '2'; else timecard">
@@ -85,10 +85,10 @@
                 </div>
             </ng-template>
             <!-- <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet" routerLinkActive="active" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
-                <div class="nav-link-title">Report</div>
+                <span class="nav-link-title">Report</span>
             </a>
             <a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
-                <div class="nav-link-title">Report</div>
+                <span class="nav-link-title">Report</span>
             </a> -->
             <ng-container *ngIf="linkFlag">
                 <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
@@ -155,7 +155,7 @@
             </div>
         </header>
         <!-- Ends: Header -->
-
+        
         <!-- Content-body -->
         <main class="content-body d-flex overflow-auto h-100 w-100 ">
             <div class="container-fluid p-0 content-bg w-100 h-100">
@@ -163,6 +163,7 @@
             </div>
         </main>
         <!-- Ends: Content-body -->
+
     </div>
     <!-- Ends: Content-wrapper -->
 </div>

@@ -1,7 +1,7 @@
-<!-- main wrapper start -->
+<!--main wrapper-->
 <div class="container-fluid">
     <div class="my-4">
-        <!-- main header start -->
+        <!--main header-->
         <div class="row no-gutters">
             <div class="col-lg-4 p-0">
                 <div class="d-flex align-items-center">
@@ -14,8 +14,8 @@
                                 {{projectList.subProjectName}}</option>
                         </select>
                     </div>
+                    <!--end:project dropdown-->
                 </div>
-                <!--end:project dropdown-->
                 <hr class="my-lg-1">
             </div>
             <div class="col-lg-8 p-0 ">
@@ -23,8 +23,8 @@
                     <form class="d-lg-flex flex-column" [formGroup]="dateForm">
                         <!-- sub header -->
                         <div class="row flex-shrink-0">
-                            <!-- calendar -->
                             <div class="col-12 col-lg-6 d-flex ">
+                                <!-- calendar -->
                                 <div class="form-group calendar position-relative">
                                     <span for="datePicker"
                                         class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer"
@@ -46,23 +46,24 @@
                 <hr class="my-lg-1 my-2">
             </div>
         </div>
-        <!-- main header end -->
-        <!-- time card start -->
+        <!--end:main header-->
+        <!--time card-->
         <div class="col-12 d-lg-block d-none mt-3">
             <div class="bg-primary">
                 <p class="text-white py-2 ml-2 m-0">TimeCard</p>
             </div>
             <div class="row no-gutters">
                 <div class="table-responsive">
-                    <!-- table start -->
+                    <!--table-->
                     <table class="table approval-data flex-column table-hover table-striped border-0">
-                        <!-- thead start -->
+                        <!--thead-->
                         <thead class="bg-primary text-white whitespace-nowrap">
                             <tr>
                                 <th>
                                     <div class="px-2 text-center bg-white rounded">
                                         <input type="checkbox" class="align-middle" (change)="selectAllTimeCard($event)"
-                                           [disabled]="!filteredList || filteredList.length == 0" [checked]="checkBoxSelect" name="" id="">
+                                            [disabled]="!filteredList || filteredList.length == 0"
+                                            [checked]="checkBoxSelect" name="" id="">
                                     </div>
                                 </th>
                                 <th>User</th>
@@ -74,9 +75,9 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <!-- thead end -->
+                        <!--end:thead-->
                         <tbody>
-                            <!-- No records msg -->
+                            <!--No records msg-->
                             <tr class="bg-transparent border-0" rowspan="2"
                                 *ngIf="!filteredList || filteredList.length == 0">
                                 <td colspan="8" class="p-0 w-100 text-center">
@@ -85,26 +86,37 @@
                                     </div>
                                 </td>
                             </tr>
-                            <!-- Ends: No records msg -->
+                            <!-- end:No records msg -->
                             <tr
                                 *ngFor="let timeCard of filteredList | slice: (currentPage * pageSize) - pageSize :currentPage * pageSize">
                                 <th>
-                                    <div style="visibility: hidden;"></div>
+                                    <div class="visibility-hidden"></div>
                                     <div class="px-1 text-center bg-white rounded">
-                                        <input type="checkbox" *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)"
+                                        <input type="checkbox"
+                                            *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)"
                                             [(ngModel)]="timeCard.checked" (change)="selectCheckBox($event)" name=""
                                             id="">
-                                        <input type="checkbox" *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)" checked disabled>
+                                        <input type="checkbox"
+                                            *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)"
+                                            checked disabled>
                                     </div>
                                 </th>
                                 <td>{{timeCard.employeeName}} [{{timeCard.hoursType}}]</td>
                                 <td>{{timeCard.remark}}</td>
                                 <td></td>
-                                <td *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)">0</td>
-                                <td *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)">{{timeCard.totalHours}}</td>
+                                <td
+                                    *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)">
+                                    0</td>
+                                <td
+                                    *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)">
+                                    {{timeCard.totalHours}}</td>
                                 <td></td>
-                                <td *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)">0</td>
-                                <td *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)">{{timeCard.totalHours}}</td>
+                                <td
+                                    *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)">
+                                    0</td>
+                                <td
+                                    *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)">
+                                    {{timeCard.totalHours}}</td>
                                 <td></td>
                                 <td>{{timeCard.totalHours}}</td>
                                 <td>
@@ -124,11 +136,11 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!-- table end -->
+                    <!--end:table-->
                 </div>
             </div>
         </div>
-        <!-- time card end -->
+        <!--end:time card-->
         <div class="col-12">
             <div class="bg-primary">
                 <!-- Pagination -->
@@ -160,17 +172,15 @@
                         </nav>
                     </div>
                 </div>
-                <!-- Ends: Pagination -->
+                <!--end:Pagination-->
             </div>
         </div>
-
-        <!--START: ACCORDIAN VIEW  -->
+        <!--accordian-view-->
         <div class="d-lg-none m-3">
             <div class="col-12 p-0">
                 <div class="bg-primary">
                     <p class="text-white py-2 ml-2 m-0">TimeCard</p>
                 </div>
-
                 <div class="dropdown bg-primary d-flex p-2 mt-1" *ngIf="!filteredList || filteredList.length != 0">
                     <div class="px-2 py-0 bg-white rounded mr-3 ml-1">
                         <input type="checkbox" class="align-middle" (change)="checkAllTimeCard($event)"
@@ -182,18 +192,18 @@
                     role="alert">
                     <span class="text-white">No Record Found</span>
                 </div>
-
-                <!-- Start: User Name and Data-->
+                <!--user name and data-->
                 <ng-container *ngFor="let timeCard of filteredList">
-                    <!-- Start:Data 1 -->
-                    <!-- start:user name -->
+                    <!--data 1-->
                     <div class="bg-light d-flex flex-nowrap justify-content-between p-2">
                         <div class="collapsed d-flex align-items-center" id="accordion1" data-toggle="collapse"
                             data-parent="#accordion1">
                             <div class="px-2 py-0 bg-white rounded mr-3 ml-1">
-                                <input type="checkbox" class="align-middle" *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)"
+                                <input type="checkbox" class="align-middle"
+                                    *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)"
                                     [(ngModel)]="timeCard.checked" (change)="selectCheckBox($event)" name="" id="">
-                                <input type="checkbox" class="align-middle" *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)"
+                                <input type="checkbox" class="align-middle"
+                                    *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)"
                                     checked disabled>
                             </div>
                             <h6 class="text-capitalize m-0">
@@ -205,9 +215,8 @@
                             <span class="fa fa-minus"></span>
                         </div>
                     </div>
-                    <!-- end:user name -->
-
-                    <!-- start:user data -->
+                    <!-- end:data 1-->
+                    <!--user data-->
                     <div colspan="3">
                         <div id="collapseOne" class="collapse show p-3">
                             <div class="d-flex">
@@ -215,7 +224,8 @@
                                         class="text-capitalize text-primary font-weight-bold">approved</span>
                                 </div>
                                 <div class="col-6">
-                                    <span class="text-capitalize" *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)">0</span>
+                                    <span class="text-capitalize"
+                                        *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)">0</span>
                                     <span class="text-capitalize"
                                         *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)">{{timeCard.totalHours}}</span>
                                 </div>
@@ -225,7 +235,8 @@
                                         class="text-capitalize text-primary font-weight-bold">unapproved</span>
                                 </div>
                                 <div class="col-6">
-                                    <span class="text-capitalize" *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)">0</span>
+                                    <span class="text-capitalize"
+                                        *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId != 1) || (approverRoleId == 2 && timeCard.approvalStatusId != 2)">0</span>
                                     <span class="text-capitalize"
                                         *ngIf="(approverRoleId == 1 && timeCard.approvalStatusId == 1) || (approverRoleId == 2 && timeCard.approvalStatusId == 2)">{{timeCard.totalHours}}</span>
                                 </div>
@@ -244,7 +255,7 @@
                                 <div class="col-6"><span class="text-capitalize">{{timeCard.remark}}</span>
                                 </div>
                             </div>
-                            <!-- Start:Action Button -->
+                            <!--action button -->
                             <div class="row mt-2">
                                 <div class="col-12">
                                     <div class="p-3">
@@ -263,24 +274,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- End:Action Button -->
+                            <!--end:action button-->
                         </div>
                     </div>
+                    <!--end:user data-->
                 </ng-container>
-                <!-- end:user data -->
-                <!-- End: Data 2 -->
-
-                <!-- End: User Name and Data-->
+                <!-- end:user name and data -->
             </div>
         </div>
-        <!--END: ACCORDIAN VIEW  -->
-
+        <!--end:accordian view-->
+        <!--approve and reject section-->
         <div class="col-12 d-flex my-4 flex-wrap">
             <div class="col-md-6 col-sm-12 my-2 mb-md-0">
                 <p class="m-0">1. Select Operation</p>
                 <hr class="my-2">
                 <div class="mt-3">
-                    <select [disabled]="!timeChecked" class="form-control text-capitalize rounded ml-2 approval-custom-box"
+                    <select [disabled]="!timeChecked"
+                        class="form-control text-capitalize rounded ml-2 approval-custom-box"
                         [(ngModel)]="submitedStatus" (change)="actionSelection($event)">
                         <option value="null" disabled>---Select Operation---</option>
                         <option value="approved">Approve</option>
@@ -301,6 +311,7 @@
                 </div>
             </div>
         </div>
-        <!-- main wrapper ends -->
+        <!--end:approve and reject section-->
+        <!--end:main wrapper-->
     </div>
 </div>
