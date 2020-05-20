@@ -1,25 +1,31 @@
-<!--wrapper -->
+<!--wrapper-->
 <div class="weekly-hours-submission p-3 overflow-hidden h-100">
-    <form class="d-none d-lg-flex flex-column overflow-hidden h-100" [formGroup]="timecardForm" (ngSubmit)="submitTimeCard()">
+    <form class="d-none d-lg-flex flex-column overflow-hidden h-100" [formGroup]="timecardForm"
+        (ngSubmit)="submitTimeCard()">
         <!-- <input type="hidden" formControlName="id"> -->
-        <!-- sub header -->
+        <!--sub header-->
         <div class="row flex-shrink-0">
-            <!-- calendar -->
             <div class="col-12 mb-2 mb-md-0 d-flex justify-content-center">
+                <!--calendar-->
                 <div class="form-group calendar position-relative">
-                    <span for="datePicker" class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer" (click)="decrementWeek()"></span>
-                    <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019" class="form-control cursor-pointer text-center" bsDaterangepicker [bsConfig]="dateRangePickerConfig" (ngModelChange)="weekDates()" (focusout)="getFlag()">
-                    <span for=" datePicker" class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer" (click)="incrementWeek()"></span>
+                    <span for="datePicker" class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer"
+                        (click)="decrementWeek()"></span>
+                    <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019"
+                        class="form-control cursor-pointer text-center" bsDaterangepicker
+                        [bsConfig]="dateRangePickerConfig" (ngModelChange)="weekDates()" (focusout)="getFlag()">
+                    <span for=" datePicker" class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer"
+                        (click)="incrementWeek()"></span>
                 </div>
+                <!--end:calendar-->
             </div>
         </div>
         <!-- end sub header -->
-        <!-- Table -->
+        <!--table-->
         <div class="table-wrapper d-flex flex-column w-100 my-2 overflow-hidden flex-grow-1">
-            <!-- table header -->
+            <!--table header-->
             <div class="flex-shrink-0">
                 <table class="table border-0 w-100 mb-0">
-                    <!-- thead -->
+                    <!--thead-->
                     <thead class="bg-primary text-white">
                         <tr>
                             <th class="align-top"><span>Project / Type</span></th>
@@ -62,16 +68,16 @@
                             <th class="align-top text-center"><span>Status</span></th>
                         </tr>
                     </thead>
-                    <!-- Ends: thead -->
+                    <!--end:thead-->
                 </table>
             </div>
-            <!-- End: table header -->
-            <!-- table body -->
+            <!--end:table header -->
+            <!--table body-->
             <div class="overflow-auto">
                 <table class="table border-0 w-100 mb-0">
-                    <!-- tbody -->
+                    <!--tbody-->
                     <tbody formArrayName="timeCard">
-                        <!-- single record -->
+                        <!--single record-->
                         <ng-container *ngFor="let timeCard of timecardForm.get('timeCard')['controls']; let i=index">
                             <ng-container [formGroupName]="i">
                                 <tr>
@@ -84,45 +90,53 @@
                                                     {{projectList.subProjectName}}</option>
                                             </select>
                                         </div>
-                                        <div *ngIf="hours.controls[i].get('subProjectId').invalid && (hours.controls[i].get('subProjectId').dirty || hours.controls[i].get('subProjectId').touched)" class="errors">
+                                       <div *ngIf="hours.controls[i].get('subProjectId').invalid && (hours.controls[i].get('subProjectId').dirty || hours.controls[i].get('subProjectId').touched)" class="errors">
                                             <small class="text-danger" *ngIf="hours.controls[i].get('subProjectId').errors.required">
+
                                                 Project Name is required.
                                             </small>
                                         </div>
                                     </td>
                                     <td class="pt-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="monday" type="number" value="8" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                            <input formControlName="monday" type="number" value="8" class="form-control"
+                                                placeholder="0" (keyup)="weekTotal()" digitOnly>
                                         </div>
                                     </td>
                                     <td class="pt-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="tuesday" type="number" value="8" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                            <input formControlName="tuesday" type="number" value="8"
+                                                class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
                                         </div>
                                     </td>
                                     <td class="pt-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="wednesday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                            <input formControlName="wednesday" type="number" class="form-control"
+                                                placeholder="0" (keyup)="weekTotal()" digitOnly>
                                         </div>
                                     </td>
                                     <td class="pt-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="thursday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                            <input formControlName="thursday" type="number" class="form-control"
+                                                placeholder="0" (keyup)="weekTotal()" digitOnly>
                                         </div>
                                     </td>
                                     <td class="pt-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="friday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                            <input formControlName="friday" type="number" class="form-control"
+                                                placeholder="0" (keyup)="weekTotal()" digitOnly>
                                         </div>
                                     </td>
                                     <td class="pt-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="saturday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                            <input formControlName="saturday" type="number" class="form-control"
+                                                placeholder="0" (keyup)="weekTotal()" digitOnly>
                                         </div>
                                     </td>
                                     <td class="pt-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="sunday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                            <input formControlName="sunday" type="number" class="form-control"
+                                                placeholder="0" (keyup)="weekTotal()" digitOnly>
                                         </div>
                                     </td>
                                     <td class="total-align text-center">
@@ -132,12 +146,25 @@
                                     <td class="status-align">
                                         <div class="d-flex justify-content-center align-items-center">
                                             <input type="hidden" formControlName="approvalStatusId">
-                                            <span *ngIf="timeCard.get('approvalStatusId').value==1" class="badge badge-warning text-white px-4 py-2 mr-2" title="Wait for RM1 & RM2 for approval">Pending</span>
-                                            <span *ngIf="timeCard.get('approvalStatusId').value==2" class="badge badge-warning text-white px-4 py-2 mr-2" title="Approved by RM1, Wait for RM2 for approval">Pending</span>
-                                            <span *ngIf="timeCard.get('approvalStatusId').value==3" class="badge badge-danger text-white px-4 py-2 mr-2" title="Rejected by RM1">Rejected</span>
-                                            <span *ngIf="timeCard.get('approvalStatusId').value==4" class="badge badge-success text-white px-4 py-2 mr-2" title="Approved by RM1 & RM2">Approved</span>
-                                            <span *ngIf="timeCard.get('approvalStatusId').value==5" class="badge badge-danger text-white px-4 py-2 mr-2" title="Rejected by RM2">Rejected</span>
-                                            <span *ngIf="timeCard.get('approvalStatusId').value!=2 && timeCard.get('approvalStatusId').value!=4" class="fa fa-close text-primary cursor-pointer" (click)="deleteTimeCard(i, timeCard.get('timeCardId').value)"></span>
+                                            <span *ngIf="timeCard.get('approvalStatusId').value==1"
+                                                class="badge badge-warning text-white px-4 py-2 mr-2"
+                                                title="Wait for RM1 & RM2 for approval">Pending</span>
+                                            <span *ngIf="timeCard.get('approvalStatusId').value==2"
+                                                class="badge badge-warning text-white px-4 py-2 mr-2"
+                                                title="Approved by RM1, Wait for RM2 for approval">Pending</span>
+                                            <span *ngIf="timeCard.get('approvalStatusId').value==3"
+                                                class="badge badge-danger text-white px-4 py-2 mr-2"
+                                                title="Rejected by RM1">Rejected</span>
+                                            <span *ngIf="timeCard.get('approvalStatusId').value==4"
+                                                class="badge badge-success text-white px-4 py-2 mr-2"
+                                                title="Approved by RM1 & RM2">Approved</span>
+                                            <span *ngIf="timeCard.get('approvalStatusId').value==5"
+                                                class="badge badge-danger text-white px-4 py-2 mr-2"
+                                                title="Rejected by RM2">Rejected</span>
+                                            <span
+                                                *ngIf="timeCard.get('approvalStatusId').value!=2 && timeCard.get('approvalStatusId').value!=4"
+                                                class="fa fa-close text-primary cursor-pointer"
+                                                (click)="deleteTimeCard(i, timeCard.get('timeCardId').value)"></span>
                                         </div>
                                     </td>
                                 </tr>
@@ -159,23 +186,23 @@
                                     </td>
                                     <td colspan="7" class="border-top-0 border-bottom pb-4">
                                         <div class="form-group w-100">
-                                            <input formControlName="remark" type="text" class="form-control" placeholder="Remark">
+                                            <input formControlName="remark" type="text" class="form-control"
+                                                placeholder="Remark">
                                         </div>
                                     </td>
                                     <td class="border-top-0 border-bottom pb-4"></td>
-                                    <td class="border-top-0 border-bottom pb-4">
-                                    </td>
+                                    <td class="border-top-0 border-bottom pb-4"></td>
                                     <input type="hidden" formControlName="timeCardId">
                                 </tr>
                             </ng-container>
                         </ng-container>
-                        <!-- end single record -->
+                        <!--end:single record -->
                     </tbody>
-                    <!-- Ends: tbody -->
+                    <!--end:tbody-->
                 </table>
             </div>
-            <!-- End: table body -->
-            <!-- table footer -->
+            <!--end:table body-->
+            <!--table footer-->
             <div class="table-footer flex-shrink-0">
                 <table class="table border-0 w-100 mb-0">
                     <tfoot>
@@ -218,35 +245,40 @@
                     </tfoot>
                 </table>
             </div>
-            <!-- End: Table footer -->
+            <!--end:table footer-->
         </div>
-        <!-- Ends: Table -->
-        <!-- form action button -->
+        <!--end:table-->
+        <!--form action button-->
         <div class="d-none d-lg-flex justify-content-end flex-shrink-0 mt-3">
             <button type="submit" class="btn btn-primary px-5 btn-not-allowed" [disabled]="!timecardForm.valid">{{submitButton}} All</button>
         </div>
+        <!--end:form action button-->
     </form>
-    <!-- Ends: form action button -->
-    <!-- accordion table for mobile -->
-    <form class="overflow-hidden d-flex d-lg-none flex-column h-100" [formGroup]="timecardForm" (ngSubmit)="submitTimeCard()">
-        <!-- sub header -->
+    <!-- accordion view-->
+    <form class="overflow-hidden d-flex d-lg-none flex-column h-100" [formGroup]="timecardForm"
+        (ngSubmit)="submitTimeCard()">
+        <!--sub header-->
         <div class="row flex-shrink-0">
-            <!-- calendar -->
             <div class="col-12 mb-2 d-flex justify-content-center">
+                <!--calendar-->
                 <div class="form-group calendar position-relative">
-                    <span for="datePicker" class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer" (click)="decrementWeek()"></span>
-                    <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019" class="form-control cursor-pointer text-center" bsDaterangepicker [bsConfig]="dateRangePickerConfig" (ngModelChange)="weekDates()" (focusout)="getFlag()">
-                    <span for=" datePicker" class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer" (click)="incrementWeek()"></span>
+                    <span for="datePicker" class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer"
+                        (click)="decrementWeek()"></span>
+                    <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019"
+                        class="form-control cursor-pointer text-center" bsDaterangepicker
+                        [bsConfig]="dateRangePickerConfig" (ngModelChange)="weekDates()" (focusout)="getFlag()">
+                    <span for=" datePicker" class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer"
+                        (click)="incrementWeek()"></span>
                 </div>
+                <!--end:calendar-->
             </div>
         </div>
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- end sub header -->
+        <!--end:sub header-->
         <div class="accordion-view-table overflow-auto flex-grow-1">
             <table class="table rounded bg-primary mb-0">
                 <thead>
-                    <tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+                    <tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
+                        data-parent="#accordion1" href="#collapseOne">
                         <td class="text-capitalize text-white border-top-0">TimeCard</td>
                     </tr>
                 </thead>
@@ -259,13 +291,17 @@
                                         <div class="row mt-2">
                                             <div class="col-12 mb-3 d-flex justify-content-between align-items-center">
                                                 <span>Project / Type</span>
-                                                <span *ngIf="timeCard.get('approvalStatusId').value!=2 && timeCard.get('approvalStatusId').value!=4" class="fa fa-close text-primary cursor-pointer" (click)="deleteTimeCard(i, timeCard.get('timeCardId').value)"></span>
+                                                <span
+                                                    *ngIf="timeCard.get('approvalStatusId').value!=2 && timeCard.get('approvalStatusId').value!=4"
+                                                    class="fa fa-close text-primary cursor-pointer"
+                                                    (click)="deleteTimeCard(i, timeCard.get('timeCardId').value)"></span>
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <div class="row">
                                                     <div class="col-12 col-sm-6 mb-3 mb-sm-0">
                                                         <div class="form-group">
-                                                            <select formControlName="subProjectId" class="form-control text-truncate">
+                                                            <select formControlName="subProjectId"
+                                                                class="form-control text-truncate">
                                                                 <option value="null" disabled>--- Select Project ---
                                                                 </option>
                                                                 <option *ngFor="let projectList of projectDetail"
@@ -299,81 +335,103 @@
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <div class="days-of-week d-flex flex-wrap flex-sm-nowrap">
-                                                    <!-- mon -->
+                                                    <!--mon -->
                                                     <div class="d-flex flex-column flex-fill">
-                                                        <div class="d-flex flex-row flex-sm-column align-items-center mb-2">
+                                                        <div
+                                                            class="d-flex flex-row flex-sm-column align-items-center mb-2">
                                                             <span class="pr-1 pr-sm-0">Mon</span>
                                                             <small>({{getMonDate() | date:"MMM dd"}})</small>
                                                         </div>
                                                         <div class="form-group mb-3 mb-sm-0">
-                                                            <input formControlName="monday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                                            <input formControlName="monday" type="number"
+                                                                class="form-control" placeholder="0"
+                                                                (keyup)="weekTotal()" digitOnly>
                                                         </div>
                                                     </div>
                                                     <!-- tue -->
                                                     <div class="d-flex flex-column flex-fill">
-                                                        <div class="d-flex flex-row flex-sm-column align-items-center mb-2">
+                                                        <div
+                                                            class="d-flex flex-row flex-sm-column align-items-center mb-2">
                                                             <span class="pr-1 pr-sm-0">Tue</span>
                                                             <small>({{getTueDate() | date:"MMM dd"}})</small>
                                                         </div>
                                                         <div class="form-group mb-3 mb-sm-0">
-                                                            <input formControlName="tuesday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                                            <input formControlName="tuesday" type="number"
+                                                                class="form-control" placeholder="0"
+                                                                (keyup)="weekTotal()" digitOnly>
                                                         </div>
                                                     </div>
                                                     <!-- wed -->
                                                     <div class="d-flex flex-column flex-fill">
-                                                        <div class="d-flex flex-row flex-sm-column align-items-center mb-2">
+                                                        <div
+                                                            class="d-flex flex-row flex-sm-column align-items-center mb-2">
                                                             <span class="pr-1 pr-sm-0">Wed</span>
                                                             <small>({{getWedDate() | date:"MMM dd"}})</small>
                                                         </div>
                                                         <div class="form-group mb-3 mb-sm-0">
-                                                            <input formControlName="wednesday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                                            <input formControlName="wednesday" type="number"
+                                                                class="form-control" placeholder="0"
+                                                                (keyup)="weekTotal()" digitOnly>
                                                         </div>
                                                     </div>
                                                     <!-- thu -->
                                                     <div class="d-flex flex-column flex-fill">
-                                                        <div class="d-flex flex-row flex-sm-column align-items-center mb-2">
+                                                        <div
+                                                            class="d-flex flex-row flex-sm-column align-items-center mb-2">
                                                             <span class="pr-1 pr-sm-0">Thu</span>
                                                             <small>({{getThuDate() | date:"MMM dd"}})</small>
                                                         </div>
                                                         <div class="form-group mb-3 mb-sm-0">
-                                                            <input formControlName="thursday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                                            <input formControlName="thursday" type="number"
+                                                                class="form-control" placeholder="0"
+                                                                (keyup)="weekTotal()" digitOnly>
                                                         </div>
                                                     </div>
                                                     <!-- Fri -->
                                                     <div class="d-flex flex-column flex-fill">
-                                                        <div class="d-flex flex-row flex-sm-column align-items-center mb-2">
+                                                        <div
+                                                            class="d-flex flex-row flex-sm-column align-items-center mb-2">
                                                             <span class="pr-1 pr-sm-0">Fri</span>
                                                             <small>({{getFriDate() | date:"MMM dd"}})</small>
                                                         </div>
                                                         <div class="form-group mb-3 mb-sm-0">
-                                                            <input formControlName="friday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                                            <input formControlName="friday" type="number"
+                                                                class="form-control" placeholder="0"
+                                                                (keyup)="weekTotal()" digitOnly>
                                                         </div>
                                                     </div>
                                                     <!-- sat -->
                                                     <div class="d-flex flex-column flex-fill">
-                                                        <div class="d-flex flex-row flex-sm-column align-items-center mb-2">
+                                                        <div
+                                                            class="d-flex flex-row flex-sm-column align-items-center mb-2">
                                                             <span class="pr-1 pr-sm-0">Sat</span>
                                                             <small>({{getSatDate() | date:"MMM dd"}})</small>
                                                         </div>
                                                         <div class="form-group mb-3 mb-sm-0">
-                                                            <input formControlName="saturday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                                            <input formControlName="saturday" type="number"
+                                                                class="form-control" placeholder="0"
+                                                                (keyup)="weekTotal()" digitOnly>
                                                         </div>
                                                     </div>
                                                     <!-- sun -->
                                                     <div class="d-flex flex-column flex-fill">
-                                                        <div class="d-flex flex-row flex-sm-column align-items-center mb-2">
+                                                        <div
+                                                            class="d-flex flex-row flex-sm-column align-items-center mb-2">
                                                             <span class="pr-1 pr-sm-0">Sun</span>
                                                             <small>({{getSunDate() | date:"MMM dd"}})</small>
                                                         </div>
                                                         <div class="form-group mb-3 mb-sm-0">
-                                                            <input formControlName="sunday" type="number" class="form-control" placeholder="0" (keyup)="weekTotal()" digitOnly>
+                                                            <input formControlName="sunday" type="number"
+                                                                class="form-control" placeholder="0"
+                                                                (keyup)="weekTotal()" digitOnly>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <div class="form-group w-100">
-                                                    <input formControlName="remark" type="text" placeholder="Remark" class="form-control">
+                                                    <input formControlName="remark" type="text" placeholder="Remark"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -389,11 +447,21 @@
                                                     </div>
                                                     <div class="col-12 col-sm-6">
                                                         <div class="d-flex justify-content-sm-end align-items-center">
-                                                            <span *ngIf="timeCard.get('approvalStatusId').value==1" class="badge badge-warning px-5 text-white py-2 mr-2" title="Wait for RM1 & RM2 for approval">Pending</span>
-                                                            <span *ngIf="timeCard.get('approvalStatusId').value==2" class="badge badge-warning px-5 text-white py-2 mr-2" title="Approved by RM1, Wait for RM2 for approval">Pending</span>
-                                                            <span *ngIf="timeCard.get('approvalStatusId').value==3" class="badge badge-danger px-5 text-white py-2 mr-2" title="Rejected by RM1">Rejected</span>
-                                                            <span *ngIf="timeCard.get('approvalStatusId').value==4" class="badge badge-success px-5 text-white py-2 mr-2" title="Approved by RM1 & RM2">Approved</span>
-                                                            <span *ngIf="timeCard.get('approvalStatusId').value==5" class="badge badge-danger px-5 text-white py-2 mr-2" title="Rejected by RM2">Rejected</span>
+                                                            <span *ngIf="timeCard.get('approvalStatusId').value==1"
+                                                                class="badge badge-warning px-5 text-white py-2 mr-2"
+                                                                title="Wait for RM1 & RM2 for approval">Pending</span>
+                                                            <span *ngIf="timeCard.get('approvalStatusId').value==2"
+                                                                class="badge badge-warning px-5 text-white py-2 mr-2"
+                                                                title="Approved by RM1, Wait for RM2 for approval">Pending</span>
+                                                            <span *ngIf="timeCard.get('approvalStatusId').value==3"
+                                                                class="badge badge-danger px-5 text-white py-2 mr-2"
+                                                                title="Rejected by RM1">Rejected</span>
+                                                            <span *ngIf="timeCard.get('approvalStatusId').value==4"
+                                                                class="badge badge-success px-5 text-white py-2 mr-2"
+                                                                title="Approved by RM1 & RM2">Approved</span>
+                                                            <span *ngIf="timeCard.get('approvalStatusId').value==5"
+                                                                class="badge badge-danger px-5 text-white py-2 mr-2"
+                                                                title="Rejected by RM2">Rejected</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -407,7 +475,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- Form Action Buttons -->
+        <!--form action buttons-->
         <div class="row flex-shirnk-0">
             <div class="col-12 my-3">
                 <div class="d-flex flex-column flex-sm-row justify-content-end">
@@ -420,8 +488,8 @@
                 </div>
             </div>
         </div>
-        <!-- End Form Action Button -->
+        <!--end:form action button-->
     </form>
-    <!-- End: accordion view -->
+    <!--end:accordion view-->
 </div>
-<!--End: wrapper -->
+<!--end:wrapper-->

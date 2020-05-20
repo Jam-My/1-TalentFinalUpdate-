@@ -13,99 +13,132 @@
                 <span class="fa fa-times text-white"></span></label>
         </div>
         <nav class="nav flex-nowrap flex-column overflow-auto">
-            <a class="nav-link d-flex pl-5 py-3" routerLink='/dashboard' routerLinkActive="active"
-                (click)="changeTitle('Dashboard')">
-                <div class="nav-link-title ">Dashboard</div>
-            </a>
-            <a class="nav-link d-flex pl-5  py-3" routerLink='/resignation' routerLinkActive="active"
-                (click)="changeTitle('Resignation')">
-                <div class="nav-link-title ">Resignation</div>
-            </a>
-            <a class="nav-link d-flex pl-5  py-3" routerLink='/exit-checklist' routerLinkActive="active"
-                (click)="changeTitle('Exit Checklist')">
-                <div class="nav-link-title ">Exit Checklist</div>
-            </a>
-            <!-- <ng-container *ngIf="!linkFlag">
-                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
-                    routerLink='/project-staffing' routerLinkActive="active" (click)="changeTitle('Project Staffing')">
-                    <div class="nav-link-title ">Project Staffing</div>
-                </a>
-            </ng-container>
-            <ng-container *ngIf="linkFlag">
-                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
-                    routerLink='/project-staffing' (click)="changeTitle('Project Staffing')">
-                    <div class="nav-link-title ">Project Staffing</div>
-                </a>
-            </ng-container> -->
-            <a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing' routerLinkActive="active"
-                (click)="changeTitle('Project Staffing')">
-                <div class="nav-link-title ">Project Staffing</div>
-            </a>
-            <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
-                (click)="changeTitle('Project Staffing')" (click)="changeProjectLink()">
-                <div class="nav-link-title ">Project Staffing</div>
-            </a>
-            <ng-container *ngIf="rmId == '4'; else timecard">
-                <a class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
-                    routerLinkActive="active" (click)="changeTitle('Time Card')">
-                    <div class="nav-link-title d-flex position-relative ">
-                        Time Card
-                    </div>
-                </a>
-            </ng-container>
-            <!-- <ng-container *ngIf="rmId != '1' && rmId != '2'; else timecard">
-                <a *showForRoles="[ROLES.EMPAD];current:roles$ | async"
-                    class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
-                    routerLinkActive="active" (click)="changeTitle('Time Card')">
-                    <div class="nav-link-title d-flex position-relative ">
-                        Time Card
-                    </div>
-                </a>
-            </ng-container> -->
-            <ng-template #timecard>
-                <a *showForRoles="[ROLES.EMPAD];current:roles$ | async" (click)="timecardDropdown()"
-                    class="nav-link d-flex pl-5 py-3 d-flex flex-column">
-                    <div class="nav-link-title d-flex position-relative ">
-                        <span>Time Card</span>
-                        <span *ngIf="!dropdownFlag"
-                            class="fa fa-angle-down angle-icon angle-down position-absolute"></span>
-                        <span *ngIf="dropdownFlag" for="submenu"
-                            class="fa fa-angle-up angle-icon angle-up position-absolute"></span>
-                    </div>
-                </a>
-                <div class="side-dropdown px-4 pb-4 pt-2 " *ngIf="dropdownFlag">
-                    <a routerLink='/hours-submission/approval' routerLinkActive="active" class="nav-link"
-                        (click)="changeTitle('Approval')">
-                        <div class="nav-link-title">Approve</div>
+            <ul class="px-0">
+                <li>
+                    <a class="nav-link d-flex pl-5 py-3" routerLink='/dashboard' routerLinkActive="active"
+                        (click)="changeTitle('Dashboard')">
+                        <span class="nav-link-title ">Dashboard</span>
                     </a>
-                    <a routerLink='/hours-submission/member-list' routerLinkActive="active" class="nav-link"
-                        (click)="changeTitle('Company Report')">
-                        <div class="nav-link-title">Company Report</div>
+                </li>
+                <li>
+                    <a class="nav-link d-flex pl-5  py-3" routerLink='/resignation' routerLinkActive="active"
+                        (click)="changeTitle('Resignation')">
+                        <span class="nav-link-title ">Resignation</span>
                     </a>
-                </div>
-            </ng-template>
-
-
-            <!-- <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet" routerLinkActive="active" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
-                <div class="nav-link-title">Report</div>
-            </a>
-            <a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
-                <div class="nav-link-title">Report</div>
-            </a> -->
-            <ng-container *ngIf="linkFlag">
-                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
-                    routerLink="/project-staffing/staffing-sheet" routerLinkActive="active"
-                    (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
-                    <div class="nav-link-title">Report</div>
-                </a>
-            </ng-container>
-            <ng-container *ngIf="!linkFlag">
-                <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
-                    routerLink="/project-staffing/staffing-sheet" (click)="changeTitle('Staffing Sheet')"
-                    (click)="changeReportLink()">
-                    <div class="nav-link-title">Report</div>
-                </a>
-            </ng-container>
+                </li>
+                <li>
+                    <a class="nav-link d-flex pl-5  py-3" routerLink='/exit-checklist' routerLinkActive="active"
+                        (click)="changeTitle('Exit Checklist')">
+                        <span class="nav-link-title ">Exit Checklist</span>
+                    </a>
+                </li>
+                <ng-container *ngIf="!linkFlag">
+                    <li>
+                        <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                            routerLink='/project-staffing' routerLinkActive="active"
+                            (click)="changeTitle('Project Staffing')">
+                            <span class="nav-link-title ">Project Staffing</span>
+                        </a>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="linkFlag">
+                    <li>
+                        <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                            routerLink='/project-staffing' (click)="changeTitle('Project Staffing')">
+                            <span class="nav-link-title ">Project Staffing</span>
+                        </a>
+                    </li>
+                </ng-container>
+                <!-- <li><a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
+                        routerLinkActive="active" (click)="changeTitle('Project Staffing')">
+                        <span class="nav-link-title ">Project Staffing</span>
+                    </a></li>
+                <li><a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
+                        (click)="changeTitle('Project Staffing')" (click)="changeProjectLink()">
+                        <span class="nav-link-title ">Project Staffing</span>
+                    </a></li> -->
+                <!-- <ng-container *ngIf="rmId == '4'; else timecard">
+                    <li>
+                        <a class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
+                            routerLinkActive="active" (click)="changeTitle('Time Card')">
+                            <span class="nav-link-title d-flex position-relative ">
+                                Time Card
+                            </span>
+                        </a>
+                    </li>
+                </ng-container> -->
+                <ng-container *ngIf="rmId != '1' && rmId != '2'; else timecard">
+                    <li>
+                        <a *showForRoles="[ROLES.EMPAD];current:roles$ | async"
+                            class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
+                            routerLinkActive="active" (click)="changeTitle('Time Card')">
+                            <span class="nav-link-title d-flex position-relative ">
+                                Time Card
+                            </span>
+                        </a>
+                    </li>
+                </ng-container>
+                <ng-template #timecard>
+                    <li>
+                        <a *showForRoles="[ROLES.EMPAD];current:roles$ | async" (click)="timecardDropdown()"
+                            class="nav-link d-flex pl-5 py-3 d-flex flex-column">
+                            <span class="nav-link-title d-flex position-relative ">
+                                <span>Time Card</span>
+                                <span *ngIf="!dropdownFlag"
+                                    class="fa fa-angle-down angle-icon angle-down position-absolute"></span>
+                                <span *ngIf="dropdownFlag" for="submenu"
+                                    class="fa fa-angle-up angle-icon angle-up position-absolute"></span>
+                            </span>
+                        </a>
+                    </li>
+                    <div class="side-dropdown px-4 pb-4 pt-2" *ngIf="dropdownFlag">
+                        <ul class="px-0 list-unstyled">
+                            <li>
+                                <a routerLink='/hours-submission/approval' routerLinkActive="active" class="nav-link"
+                                    (click)="changeTitle('Approval')">
+                                    <span class="nav-link-title">Approve</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink='/hours-submission/member-list' routerLinkActive="active" class="nav-link"
+                                    (click)="changeTitle('Company Report')">
+                                    <span class="nav-link-title">Company Report</span>
+                                </a>
+                            </li>
+                        </ul>
+                </ng-template>
+                <!-- <li>
+                    <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet"
+                        routerLinkActive="active" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
+                        <span class="nav-link-title">Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3"
+                        routerLink="/project-staffing/staffing-sheet" (click)="changeTitle('Staffing Sheet')"
+                        (click)="changeReportLink()">
+                        <span class="nav-link-title">Report</span>
+                    </a>
+                </li> -->
+                <ng-container *ngIf="linkFlag">
+                    <li>
+                        <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                            routerLink="/project-staffing/staffing-sheet" routerLinkActive="active"
+                            (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
+                            <span class="nav-link-title">Report</span>
+                        </a>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="!linkFlag">
+                    <li>
+                        <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
+                            routerLink="/project-staffing/staffing-sheet" (click)="changeTitle('Staffing Sheet')"
+                            (click)="changeReportLink()">
+                            <span class="nav-link-title">Report</span>
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
         </nav>
     </aside>
     <!-- Ends: Side-nav -->
@@ -165,6 +198,7 @@
             </div>
         </main>
         <!-- Ends: Content-body -->
+
     </div>
     <!-- Ends: Content-wrapper -->
 </div>
