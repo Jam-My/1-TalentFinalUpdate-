@@ -1,13 +1,13 @@
 <div class="container-fluid">
-    <!-- content header  -->
+    <!--content header-->
     <div class="border-bottom my-2">
         <h2 class="role-manage">Time Cards</h2>
     </div>
-    <!-- end:content header  -->
+    <!--end:content header-->
     <!--week section-->
     <div class="weekly-hours-submission p-3">
         <form class="d-lg-flex flex-column">
-            <!-- sub header -->
+            <!--sub header-->
             <div class="row flex-shrink-0">
                 <!--project dropdown-->
                 <div class="col-12 col-lg-3 mb-2 mb-lg-0 form-group">
@@ -19,28 +19,31 @@
                     </select>
                 </div>
                 <!--end:project dropdown-->
-                <!-- calendar -->
                 <form class="col-12 col-lg-6 mb-2 mb-lg-0 d-flex justify-content-center" [formGroup]="dateForm">
+                    <!-- calendar -->
                     <div class="form-group calendar position-relative">
-                        <span for="datePicker" class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer" (click)="decrementWeek()"></span>
-                        <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019" class="form-control cursor-pointer text-center" id="datePicker" 
-                          bsDaterangepicker [bsConfig]="dateRangePickerConfig" (ngModelChange)="changeWeek()" (focusout)="getFlag()">
-                        <span for=" datePicker" class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer" (click)="incrementWeek()"></span>
+                        <span for="datePicker" class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer"
+                            (click)="decrementWeek()"></span>
+                        <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019"
+                            class="form-control cursor-pointer text-center" id="datePicker" bsDaterangepicker
+                            [bsConfig]="dateRangePickerConfig" (ngModelChange)="changeWeek()" (focusout)="getFlag()">
+                        <span for=" datePicker" class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer"
+                            (click)="incrementWeek()"></span>
                     </div>
                     <!--end:calendar -->
                 </form>
                 <!--button to download pdf-->
                 <div class="col-12 col-lg-3">
-                    <button type="button" class="btn btn-primary w-100 save-hovre"
+                    <button type="button" class="btn btn-primary w-100 btn-not-allowed"
                         *ngIf="!filteredList || filteredList.length == 0; else pdf" disabled>Download PDF</button>
                     <ng-template #pdf>
                         <button type="button" class="btn btn-primary w-100" (click)="downloadPDF()">Download
                             PDF</button>
                     </ng-template>
                 </div>
-                <!--button to download pdf-->
+                <!--end:button to download pdf-->
             </div>
-            <!-- end sub header -->
+            <!--end:sub header-->
         </form>
     </div>
     <!--end:week section-->
@@ -50,9 +53,9 @@
             <div class="table-row-heading bg-primary py-2 border">
                 <span class="text-white pl-3">Timecards for Active Projects</span>
             </div>
-            <!--Table-->
+            <!--table-->
             <table class="table role-data-table flex-column table-hover table-striped border-0" id="my-table">
-                <!-- thead -->
+                <!--thead-->
                 <thead class="bg-primary text-white whitespace-nowrap">
                     <tr>
                         <th class="table-row-heading border-0">
@@ -80,11 +83,11 @@
                         </th>
                     </tr>
                 </thead>
-                <!-- Ends: thead -->
-                <!-- tbody -->
+                <!--end:thead-->
+                <!--tbody-->
                 <tbody>
-                    <!-- Remove "d-none" from No Record Msg when you want to show this msg -->
-                    <!-- No records msg -->
+                    <!--remove "d-none" from no record msg when you want to show this msg-->
+                    <!--no records msg-->
                     <tr class="bg-transparent border-0" rowspan="2" *ngIf="!filteredList || filteredList.length == 0">
                         <td colspan="8" class="p-0 w-100 text-center">
                             <div class="alert alert-primary text-center p-3 my-3" role="alert">
@@ -92,8 +95,8 @@
                             </div>
                         </td>
                     </tr>
-                    <!-- Ends: No records msg -->
-                    <!-- Actual table row -->
+                    <!--end:no records msg-->
+                    <!--actual table row-->
                     <tr
                         *ngFor="let timecard of filteredList | slice: (currentPage * pageSize) - pageSize :currentPage * pageSize;let i=index">
                         <td class="data-table-item border-0">
@@ -129,13 +132,15 @@
                             {{timecard.remark}}
                         </td>
                     </tr>
+                    <!--end:actual table view-->
                 </tbody>
-                <!-- Ends: tbody -->
+                <!--end:tbody-->
             </table>
-            <!--end:Table-->
+            <!--end:table-->
         </div>
     </div>
-    <!-- accordion -->
+    <!--end:Timecards for active projects-->
+    <!--accordion view-->
     <div class="d-lg-none">
         <div class="table-responsive">
             <table class="table">
@@ -211,15 +216,18 @@
             </table>
         </div>
     </div>
-    <!-- Pagination -->
+    <!--end:accordion view-->
+    <!--Pagination-->
     <div class=" align-items-center py-3 pt-md-auto ">
         <div class="d-lg-flex d-none justify-content-end">
             <nav aria-label="Page-navigation">
                 <ul class="pagination bg-primary d-flex align-items-center
               border-radius mb-0">
-                    <!-- Add class "disabled" when in previous and next "li tag" -->
+                    <!--Add class "disabled" when in previous and next "li tag"-->
                     <li class="page-item" [ngClass]="{'disabled' : (currentPage === 1)}">
-                        <button class="page-link d-flex align-items-center justify-content-center border-radius border-0" aria-label="Previous" (click)="onPageChanges(currentPage - 1)">
+                        <button
+                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
+                            aria-label="Previous" (click)="onPageChanges(currentPage - 1)">
                             <span class="fa fa-chevron-left pagination-icon"></span>
                             <span class="sr-only">Previous</span>
                         </button>
@@ -228,7 +236,9 @@
                         <a class="p-3">{{ currentPage }} of {{numberOfPages()}}</a>
                     </li>
                     <li class="page-item" [ngClass]="{'disabled' : (currentPage === numberOfPages())}">
-                        <button class="page-link d-flex align-items-center justify-content-center border-radius border-0" aria-label="Next" (click)="onPageChanges(currentPage + 1)">
+                        <button
+                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
+                            aria-label="Next" (click)="onPageChanges(currentPage + 1)">
                             <span class="fa fa-chevron-right"></span>
                             <span class="sr-only">Next</span>
                         </button>
@@ -237,6 +247,5 @@
             </nav>
         </div>
     </div>
-    <!-- Ends: Pagination -->
+    <!--end:Pagination -->
 </div>
-<!-- end accordion -->

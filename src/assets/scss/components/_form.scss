@@ -1,6 +1,7 @@
 //form
 .form-control {
     outline: 0;
+
     &::placeholder {
         color: darken($light, 25%);
         font-size: $font-size-base * 0.9;
@@ -11,6 +12,7 @@
 .resignation-form {
     right: 0;
     width: $resignation-form-width;
+
     @include media-breakpoint-down(sm) {
         width: 100%;
     }
@@ -19,6 +21,7 @@
 // filter-form
 .filter-form {
     width: $filter-form-width;
+
     @include media-breakpoint-down(sm) {
         height: $filter-form-height;
         width: $filter-form-width-sm;
@@ -31,27 +34,29 @@
     top: 0;
     right: 0;
     z-index: 6;
-    @include media-breakpoint-down(xs) {
+
+    @include media-breakpoint-down(xmd) {
         width: 100%;
     }
+
     //  form control
-    #hoursApproverId,
-    #projectfild {
+    #hoursApproverId {
         padding: 0.4rem 1rem 0.4rem 2rem;
     }
-    #projectfild {
-        padding: 0.2rem 0.5rem 0.1rem 0.3rem;
-    }
+
+
     .form-control {
         &:focus {
             border-color: $gray-400;
         }
     }
+
     .calendar-icon {
         position: absolute;
         top: 6px;
         right: 16px;
     }
+
     .user-icon {
         position: absolute;
         top: 42px;
@@ -64,11 +69,14 @@
 .staff-list-head {
     .form-group {
         position: relative;
+
         &:nth-child(2) {
             width: 250px;
-            @media only screen and (max-width: 375px) {
+
+            @include media-breakpoint-down(xsm) {
                 width: 190px;
             }
+
             .list-group {
                 top: 38px;
                 width: 100%;
@@ -83,7 +91,7 @@
 }
 
 //Save Btn
-.save-hovre {
+.btn-not-allowed {
     &:disabled {
         cursor: not-allowed;
     }
@@ -92,18 +100,10 @@
 // Width of Add Client And Add Project
 .add-width {
     width: 260px;
-    @include media-breakpoint-down(sm) {
+
+    @include media-breakpoint-down(xmd) {
         width: 100%;
     }
-}
-
-.add-box {
-    right: 0;
-}
-
-// Add Project filed Btn in Project-form
-.add-project-btn {
-    height: 37px;
 }
 
 // Add role form
@@ -112,23 +112,29 @@
     top: 0;
     right: 0;
     z-index: 6;
-    @include media-breakpoint-down(xs) {
+
+    @include media-breakpoint-down(xmd) {
         width: 100%;
     }
+
     //  form control
     .form-control {
         &:focus {
             border-color: $gray-400;
         }
     }
+
     .dollar-icon {
         position: absolute;
         left: 10px;
         top: 10px;
         z-index: 1;
     }
-    .input-group>.form-control:focus {
-        z-index: 0;
+
+    .input-group {
+        &>.form-control:focus {
+            z-index: 0;
+        }
     }
 }
 
@@ -137,11 +143,14 @@
 .role-list-head {
     .form-group {
         position: relative;
+
         &:nth-child(2) {
             width: 250px;
-            @media only screen and (max-width: 375px) {
+
+            @include media-breakpoint-down(xsm) {
                 width: 190px;
             }
+
             .list-group {
                 top: 38px;
                 width: 100%;
@@ -151,18 +160,6 @@
 }
 
 //End: Role list header styles
-//hours approval week range
-.left-week-range {
-    left: 25px;
-    top: 10px;
-}
-
-.right-week-range {
-    top: 10px;
-    right: 25px;
-}
-
-//end:hours approval week range
 
 /* Chrome, Safari, Edge, Opera */
 
