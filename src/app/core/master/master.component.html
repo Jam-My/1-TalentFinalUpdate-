@@ -41,23 +41,23 @@
                         </a>
                     </li>
                 </ng-container>
-                <ng-container *ngIf="linkFlag">
+                <!-- <ng-container *ngIf="linkFlag">
                     <li>
                         <a *showForRoles="[ROLES.HR];current:roles$ | async" class="nav-link d-flex pl-5  py-3"
                             routerLink='/project-staffing' (click)="changeTitle('Project Staffing')">
                             <span class="nav-link-title ">Project Staffing</span>
                         </a>
                     </li>
-                </ng-container>
-                <!-- <li><a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
+                </ng-container> -->
+                <li><a *ngIf="!linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
                         routerLinkActive="active" (click)="changeTitle('Project Staffing')">
                         <span class="nav-link-title ">Project Staffing</span>
                     </a></li>
                 <li><a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink='/project-staffing'
                         (click)="changeTitle('Project Staffing')" (click)="changeProjectLink()">
                         <span class="nav-link-title ">Project Staffing</span>
-                    </a></li> -->
-                <!-- <ng-container *ngIf="rmId == '4'; else timecard">
+                    </a></li>
+                <ng-container *ngIf="rmId == '4'; else timecard">
                     <li>
                         <a class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
                             routerLinkActive="active" (click)="changeTitle('Time Card')">
@@ -66,8 +66,8 @@
                             </span>
                         </a>
                     </li>
-                </ng-container> -->
-                <ng-container *ngIf="rmId != '1' && rmId != '2'; else timecard">
+                </ng-container>
+                <!-- <ng-container *ngIf="rmId != '1' && rmId != '2'; else timecard">
                     <li>
                         <a *showForRoles="[ROLES.EMPAD];current:roles$ | async"
                             class="nav-link d-flex pl-5  py-3 d-flex flex-column" routerLink='/hours-submission'
@@ -77,8 +77,8 @@
                             </span>
                         </a>
                     </li>
-                </ng-container>
-                <ng-template #timecard>
+                </ng-container> -->
+                <!-- <ng-template #timecard>
                     <li>
                         <a *showForRoles="[ROLES.EMPAD];current:roles$ | async" (click)="timecardDropdown()"
                             class="nav-link d-flex pl-5 py-3 d-flex flex-column">
@@ -106,7 +106,7 @@
                                 </a>
                             </li>
                         </ul>
-                </ng-template>
+                </ng-template> -->
                 <!-- <li>
                     <a *ngIf="linkFlag" class="nav-link d-flex pl-5  py-3" routerLink="/project-staffing/staffing-sheet"
                         routerLinkActive="active" (click)="changeTitle('Staffing Sheet')" (click)="changeReportLink()">
