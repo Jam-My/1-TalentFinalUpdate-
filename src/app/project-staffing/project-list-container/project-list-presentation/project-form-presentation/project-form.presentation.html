@@ -16,20 +16,25 @@
         <!-- form field wrapper -->
         <div class="px-4 py-2 overflow-auto flex-grow-1">
             <!-- project -->
-            <input type="hidden" formControlName="subProjectId" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="hidden" formControlName="subProjectId" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
             <div class="form-group mb-3" *ngIf="project==null ; else notNull">
                 <label for="projectName">Project</label>
                 <div class="input-group">
-                    <ng-select class="border-light form-control filter-input" id="projectfild" formControlName="projectId" [items]="projectName" bindLabel="projectName" bindValue="projectId" (change)="setSubProject()">
+                    <ng-select class="border-light form-control filter-input" id="projectfild"
+                        formControlName="projectId" [items]="projectName" bindLabel="projectName" bindValue="projectId"
+                        (change)="setSubProject()">
                     </ng-select>
                     <div class="input-group-append ">
-                        <button (click)="loadMasterProjectForm(null)" class="btn btn-outline-primary add-project-btn" type="button">
-                    <i class="fa fa-plus"></i>
-                  </button>
+                        <button (click)="loadMasterProjectForm(null)" class="btn btn-outline-primary add-project-btn"
+                            type="button">
+                            <i class="fa fa-plus"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- <input type="text" formControlName="projectName" class="form-control" (keyup)="setSubProject()"> -->
-                <div *ngIf="(submitted || projectFormControls.projectId.touched) && projectFormControls.projectId.errors">
+                <div
+                    *ngIf="(submitted || projectFormControls.projectId.touched) && projectFormControls.projectId.errors">
                     <div *ngIf="projectFormControls.projectId.errors.required" class="invalid-feedback d-block">
                         <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                         <b>Project Name is required</b>
@@ -47,15 +52,19 @@
                     <label for="projectName">Project</label>
                     <!-- <input type="text" formControlName="projectName" class="form-control"> -->
                     <div class="input-group">
-                        <ng-select class="border-light form-control filter-input" id="projectfild" formControlName="projectId" [items]="projectName" bindLabel="projectName" bindValue="projectId" (change)="checkProjectChange()">
+                        <ng-select class="border-light form-control filter-input" id="projectfild"
+                            formControlName="projectId" [items]="projectName" bindLabel="projectName"
+                            bindValue="projectId" (change)="checkProjectChange()">
                         </ng-select>
                         <div class="input-group-append ">
-                            <button (click)="loadMasterProjectForm(projectForm.controls['projectId'].value)" class="btn btn-outline-primary add-project-btn" type="button">
-                <i class="fa fa-pencil"></i>
-              </button>
+                            <button (click)="loadMasterProjectForm(projectForm.controls['projectId'].value)"
+                                class="btn btn-outline-primary add-project-btn" type="button">
+                                <i class="fa fa-pencil"></i>
+                            </button>
                         </div>
                     </div>
-                    <div *ngIf="(submitted || projectFormControls.projectId.touched) && projectFormControls.projectId.errors">
+                    <div
+                        *ngIf="(submitted || projectFormControls.projectId.touched) && projectFormControls.projectId.errors">
                         <div *ngIf="projectFormControls.projectId.errors.required" class="invalid-feedback d-block">
                             <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                             <b>Project Name is required</b>
@@ -73,7 +82,8 @@
             <div class="form-group mb-3">
                 <label for="subProject">Sub Project</label>
                 <input type="text" formControlName="subProjectName" class="form-control">
-                <div *ngIf="(submitted || projectFormControls.subProjectName.touched) && projectFormControls.subProjectName.errors">
+                <div
+                    *ngIf="(submitted || projectFormControls.subProjectName.touched) && projectFormControls.subProjectName.errors">
                     <div *ngIf="projectFormControls.subProjectName.errors.required" class="invalid-feedback d-block">
                         <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                         <b>Sub-Project Name is required</b>
@@ -85,18 +95,21 @@
                 <label for="clientName">Client Name</label>
                 <!-- <input type="text" formControlName="clientName" class="form-control" id="clientName"> -->
                 <div class="input-group">
-                    <ng-select class="border-light form-control filter-input" id="projectfild" formControlName="clientId" [items]="clientName" bindLabel="clientName" bindValue="clientId">
+                    <ng-select class="border-light form-control filter-input" id="projectfild"
+                        formControlName="clientId" [items]="clientName" bindLabel="clientName" bindValue="clientId">
                     </ng-select>
                     <div class="input-group-append " *ngIf="project==null ; else isNull">
-                        <button (click)="loadClientForm(null)" class="btn btn-outline-primary add-project-btn" type="button">
-              <i class="fa fa-plus"></i>
-            </button>
+                        <button (click)="loadClientForm(null)" class="btn btn-outline-primary add-project-btn"
+                            type="button">
+                            <i class="fa fa-plus"></i>
+                        </button>
                     </div>
                     <ng-template #isNull>
                         <div class="input-group-append ">
-                            <button (click)="loadClientForm(projectForm.controls['clientId'].value)" class="btn btn-outline-primary add-project-btn" type="button">
-                <i class="fa fa-pencil"></i>
-              </button>
+                            <button (click)="loadClientForm(projectForm.controls['clientId'].value)"
+                                class="btn btn-outline-primary add-project-btn" type="button">
+                                <i class="fa fa-pencil"></i>
+                            </button>
                         </div>
                     </ng-template>
                 </div>
@@ -112,11 +125,14 @@
                 <label class="col-12 px-0" for="inputEmail4">Project Duration</label>
                 <div class="form-group col-12 px-0 position-relative">
                     <label for="fromDate" class="calendar-icon mb-0 cursor-pointer">
-            <span class="fa fa-calendar fa-lg"></span>
-          </label>
-                    <input type="text" formControlName="projectStartDate" class="form-control cursor-pointer" id="fromDate" bsDatepicker [bsConfig]='datePickerConfig' disableKeyPress>
-                    <div *ngIf="(submitted || projectFormControls.projectStartDate.touched) && projectFormControls.projectStartDate.errors">
-                        <div *ngIf="projectFormControls.projectStartDate.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-calendar fa-lg"></span>
+                    </label>
+                    <input type="text" formControlName="projectStartDate" class="form-control cursor-pointer"
+                        id="fromDate" bsDatepicker [bsConfig]='datePickerConfig' disableKeyPress>
+                    <div
+                        *ngIf="(submitted || projectFormControls.projectStartDate.touched) && projectFormControls.projectStartDate.errors">
+                        <div *ngIf="projectFormControls.projectStartDate.errors.required"
+                            class="invalid-feedback d-block">
                             <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                             <b>From Date is required</b>
                         </div>
@@ -127,17 +143,21 @@
                 </div>
                 <div class="form-group col-12 px-0 position-relative">
                     <label for="toDate" class="calendar-icon mb-0 cursor-pointer">
-            <span class="fa fa-calendar fa-lg"></span>
-          </label>
-                    <input type="text" formControlName="projectEndDate" class="form-control cursor-pointer" id="toDate" bsDatepicker [bsConfig]='datePickerConfig' disableKeyPress>
-                    <div *ngIf="(submitted || projectFormControls.projectEndDate.touched) && projectFormControls.projectEndDate.errors">
-                        <div *ngIf="projectFormControls.projectEndDate.errors.required" class="invalid-feedback d-block">
+                        <span class="fa fa-calendar fa-lg"></span>
+                    </label>
+                    <input type="text" formControlName="projectEndDate" class="form-control cursor-pointer" id="toDate"
+                        bsDatepicker [bsConfig]='datePickerConfig' disableKeyPress>
+                    <div
+                        *ngIf="(submitted || projectFormControls.projectEndDate.touched) && projectFormControls.projectEndDate.errors">
+                        <div *ngIf="projectFormControls.projectEndDate.errors.required"
+                            class="invalid-feedback d-block">
                             <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                             <b>To Date is required</b>
                         </div>
                     </div>
                 </div>
-                <div class="invalid-feedback d-block" *ngIf="projectForm?.hasError('toIsGreater') && (projectForm?.get('projectStartDate').touched || projectForm?.get('projectEndDate').touched)">
+                <div class="invalid-feedback d-block"
+                    *ngIf="projectForm?.hasError('toIsGreater') && (projectForm?.get('projectStartDate').touched || projectForm?.get('projectEndDate').touched)">
                     <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                     <b> From Date should not be Greater than To Date.</b>
                 </div>
@@ -155,10 +175,13 @@
             <!-- hours approver -->
             <div class="form-group mb-3 position-relative">
                 <label for="hoursApproverId">Hours Approver</label>
-                <ng-select class="border border-light rounded w-100 mb-2" id="hoursApproverId" [multiple]='true' formControlName="hoursApproverId" [items]="employee" bindLabel="employeeName" bindValue="employeeId">
+                <ng-select class="border border-light rounded w-100 mb-2" id="hoursApproverId" [multiple]='true'
+                    formControlName="hoursApproverId" [items]="employee" bindLabel="employeeName"
+                    bindValue="employeeId">
                 </ng-select>
                 <span class="fa fa-user user-icon fa-lg"></span>
-                <div *ngIf="(submitted || projectFormControls.hoursApproverId.touched) && projectFormControls.hoursApproverId.errors">
+                <div
+                    *ngIf="(submitted || projectFormControls.hoursApproverId.touched) && projectFormControls.hoursApproverId.errors">
                     <div *ngIf="projectFormControls.hoursApproverId.errors.required" class="invalid-feedback d-block">
                         <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                         <b>Hours Approver is required</b>
@@ -171,7 +194,8 @@
         <footer class="flex-shrink-0 px-4 py-3">
             <div class="form-footer d-flex border-top py-4">
                 <button class="btn btn-primary w-50 mr-2" (click)="closeOverlay()">Cancel</button>
-                <button type="submit" [disabled]="!projectForm.valid" class="btn btn-outline-light btn-not-allowed text-primary w-50">Save</button>
+                <button type="submit" [disabled]="!projectForm.valid"
+                    class="btn btn-outline-light btn-not-allowed text-primary w-50">Save</button>
             </div>
         </footer>
         <!--End: form footer -->
