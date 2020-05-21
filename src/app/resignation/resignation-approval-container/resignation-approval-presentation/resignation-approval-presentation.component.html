@@ -373,8 +373,7 @@
         </div>
         <!-- Ends: Eligible To Be Rehired(HR)" -->
       </ng-container>
-      <!-- Save, Edit & Initiate Exit Process Buttons 
-      Buttons only for Initiate Exit Process Portal-->
+      <!-- Save, Edit & Initiate Exit Process Buttons only for Initiate Exit Process Portal-->
       <!-- TODO initiateExitProcess-->
       <ng-container *ngIf="resignationDetails?.statusId === STATUS.AcceptedByHR">
         <div class="row no-gutters justify-content-center mt-3 p-0" *showForRoles="[ROLES.HR];current:roles">
@@ -382,7 +381,7 @@
             (click)="rejectResignation()">Save</button>
           <button class="btn btn-outline-light text-primary px-4 mr-0 mr-md-2 mb-2 mb-md-0" type="submit"
             (click)="edit()" [disabled]="(resignationDetails?.checklistStatusId >= STATUS.InProgress)">Edit</button>
-          <!-- // TODO ROUTING ERROR HERE -->
+          <!-- TODO ROUTING ERROR HERE -->
           <ng-container *ngIf="resignationDetails?.checklistStatusId === STATUS.NotStarted">
             <a class="btn btn-outline-light text-primary px-4 mb-2 mb-md-0"
               [routerLink]="[ './../../../exit-checklist/exitActivities/GetAll', employeeResignationDetails?.resignationId]">Initiate

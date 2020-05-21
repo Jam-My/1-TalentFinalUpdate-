@@ -1,4 +1,3 @@
-<!-- Created By Nitin Patel -->
 <!-- My Activity Table View -->
 
 <!-- Container-fluid -->
@@ -27,7 +26,8 @@
     <div class="flex-grow-1 d-flex flex-column overflow-hidden h-100  mb-3">
         <!-- Table-Header -->
         <div class="table-header flex-shrink-0">
-            <table class="myactivity-list-table data-table table flex-column table-hover table-striped border-0 w-100 mb-0">
+            <table
+                class="myactivity-list-table data-table table flex-column table-hover table-striped border-0 w-100 mb-0">
                 <thead class="bg-primary text-white whitespace-nowrap w-100">
                     <tr>
                         <th class="table-row-heading border-0">Sr No.</th>
@@ -64,7 +64,8 @@
                         <td class="data-table-item border-0">{{activity.activityName}}</td>
                         <td class="data-table-item border-0">{{activity.domainName}}</td>
                         <td class="data-table-item border-0">{{activity.assignedTo}}</td>
-                        <td class="data-table-item border-0">{{(activity.lastUpdatedOn | date:"dd/MM/yyyy") || 'NA'}}</td>
+                        <td class="data-table-item border-0">{{(activity.lastUpdatedOn | date:"dd/MM/yyyy") || 'NA'}}
+                        </td>
                         <td class="data-table-item border-0 text-uppercase border-0 text-center">
                             <span class="badge text-white w-100 py-2 px-4" statusColor [status]="activity.status">
                                 {{activity.statusName}}

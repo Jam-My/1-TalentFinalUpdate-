@@ -1,46 +1,40 @@
-<!-- Created By Chaitali Merai -->
-
 <!-- Modal -->
 <div class="modal d-block show fade position-static" tabindex="-1" role="dialog" aria-labelledby="feedbackModal"
     data-backdrop="true">
-    <!-- Modal-Dialog -->
-    <div class="modal-dialog">
-        <!-- Modal-Content -->
-        <div class="modal-content">
-            <!-- Modal-Header -->
-            <div class="modal-header">
-                <div class="d-flex flex-column">
-                    <h5 class="modal-title position-relative">Feedback</h5>
-                    <h5 class="w-50 mt-1 mb-0 bg-white border border-primary"></h5>
-                </div>
-                <button type="button" class="close" aria-label="Close" (click)="dismiss()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <!-- Modal-Dialog-Content -->
+    <div class="modal-dialog modal-content">
+        <!-- Modal-Header -->
+        <div class="modal-header">
+            <div class="d-flex flex-column">
+                <h5 class="modal-title position-relative">Feedback</h5>
+                <h5 class="w-50 mt-1 mb-0 bg-white border border-primary"></h5>
             </div>
-            <!-- Ends: Modal-Header -->
-            <!-- Modal-Body -->
-            <div class="modal-body">
-                <div class="text-primary font-size-sm">Share your feedback, working with
-                    <span class="text-danger font-weight-bold">1</span><span class="font-weight-bold">Rivet</span>
-                </div>
-                <form [formGroup]="feedBackForm">
-                    <textarea formControlName="feedback" id="feedback-reason" cols="20" rows="3"
-                        class="border border-light rounded w-100 mt-2"></textarea>
-                    <div class="invalid-feedback d-block pb-2" *ngIf="feedBack.errors && feedBack.touched">
-                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
-                        <span>Feedback field must be between 25 to 250 characters</span>
-                    </div>
-                    <div class="row mt-2">
-                        <!-- TODO: Toaster Message --message: "Feedback saved successfully"  -->
-                        <button class="btn btn-primary px-4 ml-auto" (click)="sendFeedBack()">Save</button>
-                        <button class="btn btn-outline-light text-primary px-4 mx-3" (click)="dismiss()">Cancel</button>
-                    </div>
-                </form>
-            </div>
-            <!-- Ends: Modal-Body -->
+            <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <!-- Ends: Modal-Content -->
+        <!-- Ends: Modal-Header -->
+        <!-- Modal-Body -->
+        <div class="modal-body">
+            <div class="text-primary font-size-sm">Share your feedback, working with
+                <span class="text-danger font-weight-bold">1</span><span class="font-weight-bold">Rivet</span>
+            </div>
+            <form [formGroup]="feedBackForm">
+                <textarea formControlName="feedback" id="feedback-reason" cols="20" rows="3"
+                    class="border border-light rounded w-100 mt-2"></textarea>
+                <div class="invalid-feedback d-block pb-2" *ngIf="feedBack.errors && feedBack.touched">
+                    <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                    <span>Feedback field must be between 25 to 250 characters</span>
+                </div>
+                <div class="row mt-2">
+                    <!-- TODO: Toaster Message --message: "Feedback saved successfully"  -->
+                    <button class="btn btn-primary px-4 ml-auto" (click)="sendFeedBack()">Save</button>
+                    <button class="btn btn-outline-light text-primary px-4 mx-3" (click)="dismiss()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <!-- Ends: Modal-Body -->
     </div>
-    <!-- Ends: Modal-Dialog -->
+    <!-- Ends: Modal-Dialog-Content -->
 </div>
 <!-- Ends: Modal -->
