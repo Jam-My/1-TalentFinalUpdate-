@@ -1,0 +1,33 @@
+// global properties
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-weight: $font-weight-normal;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+}
+
+.w-250 {
+    width: 250px;
+}
+
+.w-80 {
+    width: 80px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.font-size-sm {
+    font-size: $font-size-base * 0.9;
+}
+
+.font-size-lg {
+    font-size: $font-size-base * 1.2;
+}
+
+.border-radius {
+    border-radius: $border-radius;
+}

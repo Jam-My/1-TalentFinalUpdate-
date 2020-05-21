@@ -1,0 +1,31 @@
+//google fonts
+@import "https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap";
+
+//  base file
+@import "~src/assets/scss/base/index";
+
+// Vendor base and component style import
+@import '~src/assets/scss/vendor/bootstrap-base';
+
+@import '~src/assets/scss/vendor/bootstrap-components';
+
+// components file
+@import "~src/assets/scss/components/index";
+
+// layout file
+@import "~src/assets/scss/layout/index";
+
+// Ngx-Bootstrap datepicker
+@import '~ngx-bootstrap/datepicker/bs-datepicker';
+
+//Datepicker
+@import "~src/assets/scss/vendor/datepicker";
+
+//Select(dropdown)
+@import "~src/assets/scss/vendor/select";
+
+// CDK css
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+//toaster Scss
+@import '~ngx-toastr/toastr';

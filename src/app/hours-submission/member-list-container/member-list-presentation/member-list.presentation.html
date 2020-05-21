@@ -1,0 +1,251 @@
+<div class="container-fluid">
+    <!--content header-->
+    <div class="border-bottom my-2">
+        <h2 class="role-manage">Time Cards</h2>
+    </div>
+    <!--end:content header-->
+    <!--week section-->
+    <div class="weekly-hours-submission p-3">
+        <form class="d-lg-flex flex-column">
+            <!--sub header-->
+            <div class="row flex-shrink-0">
+                <!--project dropdown-->
+                <div class="col-12 col-lg-3 mb-2 mb-lg-0 form-group">
+                    <select class="form-control text-capitalize" [(ngModel)]="selectedProject"
+                        [ngModelOptions]="{standalone: true}" (change)="changeProject()">
+                        <option value="null" disabled>--- Select Project ---</option>
+                        <option *ngFor="let projectList of projectDetail" value="{{projectList.subProjectId}}">
+                            {{projectList.subProjectName}}</option>
+                    </select>
+                </div>
+                <!--end:project dropdown-->
+                <form class="col-12 col-lg-6 mb-2 mb-lg-0 d-flex justify-content-center" [formGroup]="dateForm">
+                    <!-- calendar -->
+                    <div class="form-group calendar position-relative">
+                        <span for="datePicker" class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer"
+                            (click)="decrementWeek()"></span>
+                        <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019"
+                            class="form-control cursor-pointer text-center" id="datePicker" bsDaterangepicker
+                            [bsConfig]="dateRangePickerConfig" (ngModelChange)="changeWeek()" (focusout)="getFlag()">
+                        <span for=" datePicker" class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer"
+                            (click)="incrementWeek()"></span>
+                    </div>
+                    <!--end:calendar -->
+                </form>
+                <!--button to download pdf-->
+                <div class="col-12 col-lg-3">
+                    <button type="button" class="btn btn-primary w-100 btn-not-allowed"
+                        *ngIf="!filteredList || filteredList.length == 0; else pdf" disabled>Download PDF</button>
+                    <ng-template #pdf>
+                        <button type="button" class="btn btn-primary w-100" (click)="downloadPDF()">Download
+                            PDF</button>
+                    </ng-template>
+                </div>
+                <!--end:button to download pdf-->
+            </div>
+            <!--end:sub header-->
+        </form>
+    </div>
+    <!--end:week section-->
+    <!--Timecards for active projects-->
+    <div class="no-gutters my-lg-0 my-3">
+        <div class="table-responsive d-lg-block d-none">
+            <div class="table-row-heading bg-primary py-2 border">
+                <span class="text-white pl-3">Timecards for Active Projects</span>
+            </div>
+            <!--table-->
+            <table class="table role-data-table flex-column table-hover table-striped border-0" id="my-table">
+                <!--thead-->
+                <thead class="bg-primary text-white whitespace-nowrap">
+                    <tr>
+                        <th class="table-row-heading border-0">
+                            <span>Number</span>
+                        </th>
+                        <th class="table-row-heading border-0 ">
+                            <span>Project</span>
+                        </th>
+                        <th class="table-row-heading border-0">
+                            <span>User</span>
+                        </th>
+                        <th class="table-row-heading border-0">
+                        </th>
+                        <th class="table-row-heading border-0">
+                            <span>Hours</span>
+                        </th>
+                        <th class="table-row-heading border-0">
+                            <span>Approved By RM1</span>
+                        </th>
+                        <th class="table-row-heading border-0">
+                            <span>Approved By RM2</span>
+                        </th>
+                        <th class="table-row-heading border-0">
+                            <span>Comments</span>
+                        </th>
+                    </tr>
+                </thead>
+                <!--end:thead-->
+                <!--tbody-->
+                <tbody>
+                    <!--remove "d-none" from no record msg when you want to show this msg-->
+                    <!--no records msg-->
+                    <tr class="bg-transparent border-0" rowspan="2" *ngIf="!filteredList || filteredList.length == 0">
+                        <td colspan="8" class="p-0 w-100 text-center">
+                            <div class="alert alert-primary text-center p-3 my-3" role="alert">
+                                No records found.
+                            </div>
+                        </td>
+                    </tr>
+                    <!--end:no records msg-->
+                    <!--actual table row-->
+                    <tr
+                        *ngFor="let timecard of filteredList | slice: (currentPage * pageSize) - pageSize :currentPage * pageSize;let i=index">
+                        <td class="data-table-item border-0">
+                            <span>{{i+1}}</span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span>{{timecard.subProjectName}}</span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span class="text-secondary">{{timecard.employeeName}}</span>
+                        </td>
+                        <td class="data-table-item border-0">
+                        </td>
+                        <td class="data-table-item border-0">
+                            <span class="font-weight-bold">{{timecard.totalHours}}</span>
+                        </td>
+                        <td class="data-table-item border-0 font-weight-bold ">
+                            <span class="text-success"
+                                *ngIf="timecard.approvalStatusId==2 || timecard.approvalStatusId==4; else rm1">100%</span>
+                            <ng-template #rm1>
+                                <span class="text-success">0%</span>
+                            </ng-template>
+                            <span class="fa fa-check-circle"></span>
+                        </td>
+                        <td class="data-table-item border-0 font-weight-bold">
+                            <span class="text-success" *ngIf="timecard.approvalStatusId==4; else rm2">100%</span>
+                            <ng-template #rm2>
+                                <span class="text-success">0%</span>
+                            </ng-template>
+                            <span class="fa fa-check-circle"></span>
+                        </td>
+                        <td class="data-table-item border-0">
+                            {{timecard.remark}}
+                        </td>
+                    </tr>
+                    <!--end:actual table view-->
+                </tbody>
+                <!--end:tbody-->
+            </table>
+            <!--end:table-->
+        </div>
+    </div>
+    <!--end:Timecards for active projects-->
+    <!--accordion view-->
+    <div class="d-lg-none">
+        <div class="table-responsive">
+            <table class="table">
+                <thead *ngIf="!filteredList || filteredList.length == 0">
+                    <tr class="bg-transparent border-0" rowspan="2">
+                        <td colspan="8" class="p-0 w-100 text-center">
+                            <div class="alert alert-primary text-center p-3 my-3" role="alert">
+                                No records found.
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+                <ng-container *ngFor="let timecard of filteredList; let i=index">
+                    <thead>
+                        <tr class="accordion-toggle collapsed bg-primary" id="accordion1" data-toggle="collapse"
+                            data-parent="#accordion1" href="#collapseOne">
+                            <td class="text-white"><span>{{timecard.employeeName}}</span></td>
+                            <td *ngIf="showHideAaccordion != i" class="text-white cursor-pointer text-center"
+                                (click)="showHideData(i)">
+                                <span class="fa fa-plus"></span>
+                            </td>
+                            <td *ngIf="showHideAaccordion == i" class="text-white cursor-pointer text-center"
+                                (click)="showHideData(i)">
+                                <span class="fa fa-minus"></span>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-light">
+                        <tr class="hide-table-padding">
+                            <td colspan="3" *ngIf="showHideAaccordion == i">
+                                <div id="collapseOne" class="collapse p-3 show bg">
+                                    <div class="row">
+                                        <div class="col-6">Project</div>
+                                        <div class="col-6">{{timecard.subProjectName}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">User</div>
+                                        <div class="col-6">{{timecard.employeeName}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">Hours</div>
+                                        <div class="col-6">{{timecard.totalHours}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">Approved By RM1</div>
+                                        <div class="col-6"><span class="text-success"
+                                                *ngIf="timecard.approvalStatusId==2 || timecard.approvalStatusId==4; else rm1">100%</span>
+                                            <ng-template #rm1>
+                                                <span class="text-success">0%</span>
+                                            </ng-template>
+                                            <span class="fa fa-check-circle"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">Approved By RM2</div>
+                                        <div class="col-6"><span class="text-success"
+                                                *ngIf="timecard.approvalStatusId==4; else rm2">100%</span>
+                                            <ng-template #rm2>
+                                                <span class="text-success">0%</span>
+                                            </ng-template>
+                                            <span class="fa fa-check-circle"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">Comments</div>
+                                        <div class="col-6">{{timecard.remark}}</div>
+                                    </div>
+                                </div>
+                            </td>
+                    </tbody>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+    <!--end:accordion view-->
+    <!--Pagination-->
+    <div class=" align-items-center py-3 pt-md-auto ">
+        <div class="d-lg-flex d-none justify-content-end">
+            <nav aria-label="Page-navigation">
+                <ul class="pagination bg-primary d-flex align-items-center
+              border-radius mb-0">
+                    <!--Add class "disabled" when in previous and next "li tag"-->
+                    <li class="page-item" [ngClass]="{'disabled' : (currentPage === 1)}">
+                        <button
+                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
+                            aria-label="Previous" (click)="onPageChanges(currentPage - 1)">
+                            <span class="fa fa-chevron-left pagination-icon"></span>
+                            <span class="sr-only">Previous</span>
+                        </button>
+                    </li>
+                    <li class="page-item text-white">
+                        <a class="p-3">{{ currentPage }} of {{numberOfPages()}}</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{'disabled' : (currentPage === numberOfPages())}">
+                        <button
+                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
+                            aria-label="Next" (click)="onPageChanges(currentPage + 1)">
+                            <span class="fa fa-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--end:Pagination -->
+</div>

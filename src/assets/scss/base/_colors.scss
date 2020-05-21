@@ -1,0 +1,30 @@
+// -------------colors ------------//
+$white:     #ffffff;
+$gray-100:  #dadde5;
+$gray-200:  #adb3c6;
+$black:     #000000;
+$blue:      #2378ff;
+$dark-blue: #28334b;
+$green:     #23d692;
+$orange:    #ff8e56;
+$yellow:    #fac545;
+$red:       #ff4d66;
+
+$primary:    $dark-blue;
+$secondary:  $blue;
+$success:    $green;
+$info:       $orange;
+$warning:    $yellow;
+$danger:     $red;
+$light:      $gray-100;
+$dark:       $gray-200;
+
+// Datepicker color
+$theme-list: (
+  "green": $primary
+);
+
+//Pagination 
+$pagination-color: $white;
+$pagination-hover-color: $primary;
+$pagination-hover-bg: $white;

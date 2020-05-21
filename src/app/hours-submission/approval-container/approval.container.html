@@ -1,0 +1,7 @@
+<approval-presentation-ui 
+    [approval]='approval$  | async'
+    [project]='projectList$  | async'
+    (saveApproval)="saveApproval($event)"
+    (changeProjectName)="changeProjectName($event)"
+>
+</approval-presentation-ui>

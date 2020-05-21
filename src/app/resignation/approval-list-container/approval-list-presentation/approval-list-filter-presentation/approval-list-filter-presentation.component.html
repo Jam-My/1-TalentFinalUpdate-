@@ -1,0 +1,100 @@
+<!-- HR/RM Portal Filter View  -->
+<div class="dropdown bg-white position-relative border-radius">
+    <!--form-->
+    <form class="filter-box overflow-auto" [formGroup]="filterForm">
+        <div class="filter-form p-4">
+            <div class="form-row">
+                <!--From-To date filter-->
+                <div class="form-group col-12 col-md-6">
+                    <label for="inputDateFrom" class="form-control-label text-primary">From</label>
+                    <div class="border border-light d-flex align-items-center text-primary rounded  w-100">
+                        <input formControlName="fromDate" type="text" class="form-control border-0 w-100"
+                            id="inputDateFrom" bsDatepicker [bsConfig]='datePickerConfig' disableKeyPress>
+                        <label for="inputDateFrom" class="fa fa-calendar fa-lg cursor-pointer mr-2 mb-0"></label>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="inputDateTo" class="form-control-label text-primary">To</label>
+                    <div class="border border-light text-primary d-flex align-items-center  rounded w-100">
+                        <input formControlName="toDate" type="text" class="form-control  border-0 w-100"
+                            id="inputDateTo" bsDatepicker disableKeyPress [bsConfig]='datePickerConfig'>
+                        <label for="inputDateTo" class="fa fa-calendar cursor-pointer fa-lg mr-2 mb-0"></label>
+                    </div>
+                </div>
+                <div class="invalid-feedback d-block ml-1 mb-2" *ngIf='filterForm.hasError("toIsGreater")'>
+                    <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                    <span> From Date should not be Greater than To Date.</span>
+                </div>
+                <!--end:From-To date filter-->
+            </div>
+            <label class="form-control-label text-primary mb-2">Filter by</label>
+            <div class="form-row">
+                <!--dropdowns-->
+                <div class="form-group col-12">
+                    <select formControlName="domainName" id="inputDomain"
+                        class="bg-white cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value="" selected disabled hidden>Select Domain</option>
+                        <option class="text-primary" *ngFor="let domain of domains" [value]="domain">{{domain}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-12">
+                    <select formControlName="technologyName" id="inputTechnology"
+                        class="bg-white cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value="" selected disabled hidden>Select Technology</option>
+                        <option class="text-primary" *ngFor="let technology of technologies" [value]="technology">
+                            {{technology}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-12">
+                    <select formControlName="designation" id="inputDesignation"
+                        class="bg-white cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value="" selected disabled hidden>Select Designation</option>
+                        <option class="text-primary" *ngFor="let designation of designations" [value]="designation">
+                            {{designation}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-12">
+                    <select formControlName="resignationStatusId" id="inputStatus"
+                        class="filter-dropdown cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value="" selected disabled hidden>Select Status</option>
+                        <option class="text-primary" *ngFor="let status of statuses" [value]="status.statusId">
+                            {{status.statusName}}
+                        </option>
+                    </select>
+                </div>
+                <!--end:dropdowns-->
+            </div>
+            <label class="form-control-label text-primary mb-2">Search by</label>
+            <div class="form-row">
+                <!--search block-->
+                <div class="form-group col-12 col-md-6">
+                    <input formControlName="employeeName" type="text"
+                        class="form-control text-primary border border-light w-100" placeholder="Employee name here"
+                        id="inputDate1">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <input formControlName="employeeCode" type="text"
+                        class="form-control text-primary border border-light w-100" placeholder="Employee code here"
+                        id="inputDate2">
+                </div>
+                <!--end:search block-->
+            </div>
+            <div class="row  mb-3 mb-md-0">
+                <!--Search & reset button-->
+                <div
+                    class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 pr-md-1 pb-2 pb-md-0">
+                    <button class="btn btn-primary w-50" (click)="applyFilterOptions()">Search
+                    </button>
+                </div>
+                <!--end:Search & reset button-->
+                <!--reset Filter button-->
+                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 pl-md-1">
+                    <button class="btn btn-outline-light w-50 text-primary" value="reset" (click)="resetForm()">Reset
+                    </button>
+                </div>
+                <!--end:reset Filter button-->
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<role-list-presentation-ui
+    [project]='project$  | async' 
+    [staffing]="staffing$ | async" 
+    [roles]="roles$ | async" 
+    [technologies]="technology$ | async"
+    [payCycle]="payCycle$ | async"
+    [locations]="location$ | async" 
+    [employeeList] = "employeeList$ | async"
+    
+    (addRole)="addRole($event)" 
+    (updateStaff)="updateStaff($event)" 
+    (technologyId)="technologyId($event)"
+    (deleteStaff)="deleteStaff($event)"
+     >
+</role-list-presentation-ui>

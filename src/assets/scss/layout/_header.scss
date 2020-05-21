@@ -1,0 +1,33 @@
+// Header
+.header {
+  height: $header-height;
+  background-color: lighten($primary, 7%);
+  .header-title {
+    z-index: 5;
+    &::before {
+      content: attr(data-attribute);
+      font-size: $font-size-lg;
+      color: lighten($primary, 50%);
+      position: absolute;
+      left: -2px;
+      font-weight: $font-weight-normal;
+      bottom: -11px;
+      z-index: -1;
+      opacity: 0.1;
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+  .mail-notification {
+    top: -9px;
+    left: 25px;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-light;
+    border: 2px solid lighten($primary, 7%);
+  }
+  .user-profile {
+    width: $user-profile-width;
+    height: $user-profile-height;
+  }
+}

@@ -1,0 +1,100 @@
+// Filter Dropdown
+.filter-box {
+    overflow-x: hidden;
+    overflow-y: auto;
+    &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 25px;
+        top: -14px;
+        border-width: 0 20px 20px 20px;
+        border-style: solid;
+        border-color: $white transparent;
+        z-index: -1;
+    }
+}
+
+.select-option {
+    color: lighten($primary, 20%);
+    font-size: $font-size-base;
+}
+
+//Add Client And Add Project Dropdown
+.add-client-box {
+    position: absolute;
+    right: 20px;
+    top: 325px;
+    @media only screen and (max-width: 425px) {
+        right: 20px;
+        left: 20px;
+    }
+    &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 20px;
+        top: -14px;
+        border-width: 0 20px 20px 20px;
+        border-style: solid;
+        border-color: $white transparent;
+        z-index: -1;
+    }
+}
+
+.add-project-box {
+    position: absolute;
+    right: 20px;
+    top: 155px;
+    @media only screen and (max-width: 425px) {
+        right: 20px;
+        left: 20px;
+    }
+    &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 20px;
+        top: -14px;
+        border-width: 0 20px 20px 20px;
+        border-style: solid;
+        border-color: $white transparent;
+        z-index: -1;
+    }
+}
+
+// ng-select Dropdown
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 8px 10px;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+    color: #333;
+    background-color: #bbbbbb;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked .ng-option-label {
+    font-weight: 600;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    background-color: #cccccc;
+    color: #333;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-disabled {
+    color: #ccc;
+}
+
+// Side-Bar Dropdown 
+.angle-icon {
+    left: 160px;
+}
+

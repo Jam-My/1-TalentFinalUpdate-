@@ -1,0 +1,13 @@
+"auth-policy": "^7.1.0-2"
+
+
+npm config set registry http://103.249.120.58:8081/repository/npm_group_1rpp/
+
+
+npm config set registry https://registry.npmjs.org/
+
+
+loader Service implementation(interceptor)
+separate Branch 
+bsdatepicker to disable input   
+directive for roles

@@ -1,0 +1,21 @@
+.bs-datepicker {
+  margin-left: 30px;
+  border-radius: $border-radius;
+  margin-top: 5px;
+  .bs-datepicker-container {
+    padding: 0;
+  }
+}
+
+.bs-datepicker-body {
+  table {
+    td {
+      span {
+        border-radius: $border-radius;
+      }
+    }
+  }
+}
+@each $name, $color in $theme-list {
+  @include theming($name, $color);
+}

@@ -1,0 +1,209 @@
+<!-- Resignation Screen -->
+<div class="container-fluid content-bg d-flex flex-column w-100 h-100 p-0">
+    <!-- Content-header -->
+    <div class="content-header d-flex align-items-center justify-content-end border-bottom p-3">
+        <button type="button" class="btn bg-primary text-white mr-2" aria-pressed="true"
+            routerLink='/resignation/approval-list' *showForRoles="[ROLES.HR,ROLES.RM];current:roles">
+            <span>Approval</span>
+        </button>
+        <ng-container *ngIf="status; else elseTemplate">
+            <div
+                *statusBasedButton="[ STATUS.RejectedByRM , STATUS.Revoked , STATUS.RejectedByHR];current:statuses[status]">
+                <button for="apply-btn" class="btn bg-primary text-white mb-0" (click)="applyForResignation()">
+                    <span> Apply</span>
+                </button>
+            </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <button for="apply-btn" class="btn bg-primary text-white mb-0" (click)="applyForResignation()">
+                <span> Apply</span>
+            </button>
+        </ng-template>
+    </div>
+    <!-- End: Content-header -->
+    <!-- Content-body -->
+    <div class="content-body overflow-auto w-100 h-100 ">
+        <div class="h-100" *ngIf="!resignationDetails">
+            <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                <h4 class="text-primary text-center font-weight-bold">You don't have any Resignation Application.</h4>
+            </div>
+        </div>
+        <!-- Resignation Detail Cards -->
+        <ng-container *ngIf="resignationDetails">
+            <div class="container-fluid d-flex flex-column w-100 h-100 p-4">
+                <div *ngFor="let details of resignationDetails | reverse ">
+                    <!-- Card -->
+                    <div class="card border-0 mb-4">
+                        <!-- Card Header -->
+                        <div class="card-header bg-white border-bottom-0">
+                            <div class="row no-gutters flex-wrap flex-md-nowrap">
+                                <!-- Status -->
+                                <div class="col-12 col-md-9 ">
+                                    <div class="d-flex justify-content-start w-100">
+                                        <div class=" badge text-white py-2 px-4" statusColor
+                                            [status]="statuses[details.status]">
+                                            {{details.status || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Checklist status -->
+                                <div
+                                    class="col-12 col-md-3 d-flex flex-column  align-items-start align-items-md-end mt-2">
+                                    <div class="d-flex flex-column align-items-start align-items-md-center">
+                                        <button type="button" class="btn btn-link text-secondary p-0"
+                                            title="View checklist status">
+                                            View Checklist Status
+                                        </button>
+                                        <div class=" badge text-white py-2 px-4 mt-1" statusColor
+                                            [status]="details.exitStatusId">
+                                            {{statuses[details.exitStatusId] || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card-Body -->
+                            <div class="card-body pt-0">
+                                <!-- Approved date -->
+                                <div class="row no-gutters py-3">
+                                    <div class="col-md-9 d-flex align-items-center">
+                                        <div class="card-field-title w-250 pr-3">
+                                            Approved Relieving Date
+                                        </div>
+                                        <div class="card-field-value">
+                                            {{details.resignationApprovalDate | date:"dd/MM/yyyy" || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Duration info - All importatnt dates here -->
+                                <div
+                                    class="row no-gutters text-primary justify-content-around flex-wrap flex-xl-nowrap border border-radius p-3 mt-1 pr-md-0 mr-sm-0 ">
+                                    <div class=" duration-area d-flex flex-column w-100 py-1 ">
+                                        <div class="card-field-title font-weight-bold font-size-sm text-uppercase mb-1">
+                                            Raised on </div>
+                                        <div class="card-field-value mt-auto font-size-lg ">
+                                            {{details.requestDate | date:"dd/MM/yyyy" || "NA"}}
+                                        </div>
+                                    </div>
+                                    <div class="duration-area d-flex flex-column w-100 py-1 ">
+                                        <div
+                                            class="card-field-title font-weight-bold font-size-sm text-uppercase mb-1 ">
+                                            Proposed Relieving Date </div>
+                                        <div class="card-field-value mt-auto font-size-lg  ">
+                                            {{details.resignationRequestDate | date:"dd/MM/yyyy" || "NA"}}
+                                        </div>
+                                    </div>
+                                    <div class="duration-area d-flex flex-column w-100 py-1   ">
+                                        <div class="card-field-title font-weight-bold font-size-sm text-uppercase mb-1">
+                                            Onboarding Notice Period </div>
+                                        <div class="card-field-value mt-auto font-size-lg ">
+                                            {{details.onBoardingNoticePeriod + " Days" || "NA"}}
+                                        </div>
+                                    </div>
+                                    <div class="duration-area d-flex flex-column w-100 py-1  ">
+                                        <div class="card-field-title font-weight-bold font-size-sm text-uppercase mb-1">
+                                            Proposed Notice Period
+                                        </div>
+                                        <div class="card-field-value mt-auto font-size-lg ">
+                                            {{details.proposedNoticePeriod + " Days" || "NA"}}
+                                        </div>
+                                    </div>
+                                    <div class="duration-area d-flex flex-column w-100 py-1    ">
+                                        <div
+                                            class="card-field-title font-weight-bold font-size-sm text-uppercase mb-1 w-250">
+                                            Apporved Notice Period
+                                        </div>
+                                        <div class="card-field-value mt-auto font-size-lg ">
+                                            {{(details.approvedNoticePeriod) || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Concern Person -->
+                                <div class="row no-gutters border-bottom py-3">
+                                    <div class="col  d-flex flex-wrap flex-md-nowrap ">
+                                        <div
+                                            class="card-field-title d-flex justify-content-between flex-shrink-0 w-250  pr-3 ">
+                                            Concern Person
+                                        </div>
+                                        <div class="card-field-value">
+                                            {{details.ccPersons || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Reason for releving -->
+                                <div class="row no-gutters border-bottom py-3">
+                                    <div class="col d-flex align-items-center flex-wrap flex-md-nowrap ">
+                                        <div
+                                            class="card-field-title d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+                                            Reason of Relieving
+                                        </div>
+                                        <div class="card-field-value text-break rounded">
+                                            {{details.resignationReason || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- RM remarks -->
+                                <div class="row no-gutters py-3">
+                                    <div class="col d-flex flex-wrap flex-md-nowrap">
+                                        <div
+                                            class="card-field-title d-flex align-items-center justify-content-between flex-shrink-0 w-250 pr-3">
+                                            RM Remarks
+                                        </div>
+                                        <div class="card-field-value rounded">
+                                            {{details.rmRemarks|| "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- HR remarks -->
+                                <div class="row no-gutters  py-3">
+                                    <div class="col d-flex flex-wrap flex-md-nowrap">
+                                        <div
+                                            class="card-field-title d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+                                            HR Remarks
+                                        </div>
+                                        <div class="card-field-value rounded">
+                                            {{details.hrRemarks || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Feedback -->
+                                <div class="row no-gutters  py-3">
+                                    <div class="col d-flex flex-wrap flex-md-nowrap">
+                                        <div
+                                            class="card-field-title d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+                                            Feedback
+                                        </div>
+                                        <div class="card-field-value rounded">
+                                            {{details.feedback || "NA"}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Revoked Resason -->
+                                <div class="row no-gutters  py-3"
+                                    *statusBasedButton="[STATUS.Revoked];current:details?.status">
+                                    <div class="col d-flex flex-wrap flex-md-nowrap">
+                                        <div
+                                            class="card-field-title d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+                                            Revoked Reason
+                                        </div>
+                                        <div class="card-field-value rounded">
+                                            {{details.revokeReason}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Revoke button -->
+                                <div class="row no-gutters p-0"
+                                    *statusBasedButton="[STATUS.Initiated , STATUS.AcceptedByRM];current:statuses[details?.status]">
+                                    <button (click)="openRevokeResignationForm()"
+                                        class="btn btn-primary px-4 ml-auto ">Revoke</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ends : Card -->
+            </div>
+        </ng-container>
+    </div>
+    <!-- End: Content-body -->
+</div>
+<!-- Ends: Resignation-screen -->

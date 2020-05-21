@@ -1,0 +1,103 @@
+<!-- HR/RM Portal List View  -->
+<div class="container-fluid d-flex flex-column rounded-lg overflow-auto w-100 h-100">
+    <!-- Filter Button -->
+    <div class="row justify-content-end align-items-center my-3">
+        <button type="button" class="btn btn-primary mx-3" (click)="openFilterOptions()" #filterButton>
+            Filter
+            <span class="fa fa-filter ml-2" aria-hidden="true"></span>
+        </button>
+    </div>
+    <!-- Ends: Filter Button -->
+    <div class="row no-gutters">
+        <div class="table-responsive w-100">
+            <table class="table data-table flex-column table-hover table-striped border-0 w-100">
+                <!-- thead -->
+                <thead class="bg-primary text-white whitespace-nowrap w-100">
+                    <tr>
+                        <th class="table-row-heading border-0">Employee Name-Code</th>
+                        <th class="table-row-heading border-0">Domain-Technology</th>
+                        <th class="table-row-heading border-0">Designation</th>
+                        <th class="table-row-heading border-0">Raised On</th>
+                        <th class="table-row-heading border-0">Approved Relieving Date</th>
+                        <th
+                            class="table-row-heading text-center d-flex justify-content-center align-items-center border-0">
+                            Status</th>
+                        <th class="table-row-heading text-center border-0">Action</th>
+                    </tr>
+                </thead>
+                <!-- End: thead -->
+                <!-- tbody -->
+                <tbody>
+                    <!-- No records msg -->
+                    <tr class="bg-transparent border-0" rowspan="10" *ngIf="!resignationDetailsList">
+                        <td colspan="7" class="p-0">
+                            <div class="alert alert-primary text-primary text-center p-3 my-3" role="alert">
+                                No records found.
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Ends: No records msg -->
+                    <tr class="cursor-pointer" *ngFor="let request of resignationDetailsList;"
+                        [routerLink]="['/resignation/approval/',request.resignationId]">
+                        <td class="data-table-item border-0 ">{{request?.employeeName}}-{{request.employeeCode}}
+                        </td>
+                        <td class="data-table-item border-0">{{request.domainName}}-{{request.technologyName}}</td>
+                        <td class="data-table-item border-0 ">{{request.designationName}}</td>
+                        <td class="data-table-item border-0 ">{{request.raisedOnDate | date:"dd/MM/yyyy"}}</td>
+                        <td class="data-table-item border-0">
+                            {{(request.resignationApprovedDate | date:"dd/MM/yyyy") || 'NA'}}</td>
+                        <td class="data-table-item border-0 d-flex justify-content-center">
+                            <span class="badge text-white py-2 px-4 w-100" statusColor
+                                [status]="request.resignationStatusId">
+                                {{request.resignationStatus}}
+                            </span>
+                        </td>
+                        <td class="data-table-item border-0 text-center">
+                            <span class="fa fa-pencil-square-o fa-lg text-primary"></span>
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- End: tbody -->
+            </table>
+        </div>
+        <!-- End: Table -->
+    </div>
+    <!-- Pagination -->
+    <div class="row no-gutters align-items-center py-3 pt-md-auto">
+        <div class="col-12 d-flex justify-content-end">
+            <nav aria-label="Page-navigation">
+                <ul class="pagination bg-primary d-flex align-items-center mb-0">
+                    <li class="page-item" [ngClass]="{'disabled': filterFormData.pageNumber === 1}">
+                        <button
+                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
+                            aria-label="Previous" (click)="onPageChange(filterFormData.pageNumber-1)"
+                            [disabled]="filterFormData.pageNumber === 1">
+                            <span class="fa fa-chevron-left pagination-icon"></span>
+                            <span class="sr-only">Previous</span>
+                        </button>
+                    </li>
+                    <li class="text-white">
+                        <a class="p-3">{{filterFormData.pageNumber}}</a>
+                    </li>
+                    <li>
+                        <button
+                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
+                            aria-label="Next" (click)="onPageChange(filterFormData.pageNumber+1)"
+                            [disabled]="resignationDetailsList?.length < filterFormData.limit">
+                            <span class="fa fa-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Ends: Pagination -->
+    <!-- Back Button -->
+    <div class="mt-auto mb-4">
+        <button type="button" class="btn btn-secondary my-3 my-md-0" routerLink="/resignation">
+            <span class="fa fa-angle-left mr-2" aria-hidden="true"></span>
+            Back</button>
+    </div>
+    <!-- Ends: Back Button -->
+</div>

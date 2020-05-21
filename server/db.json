@@ -1,0 +1,1439 @@
+{
+  "activity1": {
+    "resignationId": 7,
+    "exitActivityId": 2,
+    "employeeName": "Nurali Khoja",
+    "approvedRelieveDate": "2019-11-14",
+    "initiatedOn": "1987-11-10",
+    "activityName": "Get Laptop",
+    "domainName": "EA Team",
+    "description": "Acquire Laptop and accessories, check for damages",
+    "assignedName": "Kalrav Shah",
+    "status": 9,
+    "remarks": [
+      "123",
+      "123"
+    ]
+  },
+  "exitActivityDetails": {
+    "resignationId": 5,
+    "exitActivityId": 1,
+    "remarks": "",
+    "activityStatus": 8
+  },
+  "employee-activity": [
+    {
+      "ActivityId": 1,
+      "employeeName": "Nurali Khoja",
+      "approvedRelievingDate": "2019-11-14",
+      "initiatedOn": "1987-11-10",
+      "activity": "Get Laptop",
+      "domain": "EA Team",
+      "assignedTo": "Kalrav Shah",
+      "statusId": 9,
+      "description": "Acquire Laptop and accessories, check for damages"
+    },
+    {
+      "ActivityId": 1,
+      "employeeName": "Nurali Khoja",
+      "approvedRelievingDate": "2019-11-14",
+      "initiatedOn": "1987-11-10",
+      "activity": "Get Laptop",
+      "domain": "EA Team",
+      "assignedTo": "Kalrav Shah",
+      "statusId": 8,
+      "description": "Acquire Laptop and accessories, check for damages"
+    },
+    {
+      "ActivityId": 1,
+      "employeeName": "Nurali Khoja",
+      "approvedRelievingDate": "2019-11-14",
+      "initiatedOn": "1987-11-10",
+      "activity": "Get Laptop",
+      "domain": "EA Team",
+      "assignedTo": "Kalrav Shah",
+      "statusId": 10,
+      "description": "Acquire Laptop and accessories, check for damages"
+    }
+  ],
+  "activities": [],
+  "resignedEmployees": [
+    {
+      "resignationId": 0,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 3
+    },
+    {
+      "resignationId": 1,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 2
+    },
+    {
+      "resignationId": 2,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 3,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 4,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 5,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 6,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 7,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 8,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 9,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 10,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 11,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 12,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 13,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 14,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    },
+    {
+      "resignationId": 15,
+      "employeeName": "Kalrav Shah",
+      "employeeCode": 12345,
+      "approvedRelievingDate": "2019-12-11",
+      "initiatedOn": "2019-11-11",
+      "pageNumber": 1,
+      "status": 1
+    }
+  ],
+  "domain": [
+    {
+      "domainId": 0,
+      "domainName": ".Net"
+    },
+    {
+      "domainId": 0,
+      "domainName": "QA"
+    },
+    {
+      "domainId": 0,
+      "domainName": "ANGULAR"
+    },
+    {
+      "domainId": 0,
+      "domainName": "UI"
+    }
+  ],
+  "activity": [
+    {
+      "activityId": 0,
+      "activityName": "Acquire Laptop"
+    },
+    {
+      "activityId": 1,
+      "activityName": "Acquire Id "
+    },
+    {
+      "activityId": 2,
+      "activityName": "Close Account"
+    },
+    {
+      "activityId": 3,
+      "activityName": "Remove Access"
+    }
+  ],
+  "status": [
+    {
+      "status": 7
+    },
+    {
+      "status": 8
+    },
+    {
+      "status": 9
+    },
+    {
+      "status": 10
+    }
+  ],
+  "assigned": [
+    {
+      "assignedId": 0,
+      "assignedName": "ABC"
+    },
+    {
+      "assignedId": 1,
+      "assignedName": "ABC"
+    },
+    {
+      "assignedId": 2,
+      "assignedName": "ABC"
+    },
+    {
+      "assignedId": 3,
+      "assignedName": "ABC"
+    },
+    {
+      "assignedId": 4,
+      "assignedName": "ABC"
+    }
+  ],
+  "exit-activity": [
+    {
+      "resignationId": 0,
+      "exitActivityId": 7,
+      "activityName": "Acquire Id ",
+      "employeeName": "Kalrav Shah",
+      "initiatedOn": "2019-11-20",
+      "domainId": "1",
+      "domainName": "ANGULAR",
+      "assignedId": "1",
+      "ownerName": "ABC",
+      "description": "kjbgdfgvkhhjfhdf",
+      "status": 8,
+      "remarks": "ABC",
+      "allStatusCheck": true
+    },
+    {
+      "resignationId": 0,
+      "exitActivityId": 2,
+      "activityName": "Acquire Id ",
+      "employeeName": "Kalrav Shah",
+      "initiatedOn": "2019-11-20",
+      "domainId": "1",
+      "domainName": "ANGULAR",
+      "assignedId": "1",
+      "ownerName": "ABC",
+      "description": "kjbgdfgvkhhjfhdf",
+      "status": 8,
+      "remarks": "ABC",
+      "allStatusCheck": true
+    },
+    {
+      "resignationId": 0,
+      "exitActivityId": 3,
+      "activityName": "Acquire Id ",
+      "allStatusCheck": true,
+      "initiatedOn": "2019-11-20",
+      "domainId": "1",
+      "domainName": "ANGULAR",
+      "assignedId": "1",
+      "ownerName": "ABC",
+      "description": "kjbgdfgvkhhjfhdf",
+      "status": 8,
+      "remarks": "ABC"
+    }
+  ],
+  "project": [
+    {
+      "id": 2,
+      "subProjectId": 2,
+      "projectName": "1Talent",
+      "subProjectName": "ProjectCreation",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-09T00:00:00",
+      "projectEndDate": "2020-05-29T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Parth Intwala",
+      "hoursApproverId": [
+        101
+      ],
+      "submittedHours": 100
+    },
+    {
+      "id": 3,
+      "subProjectId": 3,
+      "projectName": "1Talent",
+      "subProjectName": "HoursSubmission",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-20T00:00:00",
+      "projectEndDate": "2020-04-02T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Foram Patel",
+      "hoursApproverId": [
+        101
+      ],
+      "submittedHours": 100
+    },
+    {
+      "id": 4,
+      "subProjectId": 4,
+      "projectName": "1Talent",
+      "subProjectName": "Status Approval",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-03T00:00:00",
+      "projectEndDate": "2020-03-31T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": null,
+      "hoursApproverId": [
+        101
+      ],
+      "submittedHours": 100
+    },
+    {
+      "id": 5,
+      "subProjectId": 5,
+      "projectName": "1Talent",
+      "subProjectName": "E-passport",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-01T00:00:00",
+      "projectEndDate": "2020-03-31T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Vivek Jaiswal",
+      "hoursApproverId": [
+        101
+      ],
+      "submittedHours": 100
+    },
+    {
+      "id": 7,
+      "subProjectId": 7,
+      "projectName": "1Talent",
+      "subProjectName": "E-visa",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-01T00:00:00",
+      "projectEndDate": "2020-07-31T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Vivek Jaiswal",
+      "hoursApproverId": [
+        101,
+        102
+      ],
+      "submittedHours": 100
+    },
+    {
+      "subProjectId": 8,
+      "projectId": 101,
+      "projectName": "1Talent",
+      "subProjectName": "Project 1",
+      "clientId": 102,
+      "clientName": "client 2",
+      "projectStartDate": "2019-12-04T05:39:36.000Z",
+      "projectEndDate": "2020-03-23T05:39:36.000Z",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": null,
+      "hoursApproverId": [
+        102,
+        101
+      ],
+      "id": 8,
+      "submittedHours": 100
+    }
+  ],
+  "employee": [
+    {
+      "id": 101,
+      "employeeId": 101,
+      "employeeName": "Employee 1"
+    },
+    {
+      "id": 102,
+      "employeeId": 102,
+      "employeeName": "Employee 2"
+    },
+    {
+      "id": 103,
+      "employeeId": 103,
+      "employeeName": "Employee 3"
+    },
+    {
+      "id": 104,
+      "employeeId": 104,
+      "employeeName": "Employee 4"
+    },
+    {
+      "id": 105,
+      "employeeId": 105,
+      "employeeName": "Employee 5"
+    }
+  ],
+  "parentProject": [
+    {
+      "projectName": "666",
+      "id": 101
+    },
+    {
+      "id": 102,
+      "projectId": 102,
+      "projectName": "Project 2"
+    },
+    {
+      "id": 103,
+      "projectId": 103,
+      "projectName": "Project 3"
+    },
+    {
+      "projectName": "1Talent",
+      "id": 104
+    }
+  ],
+  "client": [
+    {
+      "id": 101,
+      "clientId": 101,
+      "clientName": "client 1"
+    },
+    {
+      "clientId": 102,
+      "clientName": "client 2",
+      "id": 102
+    },
+    {
+      "clientId": 103,
+      "clientName": "client 3",
+      "id": 103
+    },
+    {
+      "clientName": "sgsgs",
+      "id": 104
+    }
+  ],
+  "location": [
+    {
+      "locationId": 101,
+      "location": "Onshore"
+    },
+    {
+      "locationId": 102,
+      "location": "Offshore"
+    }
+  ],
+  "technology": [
+    {
+      "technologyId": 101,
+      "technology": ".Net"
+    },
+    {
+      "technologyId": 102,
+      "technology": "Angular"
+    },
+    {
+      "technologyId": 103,
+      "technology": "QA"
+    },
+    {
+      "technologyId": 104,
+      "technology": "UI"
+    },
+    {
+      "technologyId": 105,
+      "technology": "UX"
+    },
+    {
+      "technologyId": 107,
+      "technology": "DevOps"
+    }
+  ],
+  "role": [
+    {
+      "roleId": 101,
+      "role": "PMO"
+    },
+    {
+      "roleId": 102,
+      "role": "Sr.Dev"
+    },
+    {
+      "roleId": 103,
+      "role": "Dev"
+    },
+    {
+      "roleId": 104,
+      "role": "BA"
+    },
+    {
+      "roleId": 105,
+      "role": "TechLead"
+    }
+  ],
+  "payCycle": [
+    {
+      "payCycleId": 101,
+      "payCycle": "Hourly"
+    },
+    {
+      "payCycleId": 102,
+      "payCycle": "Weekly"
+    },
+    {
+      "payCycleId": 103,
+      "payCycle": "Monthly"
+    }
+  ],
+  "Staffing": [
+    {
+      "id": 107,
+      "staffingId": 107,
+      "subProjectId": 7,
+      "role": 105,
+      "technology": 102,
+      "location": 102,
+      "employeeId": [
+        102,
+        102
+      ],
+      "weeklyBillableHours": "50",
+      "billRate": "200",
+      "payRate": "50",
+      "payCycle": 103
+    },
+    {
+      "id": 114,
+      "staffingId": 114,
+      "subProjectId": 7,
+      "role": 102,
+      "technology": 102,
+      "location": 102,
+      "employeeId": [
+        102,
+        102
+      ],
+      "weeklyBillableHours": "50",
+      "billRate": "50",
+      "payRate": "500",
+      "payCycle": 103
+    },
+    {
+      "staffingId": 117,
+      "subProjectId": 7,
+      "role": 102,
+      "technology": 102,
+      "location": 101,
+      "employeeId": [
+        102,
+        102,
+        102
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "200",
+      "payRate": "150",
+      "payCycle": 102,
+      "id": 117
+    },
+    {
+      "staffingId": 118,
+      "subProjectId": 7,
+      "role": 102,
+      "technology": 102,
+      "location": 101,
+      "employeeId": [
+        102,
+        102,
+        102
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "200",
+      "payRate": "150",
+      "payCycle": 102,
+      "id": 118
+    },
+    {
+      "staffingId": 119,
+      "subProjectId": 7,
+      "role": 102,
+      "technology": 102,
+      "location": 101,
+      "employeeId": [
+        102,
+        102
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "200",
+      "payRate": "150",
+      "payCycle": 102,
+      "id": 119
+    },
+    {
+      "staffingId": 120,
+      "subProjectId": 7,
+      "role": 102,
+      "technology": 102,
+      "location": 101,
+      "employeeId": [
+        102,
+        102
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "200",
+      "payRate": "150",
+      "payCycle": 102,
+      "id": 120
+    },
+    {
+      "staffingId": 121,
+      "subProjectId": 7,
+      "role": 102,
+      "technology": 102,
+      "location": 101,
+      "employeeId": [
+        102,
+        102
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "200",
+      "payRate": "150",
+      "payCycle": 102,
+      "id": 121
+    },
+    {
+      "staffingId": 122,
+      "subProjectId": 7,
+      "roleId": null,
+      "technologyId": null,
+      "locationId": null,
+      "employeeId": [
+        102
+      ],
+      "weeklyBillableHours": "20",
+      "billRate": "200",
+      "payRate": "200",
+      "payCycleId": null,
+      "id": 122
+    },
+    {
+      "id": 123,
+      "staffingId": 123,
+      "subProjectId": 7,
+      "role": 102,
+      "technology": 104,
+      "location": 102,
+      "employeeId": [
+        104
+      ],
+      "weeklyBillableHours": "45",
+      "billRate": "450",
+      "payRate": "250",
+      "payCycle": 102
+    },
+    {
+      "id": 124,
+      "staffingId": 124,
+      "subProjectId": 7,
+      "role": 103,
+      "technology": 102,
+      "location": 102,
+      "employeeId": [
+        102,
+        102,
+        102
+      ],
+      "weeklyBillableHours": "26",
+      "billRate": "6",
+      "payRate": "12",
+      "payCycle": 101
+    },
+    {
+      "id": 125,
+      "staffingId": 125,
+      "subProjectId": 7,
+      "roleId": null,
+      "technologyId": null,
+      "locationId": null,
+      "employeeId": [
+        103,
+        104
+      ],
+      "weeklyBillableHours": "24555",
+      "billRate": "114555",
+      "payRate": "0525",
+      "payCycleId": null
+    },
+    {
+      "id": 126,
+      "staffingId": 126,
+      "subProjectId": 8,
+      "role": 101,
+      "technology": 102,
+      "location": 101,
+      "employeeId": [
+        102
+      ],
+      "weeklyBillableHours": 50,
+      "billRate": "450",
+      "payRate": "400",
+      "payCycle": 102
+    },
+    {
+      "id": 127,
+      "staffingId": 127,
+      "subProjectId": 8,
+      "role": 102,
+      "technology": 102,
+      "location": 101,
+      "employeeId": [
+        102,
+        102
+      ],
+      "weeklyBillableHours": 40,
+      "billRate": "500",
+      "payRate": "400",
+      "payCycle": 103
+    },
+    {
+      "subProjectId": 6,
+      "roleId": 102,
+      "role": "Sr.Dev",
+      "technologyId": 102,
+      "technology": "Angular",
+      "locationId": 101,
+      "location": "Onshore",
+      "employeeId": [
+        102,
+        102
+      ],
+      "employeeName": [
+        "Employee 2",
+        "Employee 2"
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "40",
+      "payRate": "100",
+      "payCycleId": 103,
+      "id": 128,
+      "staffingId": 128
+    },
+    {
+      "subProjectId": 6,
+      "roleId": 101,
+      "role": "PMO",
+      "technologyId": 102,
+      "technology": "Angular",
+      "locationId": 102,
+      "location": "Offshore",
+      "employeeId": [
+        102
+      ],
+      "employeeName": [
+        "Employee 5"
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "40",
+      "payRate": "100",
+      "payCycleId": 102,
+      "id": 129,
+      "staffingId": 129
+    },
+    {
+      "subProjectId": 6,
+      "roleId": 105,
+      "role": "TechLead",
+      "technologyId": 102,
+      "technology": "Angular",
+      "locationId": 101,
+      "location": "Onshore",
+      "employeeId": [
+        102
+      ],
+      "employeeName": [
+        "Employee 2"
+      ],
+      "weeklyBillableHours": "40",
+      "billRate": "50",
+      "payRate": "100",
+      "payCycleId": 103,
+      "payCycle": "Monthly",
+      "id": 130,
+      "staffingId": 130
+    },
+    {
+      "subProjectId": 6,
+      "roleId": 103,
+      "role": "Dev",
+      "technologyId": 101,
+      "technology": ".Net",
+      "locationId": 101,
+      "location": "Onshore",
+      "employeeId": [
+        101,
+        102
+      ],
+      "employeeName": [
+        "Employee 2",
+        "Employee 5"
+      ],
+      "weeklyBillableHours": 50,
+      "billRate": 150,
+      "payRate": 150,
+      "payCycleId": 102,
+      "payCycle": "Weekly",
+      "id": 131,
+      "staffingId": 131
+    }
+  ],
+  "timecard": [
+    {
+      "employeeId": 4,
+      "weekRange": [
+        "2020-04-27T00:00:00.000Z",
+        "2020-05-03T00:00:00.000Z"
+      ],
+      "timeCard": [
+        {
+          "timeCardId": 1,
+          "subProjectId": 4,
+          "monday": 2,
+          "tuesday": 5,
+          "wednesday": 5,
+          "thursday": 5,
+          "friday": 5,
+          "saturday": 5,
+          "sunday": 0,
+          "hoursTypeId": 1,
+          "remark": "",
+          "approvalStatusId": 2
+        },
+        {
+          "timeCardId": 2,
+          "subProjectId": 3,
+          "monday": 7,
+          "tuesday": 7,
+          "wednesday": 7,
+          "thursday": 7,
+          "friday": 7,
+          "saturday": 0,
+          "sunday": 0,
+          "hoursTypeId": 1,
+          "remark": "",
+          "approvalStatusId": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "employeeId": 4,
+      "weekRange": [
+        "2020-04-20T00:00:00.000Z",
+        "2020-04-26T00:00:00.000Z"
+      ],
+      "timeCard": [
+        {
+          "timeCardId": 3,
+          "subProjectId": 2,
+          "monday": 6,
+          "tuesday": 6,
+          "wednesday": 6,
+          "thursday": 6,
+          "friday": 6,
+          "saturday": 0,
+          "sunday": 0,
+          "hoursTypeId": 2,
+          "remark": "hfdchfvjg",
+          "approvalStatusId": 4
+        },
+        {
+          "timeCardId": 4,
+          "subProjectId": 4,
+          "monday": 5,
+          "tuesday": 6,
+          "wednesday": 5,
+          "thursday": 5,
+          "friday": 5,
+          "saturday": 5,
+          "sunday": 0,
+          "hoursTypeId": 1,
+          "remark": "",
+          "approvalStatusId": 1
+        },
+        {
+          "timeCardId": 6,
+          "subProjectId": 4,
+          "monday": 5,
+          "tuesday": 6,
+          "wednesday": 5,
+          "thursday": 5,
+          "friday": 5,
+          "saturday": 5,
+          "sunday": 0,
+          "hoursTypeId": 1,
+          "remark": "",
+          "approvalStatusId": 1
+        }
+      ],
+      "id": 3
+    },
+    {
+      "employeeId": 4,
+      "weekRange": [
+        "2020-05-04T00:00:00.000Z",
+        "2020-05-10T00:00:00.000Z"
+      ],
+      "timeCard": [
+        {
+          "timeCardId": 5,
+          "subProjectId": 5,
+          "monday": 2,
+          "tuesday": 2,
+          "wednesday": 2,
+          "thursday": 2,
+          "friday": 2,
+          "saturday": 2,
+          "sunday": 2,
+          "hoursTypeId": 2,
+          "remark": "chgvjnbv",
+          "approvalStatusId": 5
+        }
+      ],
+      "id": 4
+    },
+    {
+      "employeeId": 4,
+      "weekRange": [
+        "2020-04-13T00:00:00.000Z",
+        "2020-04-19T00:00:00.000Z"
+      ],
+      "timeCard": [
+        {
+          "subProjectId": 4,
+          "monday": 2,
+          "tuesday": 2,
+          "wednesday": 2,
+          "thursday": 2,
+          "friday": 2,
+          "saturday": 0,
+          "sunday": 0,
+          "hoursTypeId": 1,
+          "remark": "",
+          "approvalStatusId": 1
+        }
+      ],
+      "id": 5
+    }
+  ],
+  "hours": [
+    {
+      "id": 1,
+      "hoursTypeId": 1,
+      "hoursType": "Regular"
+    },
+    {
+      "id": 2,
+      "hoursTypeId": 2,
+      "hoursType": "Non-Billable"
+    }
+  ],
+  "approvalStatus": [
+    {
+      "id": 1,
+      "approvalStatusId": 1,
+      "approvalStatus": "pending"
+    },
+    {
+      "id": 2,
+      "approvalStatusId": 2,
+      "approvalStatus": "Approved by Reporting Manager 1"
+    },
+    {
+      "id": 3,
+      "approvalStatusId": 3,
+      "approvalStatus": "Rejected by Reporting Manager 1"
+    },
+    {
+      "id": 4,
+      "approvalStatusId": 4,
+      "approvalStatus": "Approved by Reporting Manager 2"
+    },
+    {
+      "id": 5,
+      "approvalStatusId": 5,
+      "approvalStatus": "Rejected by Reporting Manager 2"
+    }
+  ],
+  "approveHours": [
+    {
+      "id": 2,
+      "timeCardId": 2,
+      "employeeId": 2,
+      "employeeName": "Employee 1",
+      "subProjectId": 4,
+      "subProjectName": "aaa",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "approved",
+      "remark": "all Ok",
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "hoursTypeId": 3,
+      "hoursType": "Billable"
+    },
+    {
+      "id": 3,
+      "timeCardId": 3,
+      "employeeId": 3,
+      "employeeName": "Employee 1",
+      "subProjectId": 3,
+      "subProjectName": "aaa",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "pending",
+      "remark": "all Ok",
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "hoursTypeId": 3,
+      "hoursType": "Billable"
+    },
+    {
+      "id": 5,
+      "timeCardId": 5,
+      "employeeId": 3,
+      "employeeName": "Employee 1",
+      "subProjectId": 2,
+      "subProjectName": "aaa",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "approved",
+      "remark": "all Ok",
+      "weekRange": [
+        "2020-04-27T10:44:07.000Z",
+        "2020-05-03T10:44:07.000Z"
+      ],
+      "hoursTypeId": 3,
+      "hoursType": "Billable"
+    },
+    {
+      "id": 6,
+      "timeCardId": 6,
+      "employeeId": 6,
+      "employeeName": "Employee 1",
+      "subProjectId": 3,
+      "subProjectName": "aaa",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "pending",
+      "remark": "all Ok",
+      "weekRange": [
+        "2020-04-27T10:44:07.000Z",
+        "2020-05-03T10:44:07.000Z"
+      ],
+      "hoursTypeId": 3,
+      "hoursType": "Non-Billable"
+    },
+    {
+      "id": 7,
+      "timeCardId": 7,
+      "employeeId": 7,
+      "employeeName": "Employee 1",
+      "subProjectId": 3,
+      "subProjectName": "aaa",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "approved",
+      "remark": "all Ok",
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "hoursTypeId": 3,
+      "hoursType": "Non-Billable"
+    },
+    {
+      "id": 8,
+      "timeCardId": 8,
+      "employeeId": 8,
+      "employeeName": "Employee 1",
+      "subProjectId": 3,
+      "subProjectName": "aaa",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "approved",
+      "remark": "all Ok",
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "hoursTypeId": 3,
+      "hoursType": "Non-Billable"
+    },
+    {
+      "id": 9,
+      "timeCardId": 9,
+      "employeeId": 9,
+      "employeeName": "Employee 1",
+      "subProjectId": 3,
+      "subProjectName": "aaa",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "pending",
+      "remark": "all Ok",
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "hoursTypeId": 3,
+      "hoursType": "Non-Billable"
+    }
+  ],
+  "report": [
+    {
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "subProjectId": 2,
+      "subProjectName": "ProjectCreation",
+      "employeeId": 101,
+      "employeeName": "Employee 1",
+      "totalHours": 48,
+      "approvalStatusId": 2,
+      "approvalStatus": "Approved by Reporting Manager 1",
+      "remark": "aaa"
+    },
+    {
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "subProjectId": 2,
+      "subProjectName": "ProjectCreation",
+      "employeeId": 102,
+      "employeeName": "Employee 2",
+      "totalHours": 48,
+      "approvalStatusId": 1,
+      "approvalStatus": "Pending",
+      "remark": ""
+    },
+    {
+      "weekRange": [
+        "2020-04-20T10:44:07.000Z",
+        "2020-04-26T10:44:07.000Z"
+      ],
+      "subProjectId": 2,
+      "subProjectName": "ProjectCreation",
+      "employeeId": 103,
+      "employeeName": "Employee 3",
+      "totalHours": 48,
+      "approvalStatusId": 3,
+      "approvalStatus": "Rejected by Reporting Manager 1",
+      "remark": "aaa"
+    },
+    {
+      "weekRange": [
+        "2020-04-27T10:44:07.000Z",
+        "2020-05-03T10:44:07.000Z"
+      ],
+      "subProjectId": 3,
+      "subProjectName": "HourSubmission",
+      "employeeId": 101,
+      "employeeName": "Employee 1",
+      "totalHours": 50,
+      "approvalStatusId": 1,
+      "approvalStatus": "Pending",
+      "remark": ""
+    },
+    {
+      "weekRange": [
+        "2020-04-27T10:44:07.000Z",
+        "2020-05-03T10:44:07.000Z"
+      ],
+      "subProjectId": 3,
+      "subProjectName": "HourSubmission",
+      "employeeId": 102,
+      "employeeName": "Employee 2",
+      "totalHours": 50,
+      "approvalStatusId": 4,
+      "approvalStatus": "Approved by Reporting Manager 2",
+      "remark": "aaa"
+    },
+    {
+      "weekRange": [
+        "2020-04-27T10:44:07.000Z",
+        "2020-05-03T10:44:07.000Z"
+      ],
+      "subProjectId": 3,
+      "subProjectName": "HourSubmission",
+      "employeeId": 103,
+      "employeeName": "Employee 3",
+      "totalHours": 50,
+      "approvalStatusId": 5,
+      "approvalStatus": "Rejected by Reporting Manager 2",
+      "remark": "aaa"
+    }
+  ],
+  "staffedProject": [
+    {
+      "id": 2,
+      "subProjectId": 2,
+      "projectName": "1Talent",
+      "subProjectName": "ProjectCreation",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-09T00:00:00",
+      "projectEndDate": "2020-05-29T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Parth Intwala",
+      "hoursApproverId": [
+        101
+      ],
+      "role": 2
+    },
+    {
+      "id": 3,
+      "subProjectId": 3,
+      "projectName": "1Talent",
+      "subProjectName": "HoursSubmission",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-20T00:00:00",
+      "projectEndDate": "2020-04-02T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Foram Patel",
+      "hoursApproverId": [
+        101
+      ],
+      "role": 2
+    },
+    {
+      "id": 4,
+      "subProjectId": 4,
+      "projectName": "1Talent",
+      "subProjectName": "Status Approval",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-03T00:00:00",
+      "projectEndDate": "2020-03-31T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": null,
+      "hoursApproverId": [
+        101
+      ],
+      "role": 2
+    },
+    {
+      "id": 5,
+      "subProjectId": 5,
+      "projectName": "1Talent",
+      "subProjectName": "E-passport",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-01T00:00:00",
+      "projectEndDate": "2020-03-31T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Vivek Jaiswal",
+      "hoursApproverId": [
+        101
+      ],
+      "role": 2
+    },
+    {
+      "projectId": 101,
+      "projectName": "1Talent",
+      "subProjectId": 6,
+      "subProjectName": "sentinell",
+      "clientId": 103,
+      "clientName": "Atul",
+      "projectStartDate": "2020-02-29T18:30:00.000Z",
+      "projectEndDate": "2020-03-30T18:30:00.000Z",
+      "totalHours": 0,
+      "projectValue": 0,
+      "hoursApproverId": [
+        103
+      ],
+      "id": 6,
+      "role": 2
+    },
+    {
+      "id": 7,
+      "subProjectId": 7,
+      "projectName": "1Talent",
+      "subProjectName": "E-visa",
+      "clientName": "Atul",
+      "projectStartDate": "2020-03-01T00:00:00",
+      "projectEndDate": "2020-03-31T00:00:00",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": "Vivek Jaiswal",
+      "hoursApproverId": [
+        101,
+        102
+      ],
+      "role": 2
+    },
+    {
+      "subProjectId": 8,
+      "projectId": 101,
+      "projectName": "1Talent",
+      "subProjectName": "Project 1",
+      "clientId": 102,
+      "clientName": "client 2",
+      "projectStartDate": "2020-03-04T05:39:36.000Z",
+      "projectEndDate": "2020-03-23T05:39:36.000Z",
+      "totalHours": 0,
+      "projectValue": 0,
+      "projectManager": null,
+      "hoursApproverId": [
+        102,
+        101
+      ],
+      "id": 8,
+      "role": 2
+    }
+  ],
+  "staffingSheet": [
+    {
+      "subProjectId": 7,
+      "hours": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "employeeId": 3,
+      "employeeName": "Vivek Jaiswal",
+      "role": "Project Manager",
+      "technology": "Project Manager",
+      "location": "OnShore",
+      "weeklyBillableHours": 40,
+      "billRate": 200,
+      "payRate": 200
+    },
+    {
+      "subProjectId": 7,
+      "hours": [
+        25,
+        25,
+        30,
+        31,
+        36,
+        0,
+        0,
+        0,
+        28,
+        35,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "employeeId": 4,
+      "employeeName": "Dhruvit Makadia",
+      "role": "Sr. Dev",
+      "technology": "Angular",
+      "location": "OnShore",
+      "weeklyBillableHours": 40,
+      "billRate": 200,
+      "payRate": 200
+    }
+  ]
+}

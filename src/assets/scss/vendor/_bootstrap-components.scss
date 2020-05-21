@@ -1,0 +1,25 @@
+@import "~bootstrap/scss/reboot"; 
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/pagination";
+@import"~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/modal";
+
+//Browser IE Support 
+@if $enable-flex {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        @include media-breakpoint-up($breakpoint) {
+            @for $size from 1 through $grid-columns {
+                .col-#{$breakpoint}-#{$size} {
+                    -ms-flex: auto;
+                }
+            }
+        }
+    }
+}

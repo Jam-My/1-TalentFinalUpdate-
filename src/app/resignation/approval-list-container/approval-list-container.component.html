@@ -1,0 +1,5 @@
+<app-approval-list-presentation-ui [resignationDetailsList]="resignationDetailsList$ | async"
+                                   [filterDropwdownOptions]="filterDropwdownOptions$ | async"
+                                   (applyfilterData)="applyfilterData($event)"
+                                   (getfilterDropwdownOptions)="getfilterDropwdownOptions()"
+                                   (getResignationDetails)="getResignationDetails($event)"></app-approval-list-presentation-ui>

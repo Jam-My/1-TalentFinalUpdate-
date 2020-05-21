@@ -1,0 +1,61 @@
+                                                                                                                                               <div class="dropdown bg-white position-relative d-block ml-2">
+    <!-- Form -->
+    <form class="filter-box overflow-auto p-4" [formGroup]="filterForm">
+        <div class="filter-form">
+            <div class="form-control-label text-primary mb-2">Filter by</div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <select formControlName="DomainName" id="inputTechnology"
+                        class=" bg-white cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value=null selected disabled hidden>Select Domain</option>
+                        <option class="text-primary " *ngFor="let item of domain" [value]=item.domainName>
+                            {{item.domainName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-12">
+                    <select formControlName="AssignedTo" id="inputTechnology"
+                        class=" bg-white cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value=null selected disabled hidden>Select Assigned To </option>
+                        <option class="text-primary " *ngFor="let item of assigned" [value]=item.assignedName>
+                            {{item.assignedName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-12">
+                    <select formControlName="ActivityName" id="inputTechnology"
+                        class=" bg-white cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value=null selected disabled hidden>Select Activity</option>
+                        <option class="text-primary " *ngFor="let item of activity" [value]=item.activityName>
+                            {{item.activityName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-12">
+                    <select formControlName="Status" id="inputTechnology"
+                        class=" bg-white cursor-pointer font-size-sm text-primary rounded border border-light w-100 p-2">
+                        <option class="text-primary" value=null selected disabled hidden>Select status</option>
+                        <option [value]='7'>Closed</option>
+                        <option [value]='8'>Not Started </option>
+                        <option [value]='9'>In Progress </option>
+                        <option [value]='10'>Completed</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Ends:Dropdown -->
+
+            <!-- Search & reset button -->
+            <div class="row mt-3">
+                <div
+                    class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 pr-md-1 pb-2 pb-md-0">
+                    <button class="btn btn-primary w-50" (click)=applyFilterOptions()>Search
+                    </button>
+                </div>
+
+                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 pl-md-1">
+                    <button class="btn btn-outline-light w-50 text-primary" type="reset">Reset
+                    </button>
+                </div>
+            </div>
+            <!--Ends: Search & reset button -->
+        </div>
+    </form>
+    <!-- Ends: Form -->
+</div>

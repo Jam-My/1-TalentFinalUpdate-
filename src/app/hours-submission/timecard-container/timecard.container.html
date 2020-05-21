@@ -1,0 +1,11 @@
+<timecard-presentation-ui 
+ [project]='projectList$  | async'
+ [timeCard]='timeCardList$ | async'
+ [projectType]='projectType$ | async'
+ [timeCardStatus]='timeCardStatus$ | async'
+ (addTimeCard)='addTimeCard($event)'
+ (updateTimeCard)='updateTimeCard($event)'
+ (deleteTimeCardEvent)='deleteTimeCardEvent($event)'
+>
+</timecard-presentation-ui>
+

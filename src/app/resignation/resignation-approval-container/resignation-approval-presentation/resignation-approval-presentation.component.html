@@ -1,0 +1,406 @@
+<!-- Content-body -->
+<div class="container-fluid d-flex flex-column overflow-auto w-100 h-100 px-4 pt-2">
+  <!-- Card -->
+  <div class="card border-0 my-3">
+    <!-- Card Header -->
+    <div class="card-header bg-white border-bottom-0 pb-0 mt-2">
+      <div class="row no-gutters flex-wrap flex-md-nowrap">
+        <!-- User info -->
+        <div class="user-info col-12 col-md-3 d-flex flex-column flex-shrink-0 order-2 order-md-1 mb-4 mb-md-0">
+          <!-- Employee Name & Code -->
+          <div class="card-field-value font-weight-bold" id="employee-name"> {{resignationDetails?.firstName }}
+            {{resignationDetails?.lastName}}-{{resignationDetails?.employeeCode}}</div>
+          <!-- Domain -->
+          <div class="card-field-value">{{resignationDetails?.domain}}</div>
+          <!-- Designation -->
+          <div class="card-field-value">{{resignationDetails?.designation}}</div>
+        </div>
+        <!-- Status -->
+        <div class="col-12 col-md-6 order-1 order-md-2 mb-4">
+          <div class="d-flex justify-content-center w-100">
+            <div class="badge text-white py-2 px-4" statusColor [status]="resignationDetails?.statusId">
+              {{resignationDetails?.statusName}}
+            </div>
+          </div>
+        </div>
+        <!-- Checklist status -->
+        <div class="col-12 col-md-3 d-flex flex-column align-items-start align-items-md-end mt-2 order-3">
+          <div class="d-flex flex-column align-items-start align-items-md-center">
+            <button type="button" class="btn btn-link text-secondary p-0" title="View checklist status">
+              View Checklist Status
+            </button>
+            <div class=" badge text-white py-2 px-4 mt-1" statusColor [status]="resignationDetails?.checklistStatusId">
+              <!-- {{details.status || "NA"}} -->
+              {{ STATUSHOW[resignationDetails?.checklistStatusId]}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Ends: Card Header -->
+    <!-- Card-Body -->
+    <div class="card-body pt-3">
+      <!-- Duration Info Bar -->
+      <div
+        class="row no-gutters text-primary justify-content-around flex-wrap flex-xl-nowrap border border-radius p-3 mt-1 pr-md-0 mr-sm-0">
+        <div class="duration-area d-flex flex-column w-100 py-1">
+          <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Raised on </div>
+          <div class="card-field-value mt-auto font-size-lg">
+            {{ (resignationDetails?.raisedOnDate | date: 'dd/MM/yyyy') || 'NA' }}
+          </div>
+        </div>
+        <div class="duration-area d-flex flex-column w-100 py-1">
+          <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Proposed Relieving Date
+          </div>
+          <div class="card-field-value mt-auto font-size-lg">
+            {{ (resignationDetails?.proposedRelievingDate | date: 'dd/MM/yyyy') || 'NA' }}</div>
+        </div>
+        <div class="duration-area d-flex flex-column w-100 py-1">
+          <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Onboarding Notice Period
+          </div>
+          <div class="card-field-value mt-auto font-size-lg">{{ (resignationDetails?.onBoardingNoticePeriod) || 'NA' }}
+          </div>
+        </div>
+        <div class="duration-area d-flex flex-column w-100 py-1">
+          <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Proposed Notice Period
+          </div>
+          <div class="card-field-value mt-auto font-size-lg">{{ (resignationDetails?.proposedNoticePeriod) || 'NA' }}
+          </div>
+        </div>
+        <div class="duration-area d-flex flex-column w-100 py-1">
+          <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Approved Notice Period
+          </div>
+          <div class="card-field-value mt-auto font-size-lg">{{ (resignationDetails?.approvedNoticePeriod) || 'NA' }}
+          </div>
+        </div>
+      </div>
+      <!-- Ends: Duration Info Bar -->
+      <!-- Reporting Manager -->
+      <div class="row no-gutters border-bottom py-3">
+        <div class="col-6  d-flex flex-wrap flex-md-nowrap ">
+          <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+            Reporting Manager
+          </div>
+          <div class="card-field-value">{{resignationDetails?.managerName}}</div>
+        </div>
+      </div>
+      <!-- Ends: Reporting Manager -->
+      <!-- Concern Person -->
+      <div class="row no-gutters border-bottom py-3">
+        <div class="col d-flex flex-wrap  flex-md-nowrap ">
+          <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+            Concern Person </div>
+          <div class="card-field-value">{{resignationDetails?.concernEmployees}}</div>
+        </div>
+      </div>
+      <!-- Ends: Concern Person -->
+      <!-- Reason of Relieving -->
+      <div class="row no-gutters border-bottom py-3">
+        <div class="col d-flex flex-wrap flex-md-nowrap">
+          <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+            Reason of Relieving
+          </div>
+          <div class="card-field-value text-break rounded">
+            {{resignationDetails?.employeeReason}}
+          </div>
+        </div>
+      </div>
+      <!-- Ends: Reason of Relieving -->
+      <!-- Last Working Day -->
+      <div class="row no-gutters flex-wrap flex-xl-nowrap py-3 w-100 d-none">
+        <label for="lastworking-day" class="d-flex flex-shrink-0 m-0 w-250 mb-2 mb-md-0">
+          <span class="card-field-title font-weight-bold mr-1">Last working Day </span>
+          <span class="text-danger">*</span>
+        </label>
+        <div class="d-flex flex-column">
+          <div class="border border-light d-flex align-items-center rounded px-2 py-1 w-100">
+            <input disableKeyPress type="text" id="lastworking-day" class="card-input-field rounded border-0 w-100"
+              bsDatepicker>
+            <label for="lastworking-day" class="fa fa-calendar cursor-pointer text-primary mb-0"></label>
+          </div>
+          <div class="invalid-feedback d-block mt-1">
+            <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+            <span> Approved Relieving Date required</span>
+          </div>
+        </div>
+      </div>
+      <!-- Ends: Last Working Day -->
+      <!-- Served Notice Period -->
+      <div class="row no-gutters border-bottom py-3 d-none">
+        <div class="col d-flex flex-wrap flex-md-nowrap">
+          <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+            Served Notice Period
+          </div>
+          <div class="card-field-value text-break rounded">
+            29
+          </div>
+        </div>
+      </div>
+      <!-- Ends: Served Notice Period -->
+      <ng-container *showForStatus="resignationDetails?.statusName;currentRoles:roles">
+        <form [formGroup]="resignationApprovalForm">
+          <!-- "HR Portal: Approved Relieving Date & Interview Date" -->
+          <div class="row no-gutters flex-wrap flex-xl-nowrap py-3" *showForRoles="[ROLES.HR];current:roles">
+            <div class="col-lg-10 col-xl-5 d-flex flex-wrap flex-md-nowrap mb-4 mb-xl-0">
+              <label for="relieving-date"
+                class="card-field-title font-weight-bold d-flex flex-shrink-0 m-0 w-250 mb-2 mb-md-0">
+                Approved Relieving Date
+              </label>
+              <div class="d-flex flex-column">
+                <div class="border border-light d-flex align-items-center rounded px-2 py-1 w-100 ">
+                  <input formControlName="ResignationApprovalDate" disableKeyPress type="text" name="cal"
+                    id="relieving-date" class="card-input-field rounded border-0 w-100" bsDatepicker
+                    [bsConfig]='datePickerConfig' value="{{approvedRelievingDate | date: 'dd/MM/yyyy'}}">
+                  <label for="relieving-date" class="fa fa-calendar cursor-pointer text-primary mb-0"></label>
+                </div>
+                <div *ngIf="resignationApprovalForm.get('ResignationApprovalDate').hasError('required')"
+                  class="invalid-feedback d-block mt-1">
+                  <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                  <span> Approved Relieving Date required</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 col-xl-5 d-flex position-relative flex-wrap flex-md-nowrap">
+              <label for="interview-date"
+                class="card-field-title font-weight-bold d-flex flex-shrink-0 w-250 pl-0 pl-xl-5 mb-2 mb-md-0">Exit
+                Interview Date</label>
+              <div class="d-flex flex-column">
+                <div class="border border-light d-flex align-items-center rounded px-2 py-1 w-100 ">
+                  <input formControlName="exitInterviewDate" disableKeyPress type="text" name="cal" id="interview-date"
+                    class="card-input-field rounded border-0 w-100" [bsConfig]='datePickerConfig' bsDatepicker>
+                  <label for="interview-date" class="fa fa-calendar cursor-pointer text-primary mb-0">
+                  </label>
+                </div>
+                <div
+                  *ngIf="resignationApprovalForm.get('exitInterviewDate').hasError('required') && resignationApprovalForm.touched"
+                  class="invalid-feedback d-block mt-1">
+                  <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                  <span> Exit Date required</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End:"HR Portal: Approved Relieving Date & Interview Date" -->
+          <!-- Remarks -->
+          <div class="row no-gutters py-3">
+            <div class="col-md-12 col-lg-10 d-flex flex-wrap flex-md-nowrap">
+              <label for="rm-remarks" class="card-field-title font-weight-bold d-flex flex-shrink-0 w-250 mb-2 mb-md-0">
+                <ng-container *showForRoles="[ROLES.HR];current:roles">HR Remarks</ng-container>
+                <ng-container *showForRoles="[ROLES.RM];current:roles">RM Remarks</ng-container>
+              </label>
+              <div class="d-flex flex-column w-100">
+                <textarea formControlName="remark" type="textarea" name="rm-remarks" id="rm-remarks" rows="3" cols="22"
+                  class="card-input-field border border-light rounded w-100 p-2"></textarea>
+                <div
+                  *ngIf="resignationApprovalForm.get('remark').hasError('required')  && resignationApprovalForm.touched"
+                  class="invalid-feedback d-block mt-1">
+                  <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                  <span>Remark is required</span>
+                </div>
+                <div *ngIf="(resignationApprovalForm.get('remark').hasError('minlength') ||
+                      resignationApprovalForm.get('remark').hasError('maxlength')) && resignationApprovalForm.touched"
+                  class="invalid-feedback d-block mt-1">
+                  Remark must be between 25 to 250 Characters.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Ends:  Remarks -->
+          <!-- Fit to be rehired -->
+          <div class="row no-gutters py-3">
+            <div class="col d-flex  flex-wrap flex-md-nowrap">
+              <div class="card-field-title font-weight-bold w-250 mb-2 mb-md-0">Fit to be rehired ?</div>
+              <div class="btn-group d-flex align-items-center">
+                <div class="custom-control custom-radio cursor-pointer mr-2">
+                  <input formControlName="isRehired" type="radio" id="rm-yes" value="yes"
+                    class="custom-control-input mr-2">
+                  <label for="rm-yes" class="custom-control-label cursor-pointer m-0">Yes</label>
+                </div>
+                <div class="custom-control custom-radio cursor-pointer ml-2">
+                  <input formControlName="isRehired" type="radio" id="rm-no" value="no"
+                    class="custom-control-input mx-2">
+                  <label for="rm-no" class="custom-control-label cursor-pointer m-0">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Ends:  Fit to be rehired -->
+        </form>
+        <!-- Reject & Accept Buttons only for RM & HR Portal -->
+        <div class="col d-flex  p-0">
+          <button class="btn btn-primary px-4 ml-0 ml-md-auto" (click)="approveResignation()">Accept</button>
+          <button class="btn btn-outline-light text-primary px-4 mx-3" type="button"
+            (click)="rejectResignation()">Reject</button>
+        </div>
+        <!-- Ends: Reject & Accept Buttons -->
+      </ng-container>
+      <ng-container *ngIf="editMode">
+        <form [formGroup]="resignationApprovalForm">
+          <!-- "HR Portal: Approved Relieving Date & Interview Date" -->
+          <div class="row no-gutters flex-wrap flex-xl-nowrap py-3" *showForRoles="[ROLES.HR];current:roles">
+            <div class="col-lg-10 col-xl-5 d-flex flex-wrap flex-md-nowrap mb-4 mb-xl-0">
+              <label for="relieving-date"
+                class="card-field-title font-weight-bold d-flex flex-shrink-0 m-0 w-250 mb-2 mb-md-0">
+                Approved Relieving Date
+              </label>
+              <div class="d-flex flex-column">
+                <div class="border border-light d-flex align-items-center rounded px-2 py-1 w-100 ">
+                  <input formControlName="ResignationApprovalDate" disableKeyPress type="text" name="cal"
+                    id="relieving-date" class="card-input-field rounded border-0 w-100" bsDatepicker
+                    [bsConfig]='datePickerConfig' value="{{approvedRelievingDate | date: 'dd/MM/yyyy'}}">
+                  <label for="relieving-date" class="fa fa-calendar cursor-pointer text-primary mb-0"></label>
+                </div>
+                <div *ngIf="resignationApprovalForm.get('ResignationApprovalDate').hasError('required')"
+                  class="invalid-feedback d-block mt-1">
+                  <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                  <span> Approved Relieving Date required</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 col-xl-5 d-flex position-relative flex-wrap flex-md-nowrap">
+              <label for="interview-date"
+                class="card-field-title font-weight-bold d-flex flex-shrink-0 w-250 pl-0 pl-xl-5 mb-2 mb-md-0">Exit
+                Interview Date</label>
+              <div class="d-flex flex-column">
+                <div class="border border-light d-flex align-items-center rounded px-2 py-1 w-100 ">
+                  <input formControlName="exitInterviewDate" disableKeyPress type="text" name="cal" id="interview-date"
+                    class="card-input-field rounded border-0 w-100" [bsConfig]='datePickerConfig' bsDatepicker>
+                  <label for="interview-date" class="fa fa-calendar cursor-pointer text-primary mb-0">
+                  </label>
+                </div>
+                <div
+                  *ngIf="resignationApprovalForm.get('exitInterviewDate').hasError('required') && resignationApprovalForm.touched"
+                  class="invalid-feedback d-block mt-1">
+                  <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                  <span> Exit Date required</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End:"HR Portal: Approved Relieving Date & Interview Date" -->
+          <!-- Remarks -->
+          <div class="row no-gutters py-3">
+            <div class="col-md-12 col-lg-10 d-flex flex-wrap flex-md-nowrap">
+              <label for="rm-remarks" class="card-field-title font-weight-bold d-flex flex-shrink-0 w-250 mb-2 mb-md-0">
+                <ng-container *showForRoles="[ROLES.HR];current:roles">HR Remarks</ng-container>
+                <ng-container *showForRoles="[ROLES.RM];current:roles">RM Remarks</ng-container>
+              </label>
+              <div class="d-flex flex-column w-100">
+                <textarea formControlName="remark" type="textarea" name="rm-remarks" id="rm-remarks" rows="3" cols="22"
+                  class="card-input-field border border-light rounded w-100 p-2"></textarea>
+                <div
+                  *ngIf="resignationApprovalForm.get('remark').hasError('required')  && resignationApprovalForm.touched"
+                  class="invalid-feedback d-block mt-1">
+                  <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                  <span>Remark is required</span>
+                </div>
+                <div *ngIf="(resignationApprovalForm.get('remark').hasError('minlength') ||
+                resignationApprovalForm.get('remark').hasError('maxlength')) && resignationApprovalForm.touched"
+                  class="invalid-feedback d-block mt-1">
+                  Remark must be between 25 to 250 Characters.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Ends:  Remarks -->
+          <!-- Fit to be rehired -->
+          <div class="row no-gutters py-3">
+            <div class="col d-flex  flex-wrap flex-md-nowrap">
+              <div class="card-field-title font-weight-bold w-250 mb-2 mb-md-0">Fit to be rehired ?</div>
+              <div class="btn-group d-flex align-items-center">
+                <div class="custom-control custom-radio cursor-pointer mr-2">
+                  <input formControlName="isRehired" type="radio" id="rm-yes" value="yes"
+                    class="custom-control-input mr-2">
+                  <label for="rm-yes" class="custom-control-label cursor-pointer m-0">Yes</label>
+                </div>
+                <div class="custom-control custom-radio cursor-pointer ml-2">
+                  <input formControlName="isRehired" type="radio" id="rm-no" value="no"
+                    class="custom-control-input mx-2">
+                  <label for="rm-no" class="custom-control-label cursor-pointer m-0">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Ends:  Fit to be rehired -->
+        </form>
+      </ng-container>
+      <ng-container *ngIf='(resignationDetails?.statusId !== STATUS.Initiated)'>
+        <!-- RM Remarks -->
+        <div class="row no-gutters border-bottom py-3">
+          <div class="col d-flex  flex-wrap flex-md-nowrap">
+            <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+              RM Remarks
+            </div>
+            <div class="card-field-value rounded">{{resignationDetails?.reportingPersonRemark}}
+            </div>
+          </div>
+        </div>
+        <!-- Ends:RM remarks" -->
+        <!-- Eligible to rehired -->
+        <div class="row no-gutters border-bottom py-3">
+          <div class="col d-flex  flex-wrap flex-md-nowrap">
+            <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+              Eligible To Be Rehired (RM)
+            </div>
+            <div class="card-field-value rounded">{{resignationDetails?.isRehiredByRM ? 'Yes' : 'No'}}
+            </div>
+          </div>
+        </div>
+        <!-- Ends:Eligible to rehired" -->
+      </ng-container>
+      <ng-container
+        *ngIf='(resignationDetails?.statusId === STATUS.AcceptedByHR) || (resignationDetails?.statusId === STATUS.RejectedByHR)'>
+        <!-- HR Remarks -->
+        <div class="row no-gutters border-bottom py-3">
+          <div class="col d-flex  flex-wrap flex-md-nowrap">
+            <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+              HR Remarks
+            </div>
+            <div class="card-field-value rounded">{{resignationDetails?.hrRemark || 'NA'}}
+            </div>
+          </div>
+        </div>
+        <!-- Ends:HR remarks" -->
+        <!--  Eligible To Be Rehired(HR)-->
+        <div class="row no-gutters border-bottom py-3">
+          <div class="col d-flex  flex-wrap flex-md-nowrap">
+            <div class="card-field-title font-weight-bold d-flex justify-content-between flex-shrink-0 w-250 pr-3">
+              Eligible To Be Rehired (HR)
+            </div>
+            <div class="card-field-value rounded">{{resignationDetails?.isRehiredByHR ? 'Yes' : 'No'}}
+            </div>
+          </div>
+        </div>
+        <!-- Ends: Eligible To Be Rehired(HR)" -->
+      </ng-container>
+      <!-- Save, Edit & Initiate Exit Process Buttons only for Initiate Exit Process Portal-->
+      <!-- TODO initiateExitProcess-->
+      <ng-container *ngIf="resignationDetails?.statusId === STATUS.AcceptedByHR">
+        <div class="row no-gutters justify-content-center mt-3 p-0" *showForRoles="[ROLES.HR];current:roles">
+          <button class="btn btn-primary px-4 ml-0 ml-md-auto mr-2 mb-2 mb-md-0" type="button"
+            (click)="rejectResignation()">Save</button>
+          <button class="btn btn-outline-light text-primary px-4 mr-0 mr-md-2 mb-2 mb-md-0" type="submit"
+            (click)="edit()" [disabled]="(resignationDetails?.checklistStatusId >= STATUS.InProgress)">Edit</button>
+          <!-- TODO ROUTING ERROR HERE -->
+          <ng-container *ngIf="resignationDetails?.checklistStatusId === STATUS.NotStarted">
+            <a class="btn btn-outline-light text-primary px-4 mb-2 mb-md-0"
+              [routerLink]="[ './../../../exit-checklist/exitActivities/GetAll', employeeResignationDetails?.resignationId]">Initiate
+              Exit
+              Process</a>
+          </ng-container>
+        </div>
+      </ng-container>
+      <!-- Ends: Save, Edit & Initiate Exit Process Buttons -->
+    </div>
+    <!-- Ends: Card-Body -->
+  </div>
+  <!-- Ends: Card -->
+  <!-- Back Button -->
+  <div class=" mt-auto mb-4">
+    <button class="btn btn-secondary my-3 my-md-0" [routerLink]="['/resignation/approval-list']">
+      <span class="fa fa-angle-left mr-2" aria-hidden="true"></span> Back
+    </button>
+  </div>
+  <!-- Ends: Back Button -->
+</div>
+<!-- Ends: Content-body -->

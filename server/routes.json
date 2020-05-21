@@ -1,0 +1,10 @@
+{
+    "/api/exitCheckList/myActivity": "/myActivity",
+    "/api/exitCheckList/myActivity/:id": "/activity",
+    "/api/exitActivityDetails": "/exitActivityDetails",
+    "/api/ExitActivites": "/employee-activity",
+    "/api/resignation/feedback": "/feedback",
+    "/api/ExitActivities/domainowner/:id": "/my-activity",
+    "/resignation/:id": "/resignation",
+    "/exit-activity/:resignationId": "/exit-activity"
+}
