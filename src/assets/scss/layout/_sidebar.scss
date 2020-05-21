@@ -18,16 +18,19 @@
     }
   }
   .nav {
-    .nav-link {
-      color: $light;
-      font-weight: $font-weight-bold;
-      &:hover,
-      &:active,
-      &.active {
-        background: $secondary;
-        color: $white;
-        background: -webkit-linear-gradient(to right, lighten($secondary, 10%), $secondary 60%);
-        background: linear-gradient(to bottom right, lighten($secondary, 10%), $secondary 60%);
+    .nav-item{
+      width: 100%;
+      .nav-link {
+        color: $light;
+        font-weight: $font-weight-bold;
+        &:hover,
+        &:active,
+        &.active {
+          background: $secondary;
+          color: $white;
+          background: -webkit-linear-gradient(to right, lighten($secondary, 10%), $secondary 60%);
+          background: linear-gradient(to bottom right, lighten($secondary, 10%), $secondary 60%);
+        }
       }
     }
   }
