@@ -66,15 +66,15 @@ $custom-control-indicator-checked-bg: $secondary;
 $project-form-width:350px;
 
 // media query breakpoints
-$max-width-375: 375px;
-$max-width-425: 425px;
+$breakpoint-375: 375px;
+$breakpoint-425: 425px;
+$breakpoint-1024:1024px;
 // grid breakpoints map
-$grid-breakpoints: (
- xxs: 0,
- xsm: $max-width-375,
- xmd:$max-width-425,
- sm: 576px,
- md: 768px,
- lg: 992px,
- xl: 1200px
-);
+$grid-breakpoints: (xxs: 0,
+    xsm: $breakpoint-375,
+    xmd:$breakpoint-425,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xlsm:$breakpoint-1024,
+    xl: 1200px);
