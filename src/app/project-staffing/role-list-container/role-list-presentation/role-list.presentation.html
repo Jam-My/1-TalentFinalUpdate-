@@ -22,10 +22,6 @@
                         [ngModelOptions]="{standalone: true}">
                     </ng-select>
                 </div>
-                <!-- <div class="form-group">
-                    <ng-select class="form-control" id="exampleFormControlInput1" (change)="checkValidFilter()" title="Filter On Selected Value" [items]="filterList" [(ngModel)]="filterQuery" [ngModelOptions]="{standalone: true}">
-                    </ng-select>
-                </div> -->
                 <div *ngIf="filterFlag; else searchButton">
                     <button type="button" (click)='filter()'
                         class="border-0 bg-transparent my-sm-0 fa fa-search fa-2x pb-2 search-btn"></button>
@@ -40,7 +36,6 @@
         </div>
     </div>
     <!-- end content header   -->
-    <!-- button to add -->
     <!-- content header responsive -->
     <div *ngIf="project" class="row role-header my-md-2 mx-md-3 my-0 mx-0">
         <div class="col-md-4 col-6 col-lg-1">
@@ -90,12 +85,10 @@
             <div class="text-center d-flex flex-column">
                 <button class="btn btn-primary btn-sm my-2" routerLink="/project-staffing/staffing-sheet/{{project.subProjectId}}">View Details</button>
                 <button class="btn btn-primary btn-sm" (click)="loadRoleForm()">Add Role</button>
-                <!-- <button class="btn btn-primary btn-sm" (click)="startEdit()">ED</button> -->
             </div>
         </div>
     </div>
     <!-- end content header responsive -->
-    <!-- end -->
     <!-- Ends: Filter Button -->
     <div class="row no-gutters m-0 my-sm-3">
         <!-- Table -->
@@ -204,7 +197,6 @@
                                     <ng-container *ngFor="let employee of roleList.employeeName; let i=index">
                                         <ng-container *ngIf="i !=0">,</ng-container> {{employee}}
                                     </ng-container>
-                                    <!-- <span class="fa fa-user fa-lg"></span> -->
                                 </td>
                                 <td class="data-table-item border-0">
                                     {{roleList.location}}
