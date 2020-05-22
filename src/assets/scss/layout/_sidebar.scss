@@ -1,46 +1,53 @@
 // Sidebar
 .side-nav {
-    width: $sidebar-width;
-    transition: $transition-base;
-    @include media-breakpoint-down(lg) {
-        position: absolute;
-        left: -250px;
-        z-index: 6;
+  width: $sidebar-width;
+  transition: $transition-base;
+
+  @include media-breakpoint-down(lg) {
+    position: absolute;
+    left: -250px;
+    z-index: 6;
+  }
+
+  .nav-header {
+    height: $header-height;
+
+    .logo-image {
+      height: $logo-height;
     }
-    .nav-header {
-        height: $header-height;
-        .logo-image {
-            height: $logo-height;
-        }
-        .close-icon {
-            right: 12px;
-            top: 10px;
-        }
+
+    .close-icon {
+      right: 12px;
+      top: 10px;
     }
-    .nav {
-        .nav-item {
-            width: 100%;
-            .nav-link {
-                color: $light;
-                font-weight: $font-weight-bold;
-                &:hover,
-                &:active,
-                &.active {
-                    background: $secondary;
-                    color: $white;
-                    background: -webkit-linear-gradient(to right, lighten($secondary, 10%), $secondary 60%);
-                    background: linear-gradient(to bottom right, lighten($secondary, 10%), $secondary 60%);
-                }
-            }
+  }
+
+  .nav {
+    .nav-item {
+      width: 100%;
+
+      .nav-link {
+        color: $light;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &:active,
+        &.active {
+          background: $secondary;
+          color: $white;
+          background: -webkit-linear-gradient(to right, lighten($secondary, 10%), $secondary 60%);
+          background: linear-gradient(to bottom right, lighten($secondary, 10%), $secondary 60%);
         }
+      }
     }
+  }
 }
 
 // Sidebar toggle
 #sidebar-toggle {
-    &:checked~ {
-        .side-nav {
-            left: 0;
-        }
+  &:checked~ {
+    .side-nav {
+      left: 0;
     }
+  }
 }

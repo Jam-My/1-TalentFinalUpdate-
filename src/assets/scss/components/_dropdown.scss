@@ -2,6 +2,7 @@
 .filter-box {
     overflow-x: hidden;
     overflow-y: auto;
+
     &::before {
         content: "";
         width: 0;
@@ -26,10 +27,12 @@
     position: absolute;
     right: 20px;
     top: 325px;
-    @media only screen and (max-width: 425px) {
+
+    @include media-breakpoint-down(xsm) {
         right: 20px;
         left: 20px;
     }
+
     &::before {
         content: "";
         width: 0;
@@ -48,10 +51,12 @@
     position: absolute;
     right: 20px;
     top: 155px;
-    @media only screen and (max-width: 425px) {
+
+    @include media-breakpoint-down(xsm) {
         right: 20px;
         left: 20px;
     }
+
     &::before {
         content: "";
         width: 0;
