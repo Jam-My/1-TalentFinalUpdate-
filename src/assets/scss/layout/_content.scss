@@ -8,26 +8,32 @@
     .filter-icon {
         display: none;
     }
+
     .search-btn {
         font-size: 30px;
     }
-    @media only screen and (max-width: 768px) {
+
+    @include media-breakpoint-down(sm) {
         .list-head {
             font-size: 22px;
         }
+
         .filter-input {
             width: 95px;
         }
+
         .search-btn {
             font-size: 25px;
         }
     }
-    @media only screen and (max-width: 425px) {
+
+    @include media-breakpoint-down(xsm) {
         .filter-icon {
             display: block;
             font-size: 24px;
             margin-bottom: 6px;
         }
+
         .filter-name {
             display: none;
         }
