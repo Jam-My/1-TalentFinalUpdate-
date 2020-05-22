@@ -4,7 +4,9 @@
     <div class="role-list-head staff-width d-sm-flex justify-content-between align-items-center border-bottom my-2">
         <h2 class="text-capitalize role-manage cursor-pointer">Staffing Sheet</h2>
         <div class=" d-flex align-items-center">
+
             <form class=" d-flex align-items-center ">
+
                 <div class="form-group mx-2 w-100">
                     <select class="form-control text-capitalize" [(ngModel)]="newSubProjectId"
                         [ngModelOptions]="{standalone: true}" id="exampleFormControlSelect1" title="Select category"
@@ -71,7 +73,6 @@
         </div>
     </div>
     <!-- end content header responsive -->
-    <!-- end -->
     <!-- content body -->
     <div class="row w-100 m-0 my-sm-3">
         <!-- Table -->
@@ -121,7 +122,6 @@
                 <!-- Ends: thead -->
                 <!-- tbody -->
                 <tbody>
-                    <!-- Remove "d-none" from No Record Msg when you want to show this msg -->
                     <!-- No records msg -->
                     <tr class="bg-transparent border-0" rowspan="2"
                         *ngIf="!staffingSheetListDetail || staffingSheetListDetail.length == 0">
