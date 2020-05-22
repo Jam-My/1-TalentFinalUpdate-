@@ -1,21 +1,19 @@
-<!-- My Activity Table View -->
-
 <!-- Container-fluid -->
 <div class="container-fluid d-flex flex-column overflow-auto w-100 h-100">
 
     <!-- Content-header -->
     <div class="content-header row no-gutters border-bottom flex-wrap flex-md-nowrap pb-2 my-3">
         <div class="col-12 col-md-6 d-flex flex-wrap flex-md-column justify-content-md-center">
-            <h6 class="content-title w-250">Employee Name :</h6>
+            <h5 class="content-title w-250">Employee Name :</h5>
             <h6 class="content-value">{{ (myActivity?.employeeName) || 'NA' }}</h6>
         </div>
         <div class="col-12 col-md-6 d-flex flex-wrap flex-column align-items-start align-items-md-end">
             <div class="d-flex flex-md-row flex-wrap">
-                <h6 class="content-title w-250">Approved Relieving Date :</h6>
+                <h5 class="content-title w-250">Approved Relieving Date :</h5>
                 <h6 class="content-value">{{ (myActivity?.approvedRelievingDate | date : "dd/MM/yyyy") || 'NA' }}</h6>
             </div>
             <div class="d-flex flex-md-row flex-wrap">
-                <h6 class="content-title w-250">Initiated on :</h6>
+                <h5 class="content-title w-250">Initiated on :</h5>
                 <h6 class="content-value">{{ (myActivity?.initiatedOn | date : "dd/MM/yyyy") || 'NA' }}</h6>
             </div>
         </div>
@@ -54,7 +52,6 @@
                         <th class="table-row-heading text-center border-0">Status</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <tr class="cursor-pointer" *ngFor="let activity of myActivities;let i=index" [routerLink]="[ '/exit-checklist/checklist-activity-form/', activity.exitActivityId ]">
                         <td class="data-table-item border-0">{{i+1}}
@@ -81,7 +78,8 @@
     <div class="mt-auto mb-4">
         <button type="button" class="btn btn-secondary my-3 my-md-0" routerLink="/exit-checklist">
             <span class="fa fa-angle-left mr-2" aria-hidden="true"></span>
-            Back</button>
+            Back
+        </button>
     </div>
 </div>
 <!-- Ends: Container-fluid -->
