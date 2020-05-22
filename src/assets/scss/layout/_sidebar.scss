@@ -2,27 +2,34 @@
 .side-nav {
   width: $sidebar-width;
   transition: $transition-base;
-  @include media-breakpoint-down(lg) {
+
+  @include media-breakpoint-down(xlsm) {
     position: absolute;
     left: -250px;
     z-index: 6;
   }
+
   .nav-header {
     height: $header-height;
+
     .logo-image {
       height: $logo-height;
     }
+
     .close-icon {
       right: 12px;
       top: 10px;
     }
   }
+
   .nav {
-    .nav-item{
+    .nav-item {
       width: 100%;
+
       .nav-link {
         color: $light;
         font-weight: $font-weight-bold;
+
         &:hover,
         &:active,
         &.active {
@@ -35,9 +42,10 @@
     }
   }
 }
+
 // Sidebar toggle
 #sidebar-toggle {
-  &:checked ~ {
+  &:checked~ {
     .side-nav {
       left: 0;
     }
