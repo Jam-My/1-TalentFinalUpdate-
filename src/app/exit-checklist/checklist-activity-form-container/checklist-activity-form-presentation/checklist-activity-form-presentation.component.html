@@ -1,169 +1,180 @@
 <!-- My Activity Details  -->
 <!-- Container-fluid -->
 <div class="container-fluid bg-white d-flex flex-column w-100 h-100 px-4 mt-2">
-  <!-- Content-header -->
-  <div class="content-header row no-gutters border-bottom flex-wrap flex-md-nowrap py-2">
-    <div class="col-12 col-md-8 d-flex flex-wrap flex-column justify-content-center">
-      <h6 class="content-title w-250">Employee Name :</h6>
-      <h6 class="content-value">{{(resp?.employeeName )|| 'NA'}}</h6>
+    <!-- Content-header -->
+    <div class="content-header row no-gutters border-bottom flex-wrap
+    flex-md-nowrap py-2">
+        <div class="col-12 col-md-8 d-flex flex-wrap flex-column
+      justify-content-center">
+            <h5 class="content-title w-250">Employee Name :</h5>
+            <h6 class="content-value">{{(resp?.employeeName )|| 'NA'}}</h6>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-wrap flex-column align-items-start
+      align-items-md-end">
+            <div class="d-flex flex-md-row flex-wrap">
+                <h5 class="content-title w-250">Approved Relieving Date :</h5>
+                <h6 class="content-value w-80">{{(resp?.approvedRelievingDate | date:'dd/MM/yyyy') || 'NA'}}</h6>
+            </div>
+            <div class="d-flex flex-md-row flex-wrap">
+                <h5 class="content-title w-250">Initiated on :</h5>
+                <h6 class="content-value w-80"> {{(resp?.initiatedOn | date:'dd/MM/yyyy') || 'NA'}}</h6>
+            </div>
+        </div>
     </div>
-    <div class="col-12 col-md-4 d-flex flex-wrap flex-column align-items-start align-items-md-end">
-      <div class="d-flex flex-md-row flex-wrap">
-        <h6 class="content-title w-250">Approved Relieving Date :</h6>
-        <h6 class="content-value w-80">{{(resp?.approvedRelievingDate | date:'dd/MM/yyyy') || 'NA'}}</h6>
-      </div>
-      <div class="d-flex flex-md-row flex-wrap">
-        <h6 class="content-title w-250">Initiated on :</h6>
-        <h6 class="content-value w-80"> {{(resp?.initiatedOn | date:'dd/MM/yyyy') || 'NA'}}</h6>
-      </div>
-    </div>
-  </div>
-  <!-- Ends: Content-header -->
+    <!-- Ends: Content-header -->
 
-  <!-- Card -->
-  <div class="card border-0 my-3 overflow-auto">
-    <!-- Card-Body -->
-    <div class="card-body pt-3">
-      <form [formGroup]="activityForm">
-        <!-- Duration Info Bar -->
-        <div
-          class="row no-gutters justify-content-around flex-wrap flex-xl-nowrap border border-radius p-3 mt-1 pr-md-0 mr-sm-0">
-          <div class="activity-area d-flex flex-column w-100 py-1">
-            <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Activity Name</div>
-            <div class="card-field-value font-size-lg mt-auto">{{resp?.activityName}}</div>
-          </div>
-          <div class="activity-area d-flex flex-column w-100 py-1">
-            <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Domain
-            </div>
-            <div class="card-field-value font-size-lg mt-auto">{{resp?.domainName}}</div>
-          </div>
-          <div class="activity-area d-flex flex-column w-100 py-1">
-            <div class="card-field-title font-weight-bold font-size-sm text-uppercase">Assigned To
-            </div>
-            <div class="card-field-value font-size-lg mt-auto">{{resp?.assignedName}}</div>
-          </div>
-          <div class="activity-area flex-column w-100 py-1">
-            <label for="checklist-status" class="card-field-title font-weight-bold font-size-sm text-uppercase">
+    <!-- Card -->
+    <div class="card border-0 my-3 overflow-auto">
+        <!-- Card-Body -->
+        <div class="card-body pt-3">
+            <form [formGroup]="activityForm">
+                <!-- Duration Info Bar -->
+                <div class="row no-gutters justify-content-around flex-wrap
+          flex-xl-nowrap border border-radius p-3 mt-1 pr-md-0 mr-sm-0">
+                    <div class="activity-area d-flex flex-column w-100 py-1">
+                        <div class="card-field-title font-weight-bold font-size-sm
+              text-uppercase">Activity Name</div>
+                        <div class="card-field-value font-size-lg mt-auto">{{resp?.activityName}}</div>
+                    </div>
+                    <div class="activity-area d-flex flex-column w-100 py-1">
+                        <div class="card-field-title font-weight-bold font-size-sm
+              text-uppercase">Domain
+                        </div>
+                        <div class="card-field-value font-size-lg mt-auto">{{resp?.domainName}}</div>
+                    </div>
+                    <div class="activity-area d-flex flex-column w-100 py-1">
+                        <div class="card-field-title font-weight-bold font-size-sm
+              text-uppercase">Assigned To
+                        </div>
+                        <div class="card-field-value font-size-lg mt-auto">{{resp?.assignedName}}</div>
+                    </div>
+                    <div class="activity-area flex-column w-100 py-1">
+                        <label for="checklist-status" class="card-field-title
+              font-weight-bold font-size-sm text-uppercase">
               Status
             </label>
-            <!-- Exit Checklist Status
-            Visible on Domain Owner and HR -->
-            <ng-container *showForRoles="[ROLES.HR,ROLES.DO,ROLES.DOAD];current:roles">
-              <ng-container *ngIf="STATUS.Completed === resp?.status; else elseTemplate">
-                <div class="card-field-value font-size-lg mt-auto">{{resp?.statusName}}</div>
-              </ng-container>
-              <ng-template #elseTemplate>
-                <div class="card-field-value d-block">
-                  <select formControlName="activityStatus" id="checklist-status"
-                    class="select-option font-weight-bold bg-white font-size-sm cursor-pointer border border-light rounded p-1 mt-auto">
-                    <!-- <option class="text-primary" value="" selected>Select Status</option> -->
-                    <option class="select-option font-weight-normal" [value]="STATUS.NotStarted">
+                        <!-- Exit Checklist Status  Visible on Domain Owner and HR -->
+                        <ng-container *showForRoles="[ROLES.HR,ROLES.DO,ROLES.DOAD];current:roles">
+                            <ng-container *ngIf="STATUS.Completed === resp?.status; else
+                elseTemplate">
+                                <div class="card-field-value font-size-lg mt-auto">{{resp?.statusName}}</div>
+                            </ng-container>
+                            <ng-template #elseTemplate>
+                                <div class="card-field-value d-block">
+                                    <select formControlName="activityStatus" id="checklist-status" class="select-option font-weight-bold bg-white font-size-sm
+                    cursor-pointer border border-light rounded p-1 mt-auto">
+                    <option class="select-option font-weight-normal"
+                      [value]="STATUS.NotStarted">
                       {{STATUSSHOW[STATUS.NotStarted]}}</option>
-                    <option class="select-option font-weight-normal" [value]="STATUS.InProgress">
+                    <option class="select-option font-weight-normal"
+                      [value]="STATUS.InProgress">
                       {{STATUSSHOW[STATUS.InProgress]}}</option>
-                    <option class="select-option font-weight-normal" [value]="STATUS.Completed">
+                    <option class="select-option font-weight-normal"
+                      [value]="STATUS.Completed">
                       {{STATUSSHOW[STATUS.Completed]}}</option>
                   </select>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                        <ng-container *showForRoles="[ROLES.EMP,ROLES.EMPAD];current:roles">
+                            <div class="card-field-value font-size-lg mt-auto">{{resp?.statusName}}</div>
+                        </ng-container>
+                        <!-- Ends: Exit Checklist Status -->
+                    </div>
                 </div>
-              </ng-template>
-            </ng-container>
+                <!-- Ends: Duration Info Bar -->
 
-            <ng-container *showForRoles="[ROLES.EMP,ROLES.EMPAD];current:roles">
-              <div class="card-field-value font-size-lg mt-auto">{{resp?.statusName}}</div>
-            </ng-container>
-            <!-- Ends: Exit Checklist Status -->
-          </div>
-        </div>
-        <!-- Ends: Duration Info Bar -->
+                <!-- Description -->
+                <div class="row no-gutters border-bottom py-3">
+                    <div class="col-md-12 col-lg-10 d-flex flex-wrap flex-lg-nowrap">
+                        <div class="card-field-title font-weight-bold d-flex flex-shrink-0
+              w-250 pr-2">
+                            Description
+                        </div>
+                        <div class="card-field-value text-break">
+                            {{resp?.description}}
+                        </div>
+                    </div>
+                </div>
+                <!-- Ends: Description -->
 
-        <!-- Description -->
-        <div class="row no-gutters border-bottom py-3">
-          <div class="col-md-12 col-lg-10 d-flex flex-wrap flex-lg-nowrap">
-            <div class="card-field-title font-weight-bold d-flex flex-shrink-0 w-250 pr-2">
-              Description
-            </div>
-            <div class="card-field-value text-break">
-              {{resp?.description}}
-            </div>
-          </div>
-        </div>
-        <!-- Ends: Description -->
-
-        <!-- Exit Checklist Remark  
+                <!-- Exit Checklist Remark  
            Visible on HR and Domain Owner-->
-        <ng-container *showForRoles="[ROLES.HR,ROLES.DO,ROLES.DOAD];current:roles">
-          <div class="row no-gutters py-3">
-            <ng-container *ngIf="!(STATUS.Completed === resp?.status); else elseTemplate">
-              <div class="col-md-12 col-lg-10 d-flex flex-wrap flex-lg-nowrap">
-                <label for="checklist-remarks" class="card-field-title d-flex flex-shrink-0 w-250 mb-2 mb-lg-0">
+                <ng-container *showForRoles="[ROLES.HR,ROLES.DO,ROLES.DOAD];current:roles">
+                    <div class="row no-gutters py-3">
+                        <ng-container *ngIf="!(STATUS.Completed === resp?.status); else
+              elseTemplate">
+                            <div class="col-md-12 col-lg-10 d-flex flex-wrap flex-lg-nowrap">
+                                <label for="checklist-remarks" class="card-field-title d-flex
+                  flex-shrink-0 w-250 mb-2 mb-lg-0">
                   <div class="col p-0">
                     <span class="d-block font-weight-bold">Remark</span>
-                    <span class="font-size-sm font-weight-normal">{{'(' +resp?.assignedName+ ')'}}</span>
+                    <span class="font-size-sm font-weight-normal">{{'('
+                      +resp?.assignedName+ ')'}}</span>
                   </div>
                 </label>
-                <div class="d-flex flex-column w-100">
-                  <textarea formControlName="remarks" type="textarea" id="checklist-remarks" rows="3" cols="22"
-                    class="card-input-field border border-light rounded w-100 p-2"></textarea>
-                  <div class="invalid-feedback d-block pt-2" *ngIf="remarks.errors && remarks.touched">
-                    <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
-                    <span>Remarks must be between 25 to 250 characters</span>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </div>
+                                <div class="d-flex flex-column w-100">
+                                    <textarea formControlName="remarks" type="textarea" id="checklist-remarks" rows="3" cols="22" class="card-input-field border border-light rounded w-100
+                    p-2"></textarea>
+                                    <div class="invalid-feedback d-block pt-2" *ngIf="remarks.errors && remarks.touched">
+                                        <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
+                                        <span>Remarks must be between 25 to 250 characters</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
 
-        </ng-container>
-        <!-- Ends: Exit Checklist Remark -->
+                </ng-container>
+                <!-- Ends: Exit Checklist Remark -->
 
-        <!-- Exit Checklist Remark Non-editable -->
-        <ng-container *ngFor="let remark of resp?.remarks;let i=index">
-          <div class="row no-gutters border-bottom py-3">
-            <div class="col-12 col-lg-10 d-flex flex-wrap flex-lg-nowrap">
-              <div class="card-field-title d-flex flex-shrink-0 w-250 pr-2 mb-2 mb-lg-0">
-                <div class="col p-0">
-                  <span class="d-block font-weight-bold">Remark</span>
-                  <span class="font-size-sm font-weight-normal">{{'(' +resp.assignedName+ ')'}}</span>
-                </div>
-              </div>
-              <div class="card-field-value text-break">
-                <!-- TODO: Remark numbering to denote their order -->
-                <!-- <span class="text-secondary">{{i+1}}.</span> -->
-                {{remark}}
-              </div>
-            </div>
-          </div>
-        </ng-container>
-        <!-- Ends: Exit Checklist Remark Non-editable -->
+                <!-- Exit Checklist Remark Non-editable -->
+                <ng-container *ngFor="let remark of resp?.remarks;let i=index">
+                    <div class="row no-gutters border-bottom py-3">
+                        <div class="col-12 col-lg-10 d-flex flex-wrap flex-lg-nowrap">
+                            <div class="card-field-title d-flex flex-shrink-0 w-250 pr-2 mb-2
+                mb-lg-0">
+                                <div class="col p-0">
+                                    <span class="d-block font-weight-bold">Remark</span>
+                                    <span class="font-size-sm font-weight-normal">{{'('
+                    +resp.assignedName+ ')'}}</span>
+                                </div>
+                            </div>
+                            <div class="card-field-value text-break">
+                                <!-- TODO: Remark numbering to denote their order -->
+                                <!-- <span class="text-secondary">{{i+1}}.</span> -->
+                                {{remark}}
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <!-- Ends: Exit Checklist Remark Non-editable -->
 
-        <!-- Save & Reset Buttons
+                <!-- Save & Reset Buttons
            Visible on Domain Owner and HR -->
-        <ng-container *showForRoles="[ROLES.HR,ROLES.DO,ROLES.DOAD];current:roles">
-          <ng-container *ngIf="!(STATUS.Completed === resp?.status)">
-            <div class="row no-gutters justify-content-center mt-3 p-0">
-              <!-- TODO: Toaster Message --message: "Saved successfully"  -->
-              <button class="btn btn-primary px-4 ml-0 ml-md-auto mr-2 mb-2 mb-md-0"
-                (click)="saveStatus()">Save</button>
-              <button class="btn btn-outline-light text-primary px-4 mb-2 mb-md-0" type="button">Reset</button>
-            </div>
-          </ng-container>
-
-        </ng-container>
-
-        <!-- Ends: Save & Reset Buttons -->
-
-      </form>
-
+                <ng-container *showForRoles="[ROLES.HR,ROLES.DO,ROLES.DOAD];current:roles">
+                    <ng-container *ngIf="!(STATUS.Completed === resp?.status)">
+                        <div class="row no-gutters justify-content-center mt-3 p-0">
+                            <!-- TODO: Toaster Message --message: "Saved successfully"  -->
+                            <button class="btn btn-primary px-4 ml-0 ml-md-auto mr-2 mb-2
+                mb-md-0" (click)="saveStatus()">Save</button>
+                            <button class="btn btn-outline-light text-primary px-4 mb-2
+                mb-md-0" type="button">Reset</button>
+                        </div>
+                    </ng-container>
+                </ng-container>
+                <!-- Ends: Save & Reset Buttons -->
+            </form>
+        </div>
+        <!-- Ends: Card-Body -->
     </div>
-    <!-- Ends: Card-Body -->
-  </div>
-  <!-- Ends: Card -->
+    <!-- Ends: Card -->
 
-  <div class="my-3">
-    <button class="btn btn-secondary" (click)="goBack()">
+    <div class="my-3">
+        <button class="btn btn-secondary" (click)="goBack()">
       <span class="fa fa-angle-left mr-2" aria-hidden="true"></span> Back
     </button>
-  </div>
+    </div>
 
 </div>
 <!-- Ends: Container-fluid-->

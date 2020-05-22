@@ -1,25 +1,23 @@
 <!--main wrapper -->
 <div class="container-fluid">
     <!-- content header  -->
-    <div class="role-list-head d-sm-flex justify-content-between align-items-center border-bottom my-2">
+    <div class="role-list-head d-sm-flex justify-content-between
+        align-items-center border-bottom my-2">
         <h2 class="text-capitalize role-manage cursor-pointer">manage Staffing</h2>
-        <div class=" d-flex align-items-center">
+        <div class="d-flex align-items-center">
             <span class="fa fa-filter filter-icon d-lg-none d-block"></span>
             <h5 class="text-capitalize d-lg-block d-none filter-icon">filter by</h5>
-            <form class=" d-flex align-items-center ">
+            <form class="d-flex align-items-center">
                 <div class="form-group mx-2">
-                    <select (click)="selectFilterField()" class="form-control text-capitalize"
-                        id="exampleFormControlSelect1" [(ngModel)]="field" [ngModelOptions]="{standalone: true}"
-                        title="Select category">
+                    <select (click)="selectFilterField()" class="form-control
+                        text-capitalize" id="exampleFormControlSelect1" [(ngModel)]="field" [ngModelOptions]="{standalone: true}" title="Select category">
                         <option value='role'>Role</option>
                         <option value='technology'>Technology</option>
                         <option value='location'>Location</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <ng-select class="form-control" id="exampleFormControlInput1" (change)="checkValidFilter()"
-                        title="Filter On Selected Value" [items]="filterList" [(ngModel)]="filterQuery"
-                        [ngModelOptions]="{standalone: true}">
+                    <ng-select class="form-control" id="exampleFormControlInput1" (change)="checkValidFilter()" title="Filter On Selected Value" [items]="filterList" [(ngModel)]="filterQuery" [ngModelOptions]="{standalone: true}">
                     </ng-select>
                 </div>
                 <!-- <div class="form-group">
@@ -27,13 +25,13 @@
                     </ng-select>
                 </div> -->
                 <div *ngIf="filterFlag; else searchButton">
-                    <button type="button" (click)='filter()'
-                        class="border-0 bg-transparent my-sm-0 fa fa-search fa-2x pb-2 search-btn"></button>
+                    <button type="button" (click)='filter()' class="border-0 bg-transparent my-sm-0 fa fa-search
+                        fa-2x pb-2 search-btn"></button>
                 </div>
                 <ng-template #searchButton>
                     <div>
-                        <button type="button" class="border-0 bg-transparent my-sm-0 fa fa-search fa-2x pb-2 search-btn"
-                            disabled></button>
+                        <button type="button" class="border-0 bg-transparent
+                            my-sm-0 fa fa-search fa-2x pb-2 search-btn" disabled></button>
                     </div>
                 </ng-template>
             </form>
@@ -65,8 +63,7 @@
             <div class="text-center">
                 <small>Project Proccess (Hours)</small>
                 <div class="progress my-2 my-md-0" title="{{totalSubmittedHours}}/{{totalHours}}">
-                    <div class="progress-bar" role="progressbar" [ngStyle]="{width: progress }" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100">{{progress}}</div>
+                    <div class="progress-bar" role="progressbar" [ngStyle]="{width: progress }" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{progress}}</div>
                 </div>
             </div>
         </div>
@@ -80,7 +77,8 @@
             <div class="text-center">
                 <small>Approver</small>
                 <ng-container *ngFor="let employee of approverList">
-                    <ng-container *ngFor="let approver of project.hoursApproverId; let i=index">
+                    <ng-container *ngFor="let approver of
+                        project.hoursApproverId; let i=index">
                         <p *ngIf="employee.employeeId == approver">{{ employee.employeeName }} [RM{{i+1}}]</p>
                     </ng-container>
                 </ng-container>
@@ -88,8 +86,10 @@
         </div>
         <div class="col-md-4 col-12 col-lg-2">
             <div class="text-center d-flex flex-column">
-                <button class="btn btn-primary btn-sm my-2" routerLink="/project-staffing/staffing-sheet/{{project.subProjectId}}">View Details</button>
-                <button class="btn btn-primary btn-sm" (click)="loadRoleForm()">Add Role</button>
+                <button class="btn btn-primary btn-sm my-2" routerLink="/project-staffing/staffing-sheet/{{project.subProjectId}}">View
+                    Details</button>
+                <button class="btn btn-primary btn-sm" (click)="loadRoleForm()">Add
+                    Role</button>
                 <!-- <button class="btn btn-primary btn-sm" (click)="startEdit()">ED</button> -->
             </div>
         </div>
@@ -101,60 +101,73 @@
         <!-- Table -->
         <div class="table-responsive d-lg-block d-none">
             <form [formGroup]="roleForm" (ngSubmit)="saveEdit()">
-                <table class="table role-data-table flex-column table-hover table-striped border-0">
+                <table class="table role-data-table flex-column table-hover
+                    table-striped border-0">
                     <!-- thead -->
                     <thead class="bg-primary text-white whitespace-nowrap">
                         <tr>
-                            <th class="table-row-heading border-0 cursor-pointer" (click)="sorting('role')">
+                            <th class="table-row-heading border-0
+                                cursor-pointer" (click)="sorting('role')">
                                 <span class="mr-2">Role</span>
                                 <div *ngIf="fieldName == 'role'">
-                                    <span *ngIf="reverse"
-                                        class="fa fa-caret-up text-warning sort-asc bg-transparent"></span>
-                                    <span *ngIf="!reverse"
-                                        class="fa fa-caret-down text-warning sort-desc bg-transparent"></span>
+                                    <span *ngIf="reverse" class="fa fa-caret-up text-warning
+                                        sort-asc bg-transparent"></span>
+                                    <span *ngIf="!reverse" class="fa fa-caret-down text-warning
+                                        sort-desc bg-transparent"></span>
                                 </div>
                                 <div *ngIf="fieldName != 'role'">
-                                    <span class="fa fa-caret-up text-success sort-asc bg-transparent"></span>
-                                    <span class="fa fa-caret-down text-success sort-desc bg-transparent"></span>
+                                    <span class="fa fa-caret-up text-success
+                                        sort-asc bg-transparent"></span>
+                                    <span class="fa fa-caret-down text-success
+                                        sort-desc bg-transparent"></span>
                                 </div>
                             </th>
-                            <th class="table-row-heading border-0 cursor-pointer" (click)="sorting('technology')">
+                            <th class="table-row-heading border-0
+                                cursor-pointer" (click)="sorting('technology')">
                                 <span class="mr-2">Technology</span>
                                 <div *ngIf="fieldName == 'technology'">
-                                    <span *ngIf="reverse"
-                                        class="fa fa-caret-up text-warning sort-asc bg-transparent"></span>
-                                    <span *ngIf="!reverse"
-                                        class="fa fa-caret-down text-warning sort-desc bg-transparent"></span>
+                                    <span *ngIf="reverse" class="fa fa-caret-up text-warning
+                                        sort-asc bg-transparent"></span>
+                                    <span *ngIf="!reverse" class="fa fa-caret-down text-warning
+                                        sort-desc bg-transparent"></span>
                                 </div>
                                 <div *ngIf="fieldName != 'technology'">
-                                    <span class="fa fa-caret-up text-success sort-asc bg-transparent"></span>
-                                    <span class="fa fa-caret-down text-success sort-desc bg-transparent"></span>
+                                    <span class="fa fa-caret-up text-success
+                                        sort-asc bg-transparent"></span>
+                                    <span class="fa fa-caret-down text-success
+                                        sort-desc bg-transparent"></span>
                                 </div>
                             </th>
-                            <th class="table-row-heading border-0 cursor-pointer" (click)="sorting('employeeName')">
+                            <th class="table-row-heading border-0
+                                cursor-pointer" (click)="sorting('employeeName')">
                                 <span class="mr-2">Employee</span>
                                 <div *ngIf="fieldName == 'employeeName'">
-                                    <span *ngIf="reverse"
-                                        class="fa fa-caret-up text-warning sort-asc bg-transparent"></span>
-                                    <span *ngIf="!reverse"
-                                        class="fa fa-caret-down text-warning sort-desc bg-transparent"></span>
+                                    <span *ngIf="reverse" class="fa fa-caret-up text-warning
+                                        sort-asc bg-transparent"></span>
+                                    <span *ngIf="!reverse" class="fa fa-caret-down text-warning
+                                        sort-desc bg-transparent"></span>
                                 </div>
                                 <div *ngIf="fieldName != 'employeeName'">
-                                    <span class="fa fa-caret-up text-success sort-asc bg-transparent"></span>
-                                    <span class="fa fa-caret-down text-success sort-desc bg-transparent"></span>
+                                    <span class="fa fa-caret-up text-success
+                                        sort-asc bg-transparent"></span>
+                                    <span class="fa fa-caret-down text-success
+                                        sort-desc bg-transparent"></span>
                                 </div>
                             </th>
-                            <th class="table-row-heading border-0 cursor-pointer" (click)="sorting('location')">
+                            <th class="table-row-heading border-0
+                                cursor-pointer" (click)="sorting('location')">
                                 <span>Location</span>
                                 <div *ngIf="fieldName == 'location'">
-                                    <span *ngIf="reverse"
-                                        class="fa fa-caret-up text-warning sort-asc bg-transparent"></span>
-                                    <span *ngIf="!reverse"
-                                        class="fa fa-caret-down text-warning sort-desc bg-transparent"></span>
+                                    <span *ngIf="reverse" class="fa fa-caret-up text-warning
+                                        sort-asc bg-transparent"></span>
+                                    <span *ngIf="!reverse" class="fa fa-caret-down text-warning
+                                        sort-desc bg-transparent"></span>
                                 </div>
                                 <div *ngIf="fieldName != 'location'">
-                                    <span class="fa fa-caret-up text-success sort-asc bg-transparent"></span>
-                                    <span class="fa fa-caret-down text-success sort-desc bg-transparent"></span>
+                                    <span class="fa fa-caret-up text-success
+                                        sort-asc bg-transparent"></span>
+                                    <span class="fa fa-caret-down text-success
+                                        sort-desc bg-transparent"></span>
                                 </div>
                             </th>
                             <th class="table-row-heading border-0">
@@ -163,7 +176,7 @@
                             <th class="table-row-heading border-0">
                                 <span>Total Amount</span>
                             </th>
-                            <th class="table-row-heading border-0 ">
+                            <th class="table-row-heading border-0">
                                 <span class="mr-2">PayRate</span>
                             </th>
                             <th class="table-row-heading border-0 text-center">
@@ -184,15 +197,18 @@
                         <!-- No records msg -->
                         <tr class="bg-transparent border-0 d-none" rowspan="2">
                             <td colspan="8" class="p-0 w-100 text-center">
-                                <div class="alert alert-primary text-center p-3 my-3" role="alert">
+                                <div class="alert alert-primary text-center p-3
+                                    my-3" role="alert">
                                     No records found.
                                 </div>
                             </td>
                         </tr>
                         <!-- Ends: No records msg -->
                         <!-- Actual table row -->
-                        <tr
-                            *ngFor="let roleList of filteredRoleList | slice: (currentPage * pageSize) - pageSize :currentPage * pageSize | order : fieldName : reverse;let i = index">
+                        <tr *ngFor="let roleList of filteredRoleList | slice:
+                            (currentPage * pageSize) - pageSize :currentPage *
+                            pageSize | order : fieldName : reverse;let i=
+                            index">
                             <ng-container *ngIf="editable != i">
                                 <td class="data-table-item border-0">
                                     {{roleList.role}}
@@ -200,30 +216,37 @@
                                 <td class="data-table-item border-0">
                                     {{roleList.technology}}
                                 </td>
-                                <td class="data-table-item border-0 ">
-                                    <ng-container *ngFor="let employee of roleList.employeeName; let i=index">
-                                        <ng-container *ngIf="i !=0">,</ng-container> {{employee}}
+                                <td class="data-table-item border-0">
+                                    <ng-container *ngFor="let employee of
+                                        roleList.employeeName; let i=index">
+                                        <ng-container *ngIf="i !=0">,</ng-container>
+                                        {{employee}}
                                     </ng-container>
                                     <!-- <span class="fa fa-user fa-lg"></span> -->
                                 </td>
                                 <td class="data-table-item border-0">
                                     {{roleList.location}}
                                 </td>
-                                <td class="data-table-item border-0">$ {{roleList.billRate}}</td>
+                                <td class="data-table-item border-0">$ {{roleList.billRate}}
+                                </td>
                                 <td class="data-table-item border-0">
-                                    $ {{getTotalBillableAmount(roleList.billRate,roleList.weeklyBillableHours)}}</td>
-                                <td class="data-table-item border-0">$ {{roleList.payRate}}</td>
+                                    $ {{getTotalBillableAmount(roleList.billRate,roleList.weeklyBillableHours)}}
+                                </td>
+                                <td class="data-table-item border-0">$ {{roleList.payRate}}
+                                </td>
                                 <td class="data-table-item border-0">{{roleList.weeklyBillableHours}}</td>
                                 <td class="data-table-item border-0">
                                     {{getTotalBillableHours(roleList.weeklyBillableHours)}}
                                 </td>
-                                <td class="data-table-item border-0 text-center">
+                                <td class="data-table-item border-0
+                                    text-center">
                                     <div class="d-flex">
                                         <button class="btn" type="button" (click)="openConfirmationDialog(roleList.staffingId)">
                                             <span class="fa fa-trash fa-lg"></span>
                                         </button>
                                         <button class="btn" type="button">
-                                            <span class="fa fa-pencil-square-o fa-lg" type="button"
+                                            <span class="fa fa-pencil-square-o
+                                                fa-lg" type="button"
                                                 (click)="startEdit(i,roleList)"></span>
                                         </button>
                                     </div>
@@ -233,60 +256,58 @@
                             <ng-container *ngIf="editable == i">
                                 <td class="data-table-item border-0">
                                     <div class="d-flex">
-                                        <ng-select class="w-100 p-1 rounded border border-primary"
-                                            formControlName="roleId" [items]="roles" bindLabel="role"
-                                            bindValue="roleId">
+                                        <ng-select class="w-100 p-1 rounded
+                                            border border-primary" formControlName="roleId" [items]="roles" bindLabel="role" bindValue="roleId">
                                         </ng-select>
                                     </div>
                                 </td>
                                 <td class="data-table-item border-0">
                                     <div class="d-flex">
-                                        <ng-select class="w-100 p-1 rounded border border-primary"
-                                            formControlName="technologyId" [items]="technologies" bindLabel="technology"
-                                            bindValue="technologyId" (change)="getEmployee()">
+                                        <ng-select class="w-100 p-1 rounded
+                                            border border-primary" formControlName="technologyId" [items]="technologies" bindLabel="technology" bindValue="technologyId" (change)="getEmployee()">
                                         </ng-select>
                                     </div>
                                 </td>
                                 <td class="data-table-item border-0 text-right">
-                                    <ng-select class="w-100 p-1 rounded border border-primary"
-                                        formControlName="employeeId" [items]="employeeList" multiple="true"
-                                        bindLabel="employeeName" bindValue="employeeId">
+                                    <ng-select class="w-100 p-1 rounded border
+                                        border-primary" formControlName="employeeId" [items]="employeeList" multiple="true" bindLabel="employeeName" bindValue="employeeId">
                                     </ng-select>
                                 </td>
                                 <td class="data-table-item border-0">
                                     <div class="d-flex">
-                                        <ng-select class="w-100 p-1 rounded border border-primary"
-                                            formControlName="locationId" [items]="locations" bindLabel="location"
-                                            bindValue="locationId">
+                                        <ng-select class="w-100 p-1 rounded
+                                            border border-primary" formControlName="locationId" [items]="locations" bindLabel="location" bindValue="locationId">
                                         </ng-select>
                                     </div>
                                 </td>
                                 <td class="data-table-item border-0">
-                                    <input type="number" class="w-100 p-1 rounded border border-primary"
-                                        formControlName="billRate">
+                                    <input type="number" class="w-100 p-1
+                                        rounded border border-primary" formControlName="billRate">
                                 </td>
                                 <td class="data-table-item border-0">
                                     <span>{{getTotalBillableAmount(roleList.billRate,roleList.weeklyBillableHours)}}</span>
                                 </td>
                                 <td class="data-table-item border-0">
-                                    <input type="number" class="w-100 p-1 rounded border border-primary"
-                                        formControlName="payRate">
+                                    <input type="number" class="w-100 p-1
+                                        rounded border border-primary" formControlName="payRate">
                                 </td>
                                 <td class="data-table-item border-0">
-                                    <input type="number" class="w-100 p-1 rounded border border-primary"
-                                        formControlName="weeklyBillableHours">
-                                    <input type="hidden" class="w-100 p-1 rounded border border-primary"
-                                        formControlName="payCycleId">
+                                    <input type="number" class="w-100 p-1
+                                        rounded border border-primary" formControlName="weeklyBillableHours">
+                                    <input type="hidden" class="w-100 p-1
+                                        rounded border border-primary" formControlName="payCycleId">
                                     <input type="hidden" formControlName="staffingId">
                                     <input type="hidden" formControlName="subProjectId">
                                 </td>
                                 <td class="data-table-item border-0">
                                     <span>{{getTotalBillableHours(roleList.weeklyBillableHours)}}</span>
                                 </td>
-                                <td class="data-table-item border-0 text-center">
+                                <td class="data-table-item border-0
+                                    text-center">
                                     <div class="d-flex">
                                         <button class="btn" type="button">
-                                            <span class="fa fa-times fa-lg" (click)="cancelEdit()"></span>
+                                            <span class="fa fa-times fa-lg"
+                                                (click)="cancelEdit()"></span>
                                         </button>
                                         <button class="btn" type="submit">
                                             <span class="fa fa-check fa-lg"></span>
@@ -307,18 +328,16 @@
     <div class="d-lg-none">
         <h3 scope="col" class="my-lg-0 my-4">Role List</h3>
         <form [formGroup]="roleForm" (ngSubmit)="saveEdit()">
-            <table class="table rounded bg-primary ">
-                <ng-container *ngFor="let roleList of filteredRoleList; let i=index">
+            <table class="table rounded bg-primary">
+                <ng-container *ngFor="let roleList of filteredRoleList; let
+                    i=index">
                     <thead>
-                        <tr class="accordion-toggle collapsed p-0" id="accordion1" data-toggle="collapse"
-                            data-parent="#accordion1" href="#collapseOne">
+                        <tr class="accordion-toggle collapsed p-0" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
                             <td class="text-capitalize text-white">{{roleList.role}}</td>
-                            <td *ngIf="showHideAaccordion != i" class="text-white cursor-pointer text-center"
-                                (click)="showHideData(i)">
+                            <td *ngIf="showHideAaccordion != i" class="text-white cursor-pointer text-center" (click)="showHideData(i)">
                                 <span class="fa fa-plus"></span>
                             </td>
-                            <td *ngIf="showHideAaccordion == i" class="text-white cursor-pointer text-center"
-                                (click)="showHideData(i)">
+                            <td *ngIf="showHideAaccordion == i" class="text-white cursor-pointer text-center" (click)="showHideData(i)">
                                 <span class="fa fa-minus"></span>
                             </td>
                         </tr>
@@ -327,89 +346,109 @@
                         <tr class="hide-table-padding">
                             <ng-container *ngIf="editable != i">
                                 <td colspan="3" *ngIf="showHideAaccordion == i">
-                                    <div id="collapseOne" class="collapse show p-3">
+                                    <div id="collapseOne" class="collapse show
+                                        p-3">
                                         <div class="row">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">technology</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">technology</span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">{{roleList.technology}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">{{roleList.technology}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">employee
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">employee
                                                     Required</span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">{{roleList.employeeName}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">{{roleList.employeeName}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">location
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">location
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">{{roleList.location}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">{{roleList.location}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">bill
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">bill
                                                     rate
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">$ {{roleList.billRate}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">$
+                                                    {{roleList.billRate}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">total
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">total
                                                     amount
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">$ {{getTotalBillableAmount(roleList.billRate,roleList.weeklyBillableHours)}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">$
+                                                    {{getTotalBillableAmount(roleList.billRate,roleList.weeklyBillableHours)}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">pay
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">pay
                                                     rate
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">$ {{roleList.payRate}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">$
+                                                    {{roleList.payRate}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">weekly hours
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">weekly
+                                                    hours
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">{{roleList.weeklyBillableHours}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">{{roleList.weeklyBillableHours}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">Total hours
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">Total
+                                                    hours
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">{{getTotalBillableHours(roleList.weeklyBillableHours)}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">{{getTotalBillableHours(roleList.weeklyBillableHours)}}</span>
                                             </div>
                                             <div class="row mt-2">
                                                 <div class="col-12">
                                                     <div class="p-3">
-                                                        <button type="button" class="btn bg-primary text-white mr-4"
-                                                            (click)="openConfirmationDialog(roleList.staffingId)">
-                                                            <span class=" fa fa-trash fa-lg"></span>
+                                                        <button type="button" class="btn
+                                                            bg-primary
+                                                            text-white mr-4" (click)="openConfirmationDialog(roleList.staffingId)">
+                                                            <span class="fa
+                                                                fa-trash fa-lg"></span>
                                                         </button>
-                                                        <button type="button" class="btn bg-primary text-white">
-                                                            <span class="fa fa-pencil-square-o fa-lg"
+                                                        <button type="button" class="btn
+                                                            bg-primary
+                                                            text-white">
+                                                            <span class="fa
+                                                                fa-pencil-square-o
+                                                                fa-lg"
                                                                 (click)="startEdit(i,roleList)"></span>
                                                         </button>
                                                     </div>
@@ -421,103 +460,132 @@
                             </ng-container>
                             <ng-container *ngIf="editable == i">
                                 <td colspan="3" *ngIf="showHideAaccordion == i">
-                                    <div id="collapseOne" class="collapse show p-3">
+                                    <div id="collapseOne" class="collapse show
+                                        p-3">
                                         <div class="row">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">Role</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">Role</span>
                                             </div>
                                             <div class="col-6">
-                                                <ng-select class="w-100 p-1 rounded border border-primary" formControlName="roleId" [items]="roles" bindLabel="role" bindValue="roleId">
+                                                <ng-select class="w-100 p-1
+                                                    rounded border
+                                                    border-primary" formControlName="roleId" [items]="roles" bindLabel="role" bindValue="roleId">
                                                 </ng-select>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">Technology</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">Technology</span>
                                             </div>
                                             <div class="col-6">
-                                                <ng-select class="w-100 p-1 rounded border border-primary" formControlName="technologyId" [items]="technologies" bindLabel="technology" bindValue="technologyId" (change)="getEmployee()">
+                                                <ng-select class="w-100 p-1
+                                                    rounded border
+                                                    border-primary" formControlName="technologyId" [items]="technologies" bindLabel="technology" bindValue="technologyId" (change)="getEmployee()">
                                                 </ng-select>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">Employee
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">Employee
                                                     Required</span>
                                             </div>
                                             <div class="col-6">
-                                                <ng-select class="w-100 p-1 rounded border border-primary" formControlName="employeeId" [items]="employeeList" multiple="true" bindLabel="employeeName" bindValue="employeeId">
+                                                <ng-select class="w-100 p-1
+                                                    rounded border
+                                                    border-primary" formControlName="employeeId" [items]="employeeList" multiple="true" bindLabel="employeeName" bindValue="employeeId">
                                                 </ng-select>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">Location</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">Location</span>
                                             </div>
                                             <div class="col-6">
-                                                <ng-select class="w-100 p-1 rounded border border-primary" formControlName="locationId" [items]="locations" bindLabel="location" bindValue="locationId">
+                                                <ng-select class="w-100 p-1
+                                                    rounded border
+                                                    border-primary" formControlName="locationId" [items]="locations" bindLabel="location" bindValue="locationId">
                                                 </ng-select>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">Bill
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">Bill
                                                     rate
                                                 </span>
                                             </div>
                                             <div class="col-6">
-                                                <input type="number" class="w-100 p-1 rounded border border-primary" formControlName="billRate">
+                                                <input type="number" class="w-100 p-1 rounded
+                                                    border border-primary" formControlName="billRate">
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">total
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">total
                                                     amount
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">{{getTotalBillableAmount(roleList.billRate,roleList.weeklyBillableHours)}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">{{getTotalBillableAmount(roleList.billRate,roleList.weeklyBillableHours)}}</span>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">pay
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">pay
                                                     rate
                                                 </span>
                                             </div>
                                             <div class="col-6">
-                                                <input type="number" class="w-100 p-1 rounded border border-primary" formControlName="payRate">
+                                                <input type="number" class="w-100 p-1 rounded
+                                                    border border-primary" formControlName="payRate">
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">weekly hours
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">weekly
+                                                    hours
                                                 </span>
                                             </div>
                                             <div class="col-6">
-                                                <input type="number" class="w-100 p-1 rounded border border-primary" formControlName="weeklyBillableHours">
-                                                <input type="hidden" class="w-100 p-1 rounded border border-primary" formControlName="payCycleId">
+                                                <input type="number" class="w-100 p-1 rounded
+                                                    border border-primary" formControlName="weeklyBillableHours">
+                                                <input type="hidden" class="w-100 p-1 rounded
+                                                    border border-primary" formControlName="payCycleId">
                                                 <input type="hidden" formControlName="staffingId">
                                                 <input type="hidden" formControlName="subProjectId">
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-6"><span
-                                                    class="text-capitalize text-primary font-weight-bold">Total Hours
+                                            <div class="col-6"><span class="text-capitalize
+                                                    text-primary
+                                                    font-weight-bold">Total
+                                                    Hours
                                                 </span>
                                             </div>
-                                            <div class="col-6"><span
-                                                    class="text-capitalize accordion-data-item">{{getTotalBillableHours(roleList.weeklyBillableHours)}}</span>
+                                            <div class="col-6"><span class="text-capitalize
+                                                    accordion-data-item">{{getTotalBillableHours(roleList.weeklyBillableHours)}}</span>
                                             </div>
                                             <div class="row mt-2">
                                                 <div class="col-12">
                                                     <div class="p-3">
-                                                        <button type="button" class="btn bg-primary text-white mr-4"
-                                                            (click)="cancelEdit()">
-                                                            <span class="fa fa-times fa-lg"></span>
+                                                        <button type="button" class="btn
+                                                            bg-primary
+                                                            text-white mr-4" (click)="cancelEdit()">
+                                                            <span class="fa
+                                                                fa-times fa-lg"></span>
                                                         </button>
-                                                        <button type="submit" class="btn bg-primary text-white">
-                                                            <span class="fa fa-check fa-lg"></span>
+                                                        <button type="submit" class="btn
+                                                            bg-primary
+                                                            text-white">
+                                                            <span class="fa
+                                                                fa-check fa-lg"></span>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -534,22 +602,23 @@
     </div>
     <!-- End : accordion table for mobile -->
     <!-- Pagination -->
-    <div class="row align-items-center py-3 pt-md-auto ">
+    <div class="row align-items-center py-3 pt-md-auto">
         <div class="col-6 d-flex justify-content-start">
-            <button class="bg-secondary d-flex align-items-center text-white border-0 py-2 px-4 rounded"
-                [routerLink]="['/project-staffing/list']">
-                <span class="fa fa-angle-left mr-2" aria-hidden="true"></span> Back
+            <button class="bg-secondary d-flex align-items-center text-white
+                border-0 py-2 px-4 rounded" [routerLink]="['/project-staffing/list']">
+                <span class="fa fa-angle-left mr-2" aria-hidden="true"></span>
+                Back
             </button>
         </div>
         <div class="col-6 d-lg-flex d-none justify-content-end">
             <nav aria-label="Page-navigation">
                 <ul class="pagination bg-primary d-flex align-items-center
-              border-radius mb-0">
+                    border-radius mb-0">
                     <!-- Add class "disabled" when in previous and next "li tag" -->
-                    <li class="page-item" [ngClass]="{'disabled' : (currentPage === 1)}">
-                        <button
-                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
-                            aria-label="Previous" (click)="onPageChanges(currentPage - 1)">
+                    <li class="page-item" [ngClass]="{'disabled' : (currentPage
+                        === 1)}">
+                        <button class="page-link d-flex align-items-center
+                            justify-content-center border-radius border-0" aria-label="Previous" (click)="onPageChanges(currentPage - 1)">
                             <span class="fa fa-chevron-left pagination-icon"></span>
                             <span class="sr-only">Previous</span>
                         </button>
@@ -557,10 +626,11 @@
                     <li class="page-item text-white">
                         <a class="p-3">{{ currentPage }} of {{numberOfPages()}}</a>
                     </li>
-                    <li class="page-item" [ngClass]="{'disabled' : (currentPage === numberOfPages())}">
-                        <button
-                            class="page-link d-flex align-items-center justify-content-center border-radius border-0"
-                            aria-label="Next" (click)="onPageChanges(currentPage + 1)">
+                    <li class="page-item" [ngClass]="{'disabled' : (currentPage
+                        === numberOfPages())}">
+                        <button class="page-link d-flex align-items-center
+                            justify-content-center border-radius border-0" aria-label="Next" (click)="onPageChanges(currentPage
+                            + 1)">
                             <span class="fa fa-chevron-right"></span>
                             <span class="sr-only">Next</span>
                         </button>
