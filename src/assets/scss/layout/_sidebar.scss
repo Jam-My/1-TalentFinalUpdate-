@@ -3,7 +3,7 @@
   width: $sidebar-width;
   transition: $transition-base;
 
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xlsm) {
     position: absolute;
     left: -250px;
     z-index: 6;
