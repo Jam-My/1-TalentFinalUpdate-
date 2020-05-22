@@ -8,9 +8,7 @@
                 <h4 class="text-primary">{{actionLable}} Project</h4>
                 <h2 class="border-primary border w-50"></h2>
             </div>
-            <!-- <button class="p-0 m-0 bg-transparent border-0"> -->
             <span class="fa fa-times cursor-pointer" for="closeAddProject" (click)="closeOverlay()"></span>
-            <!-- </button> -->
         </header>
         <!--End: form header -->
         <!-- form field wrapper -->
@@ -32,7 +30,6 @@
                         </button>
                     </div>
                 </div>
-                <!-- <input type="text" formControlName="projectName" class="form-control" (keyup)="setSubProject()"> -->
                 <div
                     *ngIf="(submitted || projectFormControls.projectId.touched) && projectFormControls.projectId.errors">
                     <div *ngIf="projectFormControls.projectId.errors.required" class="invalid-feedback d-block">
@@ -50,7 +47,6 @@
             <ng-template #notNull>
                 <div class="form-group mb-3">
                     <label for="projectName">Project</label>
-                    <!-- <input type="text" formControlName="projectName" class="form-control"> -->
                     <div class="input-group">
                         <ng-select class="border-light form-control filter-input" id="projectfild"
                             formControlName="projectId" [items]="projectName" bindLabel="projectName"
@@ -93,7 +89,6 @@
             <!-- client name -->
             <div class="form-group mb-3">
                 <label for="clientName">Client Name</label>
-                <!-- <input type="text" formControlName="clientName" class="form-control" id="clientName"> -->
                 <div class="input-group">
                     <ng-select class="border-light form-control filter-input" id="projectfild"
                         formControlName="clientId" [items]="clientName" bindLabel="clientName" bindValue="clientId">
