@@ -1,4 +1,6 @@
-<exit-checklist-presentation-ui [resignedEmployees]="resignedEmployees$ | async"
-    (resignedEmp)="getResignedEmployees($event)" (filterResignedEmp)="filteredResignedEmployees($event)"
+<exit-checklist-presentation-ui 
+    [resignedEmployees]="resignedEmployees$ | async"
+    (resignedEmp)="getResignedEmployees($event)" 
+    (filterResignedEmp)="filteredResignedEmployees($event)"
     [statuses]="status$ |async">
 </exit-checklist-presentation-ui>

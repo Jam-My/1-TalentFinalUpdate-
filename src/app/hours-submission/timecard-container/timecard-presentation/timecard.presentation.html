@@ -90,8 +90,10 @@
                                                     {{projectList.subProjectName}}</option>
                                             </select>
                                         </div>
-                                       <div *ngIf="hours.controls[i].get('subProjectId').invalid && (hours.controls[i].get('subProjectId').dirty || hours.controls[i].get('subProjectId').touched)" class="errors">
-                                            <small class="text-danger" *ngIf="hours.controls[i].get('subProjectId').errors.required">
+                                        <div *ngIf="hours.controls[i].get('subProjectId').invalid && (hours.controls[i].get('subProjectId').dirty || hours.controls[i].get('subProjectId').touched)"
+                                            class="errors">
+                                            <small class="text-danger"
+                                                *ngIf="hours.controls[i].get('subProjectId').errors.required">
                                                 Project Name is required.
                                             </small>
                                         </div>
@@ -177,8 +179,10 @@
                                                     {{proType.hoursType}}</option>
                                             </select>
                                         </div>
-                                        <div *ngIf="hours.controls[i].get('hoursTypeId').invalid && (hours.controls[i].get('hoursTypeId').dirty || hours.controls[i].get('hoursTypeId').touched)" class="errors">
-                                            <small class="text-danger" *ngIf="hours.controls[i].get('hoursTypeId').errors.required">
+                                        <div *ngIf="hours.controls[i].get('hoursTypeId').invalid && (hours.controls[i].get('hoursTypeId').dirty || hours.controls[i].get('hoursTypeId').touched)"
+                                            class="errors">
+                                            <small class="text-danger"
+                                                *ngIf="hours.controls[i].get('hoursTypeId').errors.required">
                                                 Project Type is required.
                                             </small>
                                         </div>
@@ -249,7 +253,8 @@
         <!--end:table-->
         <!--form action button-->
         <div class="d-none d-lg-flex justify-content-end flex-shrink-0 mt-3">
-            <button type="submit" class="btn btn-primary px-5 btn-not-allowed" [disabled]="!timecardForm.valid">{{submitButton}} All</button>
+            <button type="submit" class="btn btn-primary px-5 btn-not-allowed"
+                [disabled]="!timecardForm.valid">{{submitButton}} All</button>
         </div>
         <!--end:form action button-->
     </form>
@@ -308,8 +313,10 @@
                                                                     {{projectList.subProjectName}}</option>
                                                             </select>
                                                         </div>
-                                                        <div *ngIf="hours.controls[i].get('subProjectId').invalid && (hours.controls[i].get('subProjectId').dirty || hours.controls[i].get('subProjectId').touched)" class="errors">
-                                                            <small class="text-danger" *ngIf="hours.controls[i].get('subProjectId').errors.required">
+                                                        <div *ngIf="hours.controls[i].get('subProjectId').invalid && (hours.controls[i].get('subProjectId').dirty || hours.controls[i].get('subProjectId').touched)"
+                                                            class="errors">
+                                                            <small class="text-danger"
+                                                                *ngIf="hours.controls[i].get('subProjectId').errors.required">
                                                                 Project Name is required.
                                                             </small>
                                                         </div>
@@ -324,8 +331,10 @@
                                                                     {{proType.hoursType}}</option>
                                                             </select>
                                                         </div>
-                                                        <div *ngIf="hours.controls[i].get('hoursTypeId').invalid && (hours.controls[i].get('hoursTypeId').dirty || hours.controls[i].get('hoursTypeId').touched)" class="errors">
-                                                            <small class="text-danger" *ngIf="hours.controls[i].get('hoursTypeId').errors.required">
+                                                        <div *ngIf="hours.controls[i].get('hoursTypeId').invalid && (hours.controls[i].get('hoursTypeId').dirty || hours.controls[i].get('hoursTypeId').touched)"
+                                                            class="errors">
+                                                            <small class="text-danger"
+                                                                *ngIf="hours.controls[i].get('hoursTypeId').errors.required">
                                                                 Project Type is required.
                                                             </small>
                                                         </div>
@@ -481,7 +490,8 @@
                     <button type="button" (click)="addNewTimecard()" class="btn btn-primary px-3 mr-1 mb-3 mb-sm-0">
                         <span class="fa fa-plus pr-3"></span> <span>Add</span>
                     </button>
-                    <button type="submit" class="btn btn-primary px-3 mr-1 mb-3 mb-sm-0 btn-not-allowed" [disabled]="!timecardForm.valid">
+                    <button type="submit" class="btn btn-primary px-3 mr-1 mb-3 mb-sm-0 btn-not-allowed"
+                        [disabled]="!timecardForm.valid">
                         <span>{{submitButton}} All</span>
                     </button>
                 </div>

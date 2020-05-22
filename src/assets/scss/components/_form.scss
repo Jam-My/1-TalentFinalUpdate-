@@ -100,7 +100,6 @@
 // Width of Add Client And Add Project
 .add-width {
     width: 260px;
-
     @include media-breakpoint-down(xmd) {
         width: 100%;
     }
@@ -112,7 +111,6 @@
     top: 0;
     right: 0;
     z-index: 6;
-
     @include media-breakpoint-down(xmd) {
         width: 100%;
     }

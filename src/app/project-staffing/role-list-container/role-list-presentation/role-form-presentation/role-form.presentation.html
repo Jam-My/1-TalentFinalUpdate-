@@ -17,7 +17,8 @@
             <!-- role -->
             <div class="form-group mb-3">
                 <label for="role">Role</label>
-                <ng-select class="form-control cursor-pointer" formControlName="roleId" id="role" [items]="totalRole" bindLabel="role" bindValue="roleId">
+                <ng-select class="form-control cursor-pointer" formControlName="roleId" id="role" [items]="totalRole"
+                    bindLabel="role" bindValue="roleId">
                 </ng-select>
                 <div *ngIf="(submitted || roleFormControls.roleId.touched) && roleFormControls.roleId.errors">
                     <div *ngIf="roleFormControls.roleId.errors.required" class="invalid-feedback d-block">
@@ -29,9 +30,11 @@
             <!-- technology -->
             <div class="form-group mb-3">
                 <label for="technology">Technology</label>
-                <ng-select class="form-control cursor-pointer" formControlName="technologyId" id="technology" [items]="technology" bindLabel="technology" bindValue="technologyId" (change)="getEmployee()">
+                <ng-select class="form-control cursor-pointer" formControlName="technologyId" id="technology"
+                    [items]="technology" bindLabel="technology" bindValue="technologyId" (change)="getEmployee()">
                 </ng-select>
-                <div *ngIf="(submitted || roleFormControls.technologyId.touched) && roleFormControls.technologyId.errors">
+                <div
+                    *ngIf="(submitted || roleFormControls.technologyId.touched) && roleFormControls.technologyId.errors">
                     <div *ngIf="roleFormControls.technologyId.errors.required" class="invalid-feedback d-block">
                         <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                         <b>Technology is required</b>
@@ -41,7 +44,8 @@
             <!-- location -->
             <div class="form-group mb-3">
                 <label for="location">Location</label>
-                <ng-select class="form-control cursor-pointer" formControlName="locationId" id="location" [items]="location" bindLabel="location" bindValue="locationId">
+                <ng-select class="form-control cursor-pointer" formControlName="locationId" id="location"
+                    [items]="location" bindLabel="location" bindValue="locationId">
                 </ng-select>
                 <div *ngIf="(submitted || roleFormControls.locationId.touched) && roleFormControls.locationId.errors">
                     <div *ngIf="roleFormControls.locationId.errors.required" class="invalid-feedback d-block">
@@ -56,7 +60,8 @@
                 <!-- <input type="text" class="form-control" formControlName="employeeId" id="empRequired"> -->
                 <!-- <ng-select class="form-control cursor-pointer" multiple="true" formControlName="employeeId" id="empRequired" [items]="newEmployee" bindLabel="employeeName" bindValue="employeeId">
                 </ng-select> -->
-                <ng-select class="form-control cursor-pointer" id="empRequired" [multiple]='true' formControlName="employeeId" [items]="newEmployee" bindLabel="employeeName" bindValue="employeeId">
+                <ng-select class="form-control cursor-pointer" id="empRequired" [multiple]='true'
+                    formControlName="employeeId" [items]="newEmployee" bindLabel="employeeName" bindValue="employeeId">
                 </ng-select>
                 <div *ngIf="(submitted || roleFormControls.employeeId.touched) && roleFormControls.employeeId.errors">
                     <div *ngIf="roleFormControls.employeeId.errors.required" class="invalid-feedback d-block">
@@ -68,8 +73,10 @@
             <!-- Weekly Bilable Hours -->
             <div class="form-group mb-3">
                 <label for="weeklyBillableHours">Weekly Bilable Hours</label>
-                <input type="number" class="form-control" formControlName="weeklyBillableHours" id="weeklyBillableHours">
-                <div *ngIf="(submitted || roleFormControls.weeklyBillableHours.touched) && roleFormControls.weeklyBillableHours.errors">
+                <input type="number" class="form-control" formControlName="weeklyBillableHours"
+                    id="weeklyBillableHours">
+                <div
+                    *ngIf="(submitted || roleFormControls.weeklyBillableHours.touched) && roleFormControls.weeklyBillableHours.errors">
                     <div *ngIf="roleFormControls.weeklyBillableHours.errors.required" class="invalid-feedback d-block">
                         <span class="fa fa-exclamation-circle mx-1" aria-hidden="true"></span>
                         <b>Weekly Billable Hours is required</b>
@@ -84,7 +91,8 @@
             <div class="form-group mb-3 position-relative">
                 <label for="billRate">Bill Rate</label>
                 <div class="input-group">
-                    <input type="number" class="form-control pl-4" formControlName="billRate" id="billRate" name="billrate">
+                    <input type="number" class="form-control pl-4" formControlName="billRate" id="billRate"
+                        name="billrate">
                     <span class="fa fa fa-usd dollar-icon"></span>
                     <div class="input-group-append">
                         <span class="input-group-text bg-light">Per hour </span>
@@ -105,7 +113,8 @@
             <div class="form-group mb-3">
                 <label for="payRate">Pay Rate</label>
                 <div class="input-group">
-                    <input type="number" class="form-control pl-4" formControlName="payRate" id="payRate" name="payrate">
+                    <input type="number" class="form-control pl-4" formControlName="payRate" id="payRate"
+                        name="payrate">
                     <span class="fa fa-usd dollar-icon"></span>
                     <div class="input-group-append">
                         <span class="input-group-text bg-light">Per hour</span>
@@ -133,7 +142,8 @@
             <!-- Pay Cycle -->
             <div class="form-group mb-3">
                 <label for="payCycle">Pay Cycle</label>
-                <ng-select class="form-control cursor-pointer" formControlName="payCycleId" id="payCycle" [items]="payCycle" bindLabel="payCycle" bindValue="payCycleId">
+                <ng-select class="form-control cursor-pointer" formControlName="payCycleId" id="payCycle"
+                    [items]="payCycle" bindLabel="payCycle" bindValue="payCycleId">
                 </ng-select>
                 <div *ngIf="(submitted || roleFormControls.payCycleId.touched) && roleFormControls.payCycleId.errors">
                     <div *ngIf="roleFormControls.payCycleId.errors.required" class="invalid-feedback d-block">
@@ -148,7 +158,8 @@
         <footer class="flex-shrink-0 px-4 py-3">
             <div class="form-footer d-flex border-top py-4">
                 <button type="button" class="btn btn-primary w-50 mr-2" (click)="close()">Cancel</button>
-                <button type="submit" class="btn btn-outline-light text-primary w-50 btn-not-allowed" [disabled]="!roleForm.valid">Save</button>
+                <button type="submit" class="btn btn-outline-light text-primary w-50 btn-not-allowed"
+                    [disabled]="!roleForm.valid">Save</button>
             </div>
         </footer>
     </form>

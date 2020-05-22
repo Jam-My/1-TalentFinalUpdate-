@@ -1,5 +1,8 @@
-<initiate-checklist-presentation-ui [activities]="activities$ | async"
-    [filterDropwdownOptions]="filterDropwdownOptions$ | async" (getfilterDropwdownOptions)="getfilterDropwdownOptions()"
-    (applyfilterData)="applyfilterData($event)" (submitActivity)="submitActivity($event)"
+<initiate-checklist-presentation-ui 
+    [activities]="activities$ | async"
+    [filterDropwdownOptions]="filterDropwdownOptions$ | async" 
+    (getfilterDropwdownOptions)="getfilterDropwdownOptions()"
+    (applyfilterData)="applyfilterData($event)" 
+    (submitActivity)="submitActivity($event)"
     (completeActivity)="completeActivity($event)">
 </initiate-checklist-presentation-ui>

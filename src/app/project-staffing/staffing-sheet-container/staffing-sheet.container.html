@@ -1,10 +1,9 @@
 <staffing-sheet-presentation-ui
-[project]='project$  | async'
-[subProject]='subProject$  | async'
-[staffingSheets]="staffingSheet$ | async" 
-[employeeList] = "employeeList$ | async"
-
-(sendSubProjectId)="getStaffingSheets($event)"
+    [project]='project$  | async'
+    [subProject]='subProject$  | async'
+    [staffingSheets]="staffingSheet$ | async" 
+    [employeeList] = "employeeList$ | async"
+    (sendSubProjectId)="getStaffingSheets($event)"
 >
 </staffing-sheet-presentation-ui>
 
