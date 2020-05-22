@@ -24,7 +24,7 @@
                         (change)="setSubProject()">
                     </ng-select>
                     <div class="input-group-append ">
-                        <button (click)="loadMasterProjectForm(null)" class="btn btn-outline-primary add-project-btn"
+                        <button (click)="loadMasterProjectForm(null)" class="btn btn-outline-primary"
                             type="button">
                             <span class="fa fa-plus"></span>
                         </button>
@@ -54,7 +54,7 @@
                         </ng-select>
                         <div class="input-group-append ">
                             <button (click)="loadMasterProjectForm(projectForm.controls['projectId'].value)"
-                                class="btn btn-outline-primary add-project-btn" type="button">
+                                class="btn btn-outline-primary" type="button">
                                 <span class="fa fa-pencil"></span>
                             </button>
                         </div>
@@ -94,15 +94,15 @@
                         formControlName="clientId" [items]="clientName" bindLabel="clientName" bindValue="clientId">
                     </ng-select>
                     <div class="input-group-append " *ngIf="project==null ; else isNull">
-                        <button (click)="loadClientForm(null)" class="btn btn-outline-primary add-project-btn"
-                            type="button">
+                        <button (click)="loadClientForm(null)" class="btn btn-outline-primary"
+                            type="button"> 
                             <span class="fa fa-plus"></span>
                         </button>
                     </div>
                     <ng-template #isNull>
                         <div class="input-group-append ">
                             <button (click)="loadClientForm(projectForm.controls['clientId'].value)"
-                                class="btn btn-outline-primary add-project-btn" type="button">
+                                class="btn btn-outline-primary" type="button">
                                 <span class="fa fa-pencil"></span>
                             </button>
                         </div>
