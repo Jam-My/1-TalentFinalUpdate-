@@ -10,9 +10,9 @@
                         <select class="form-control text-capitalize rounded ml-2
                             approval-custom-box" (change)="changeProject()" [(ngModel)]="projectId">
                             <option value="null" disabled>--- Select Project ---</option>
-                            <option *ngFor="let projectList of projectDetail"
-                                value="{{projectList.subProjectId}}">
-                                {{projectList.subProjectName}}</option>
+                            <option *ngFor="let projectList of projectDetail" value="{{projectList.subProjectId}}">
+                                {{projectList.subProjectName}}
+                            </option>
                         </select>
                     </div>
                     <!--end:project dropdown-->
@@ -26,14 +26,17 @@
                         <div class="row flex-shrink-0">
                             <div class="col-12 col-lg-6 d-flex">
                                 <!-- calendar -->
-                                <div class="form-group calendar
-                                    position-relative">
-                                    <span for="datePicker" class="fa fa-caret-left fa-lg
-                                        position-absolute px-2 cursor-pointer" (click)="decrementWeek()"></span>
-                                    <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019" class="form-control cursor-pointer
-                                        text-center" id="datePicker" bsDaterangepicker [bsConfig]="dateRangePickerConfig" (ngModelChange)="weekDates()" (focusout)="getFlag()">
-                                    <span for="datePicker" class="fa fa-caret-right fa-lg
-                                        position-absolute px-2 cursor-pointer" (click)="incrementWeek()"></span>
+                                <div class="form-group calendar position-relative">
+                                    <span for="datePicker"
+                                        class="fa fa-caret-left fa-lg position-absolute px-2 cursor-pointer"
+                                        (click)="decrementWeek()"></span>
+                                    <input type="text" formControlName="weekRange" placeholder="sept 09 - sept 15, 2019"
+                                        class="form-control cursor-pointer text-center" id="datePicker"
+                                        bsDaterangepicker [bsConfig]="dateRangePickerConfig"
+                                        (ngModelChange)="weekDates()" (focusout)="getFlag()">
+                                    <span for="datePicker"
+                                        class="fa fa-caret-right fa-lg position-absolute px-2 cursor-pointer"
+                                        (click)="incrementWeek()"></span>
                                 </div>
                                 <!--end:calendar -->
                             </div>
@@ -61,7 +64,8 @@
                                 <th>
                                     <div class="px-2 text-center bg-white
                                         rounded">
-                                        <input type="checkbox" class="align-middle" (change)="selectAllTimeCard($event)" [disabled]="!filteredList ||
+                                        <input type="checkbox" class="align-middle" (change)="selectAllTimeCard($event)"
+                                            [disabled]="!filteredList ||
                                             filteredList.length == 0" [checked]="checkBoxSelect" name="" id="">
                                     </div>
                                 </th>
@@ -80,24 +84,22 @@
                             <tr class="bg-transparent border-0" rowspan="2" *ngIf="!filteredList || filteredList.length ==
                                 0">
                                 <td colspan="8" class="p-0 w-100 text-center">
-                                    <div class="alert alert-primary text-center
-                                        p-3 my-3" role="alert">
+                                    <div class="alert alert-primary text-center p-3 my-3" role="alert">
                                         No records found.
                                     </div>
                                 </td>
                             </tr>
                             <!-- end:No records msg -->
-                            <tr *ngFor="let timeCard of filteredList | slice:
-                                (currentPage * pageSize) - pageSize :currentPage
-                                * pageSize">
+                            <tr
+                                *ngFor="let timeCard of filteredList | slice: (currentPage * pageSize) - pageSize : currentPage * pageSize">
                                 <th>
                                     <div class="invisible"></div>
-                                    <div class="px-1 text-center bg-white
-                                        rounded">
+                                    <div class="px-1 text-center bg-white rounded">
                                         <input type="checkbox" *ngIf="(approverRoleId == 1 &&
                                             timeCard.approvalStatusId == 1) ||
                                             (approverRoleId == 2 &&
-                                            timeCard.approvalStatusId == 2)" [(ngModel)]="timeCard.checked" (change)="selectCheckBox($event)" name="" id="">
+                                            timeCard.approvalStatusId == 2)" [(ngModel)]="timeCard.checked"
+                                            (change)="selectCheckBox($event)" name="" id="">
                                         <input type="checkbox" *ngIf="(approverRoleId == 1 &&
                                             timeCard.approvalStatusId != 1) ||
                                             (approverRoleId == 2 &&
@@ -134,7 +136,8 @@
                                 <td>
                                     <div class="dropdown">
                                         <button class="border-0 rounded bg-white
-                                            dropdown-toggle text-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            dropdown-toggle text-primary" type="button" id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="fa fa-gear"></span>
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -177,7 +180,8 @@
                                 </li>
                                 <li class="page-item text-white">
                                     <a class="p-3">{{ currentPage }} of
-                                        {{numberOfPages()}}</a>
+                                        {{numberOfPages()}}
+                                    </a>
                                 </li>
                                 <li class="page-item" [ngClass]="{'disabled' :
                                     (currentPage === numberOfPages())}">
@@ -205,11 +209,13 @@
                 </div>
                 <div class="dropdown bg-primary d-flex p-2 mt-1" *ngIf="!filteredList || filteredList.length != 0">
                     <div class="px-2 py-0 bg-white rounded mr-3 ml-1">
-                        <input type="checkbox" class="align-middle" (change)="checkAllTimeCard($event)" [checked]="checkBoxSelect" name="" id="">
+                        <input type="checkbox" class="align-middle" (change)="checkAllTimeCard($event)"
+                            [checked]="checkBoxSelect" name="" id="">
                     </div>
                     <span class="text-white">User</span>
                 </div>
-                <div class="dropdown bg-primary d-flex p-2 mt-1" *ngIf="!filteredList || filteredList.length == 0" role="alert">
+                <div class="dropdown bg-primary d-flex p-2 mt-1" *ngIf="!filteredList || filteredList.length == 0"
+                    role="alert">
                     <span class="text-white">No Record Found</span>
                 </div>
                 <!--user name and data-->
@@ -217,12 +223,14 @@
                     <!--data 1-->
                     <div class="bg-light d-flex flex-nowrap
                         justify-content-between p-2">
-                        <div class="collapsed d-flex align-items-center" id="accordion1" data-toggle="collapse" data-parent="#accordion1">
+                        <div class="collapsed d-flex align-items-center" id="accordion1" data-toggle="collapse"
+                            data-parent="#accordion1">
                             <div class="px-2 py-0 bg-white rounded mr-3 ml-1">
                                 <input type="checkbox" class="align-middle" *ngIf="(approverRoleId == 1 &&
                                     timeCard.approvalStatusId == 1) ||
                                     (approverRoleId == 2 &&
-                                    timeCard.approvalStatusId == 2)" [(ngModel)]="timeCard.checked" (change)="selectCheckBox($event)" name="" id="">
+                                    timeCard.approvalStatusId == 2)" [(ngModel)]="timeCard.checked"
+                                    (change)="selectCheckBox($event)" name="" id="">
                                 <input type="checkbox" class="align-middle" *ngIf="(approverRoleId == 1 &&
                                     timeCard.approvalStatusId != 1) ||
                                     (approverRoleId == 2 &&
@@ -292,7 +300,8 @@
                                         <div class="dropdown">
                                             <button class="border-0 rounded
                                                 bg-light dropdown-toggle
-                                                text-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                text-primary" type="button" id="dropdownMenuButton"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="fa fa-gear fa-lg"></span>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

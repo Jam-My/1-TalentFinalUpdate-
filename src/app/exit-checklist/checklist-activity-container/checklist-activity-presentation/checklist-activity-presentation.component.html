@@ -53,7 +53,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="cursor-pointer" *ngFor="let activity of myActivities;let i=index" [routerLink]="[ '/exit-checklist/checklist-activity-form/', activity.exitActivityId ]">
+                    <tr class="cursor-pointer" *ngFor="let activity of myActivities;let i=index"
+                        [routerLink]="[ '/exit-checklist/checklist-activity-form/', activity.exitActivityId ]">
                         <td class="data-table-item border-0">{{i+1}}
                         </td>
                         <td class="data-table-item border-0">{{activity.activityName}}</td>

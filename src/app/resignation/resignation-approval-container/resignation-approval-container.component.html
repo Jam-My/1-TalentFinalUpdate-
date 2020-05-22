@@ -1,3 +1,5 @@
-<resignation-approval-presentation-ui [employeeResignationDetails]="employeeResignationDetails$ | async"
+<resignation-approval-presentation-ui 
+    [employeeResignationDetails]="employeeResignationDetails$ | async"
     [roles]="roles$ | async" (saveApplicationResponse)="saveApplicationResponse($event)"
-    (editApplicationResponse)="editApplicationResponse($event)"></resignation-approval-presentation-ui>
+    (editApplicationResponse)="editApplicationResponse($event)">
+</resignation-approval-presentation-ui>
