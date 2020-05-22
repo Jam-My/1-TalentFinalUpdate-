@@ -28,7 +28,7 @@
                     <div class="input-group-append ">
                         <button (click)="loadMasterProjectForm(null)" class="btn btn-outline-primary add-project-btn"
                             type="button">
-                            <i class="fa fa-plus"></i>
+                            <span class="fa fa-plus"></span>
                         </button>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <div class="input-group-append ">
                             <button (click)="loadMasterProjectForm(projectForm.controls['projectId'].value)"
                                 class="btn btn-outline-primary add-project-btn" type="button">
-                                <i class="fa fa-pencil"></i>
+                                <span class="fa fa-pencil"></span>
                             </button>
                         </div>
                     </div>
@@ -101,14 +101,14 @@
                     <div class="input-group-append " *ngIf="project==null ; else isNull">
                         <button (click)="loadClientForm(null)" class="btn btn-outline-primary add-project-btn"
                             type="button">
-                            <i class="fa fa-plus"></i>
+                            <span class="fa fa-plus"></span>
                         </button>
                     </div>
                     <ng-template #isNull>
                         <div class="input-group-append ">
                             <button (click)="loadClientForm(projectForm.controls['clientId'].value)"
                                 class="btn btn-outline-primary add-project-btn" type="button">
-                                <i class="fa fa-pencil"></i>
+                                <span class="fa fa-pencil"></span>
                             </button>
                         </div>
                     </ng-template>
