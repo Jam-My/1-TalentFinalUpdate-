@@ -27,7 +27,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "json-server": "^0.15.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "jspdf-autotable": "^3.4.3",
     "ng-oidc-client": "1.0.5",
     "ngx-bootstrap": "^5.6.0",
